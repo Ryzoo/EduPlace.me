@@ -20,18 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc6f5fcc-0c67-45b5-a0e0-18cc8a313963" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/dynamic-rendering.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/EduPlace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EduPlace.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3acac47c-025f-460f-ac1b-89c217c966df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3acac47c-025f-460f-ac1b-89c217c966df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +161,12 @@
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/coderello/laravel-dynamic-rendering" />
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1i5syzQAppC1HRHSyqTUVEjzzq0" />
@@ -204,12 +212,29 @@
       <workItem from="1601209050037" duration="35000" />
       <workItem from="1601209087032" duration="9942000" />
     </task>
+    <task id="LOCAL-00001" summary="Add crawler for 'seo friendly' need to be served by node from other hosting and enabled in .env">
+      <created>1601304806590</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601304806590</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -241,6 +266,10 @@
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="1803" height="293" key="GridCell.Tab.0.right/74.0.1846.1080@74.0.1846.1080" timestamp="1601220250353" />
+    <state width="273" height="539" key="HiddenNamespacesPopup" timestamp="1601307798839">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state width="273" height="539" key="HiddenNamespacesPopup/74.0.1846.1080@74.0.1846.1080" timestamp="1601307798839" />
     <state x="831" y="464" key="NewPhpFileDialog" timestamp="1601220111076">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
@@ -249,10 +278,22 @@
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state x="791" y="158" key="RollbackChangesDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601304701980" />
+    <state x="589" y="272" key="Vcs.Push.Dialog.v2" timestamp="1601304811136">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="589" y="272" key="Vcs.Push.Dialog.v2/74.0.1846.1080@74.0.1846.1080" timestamp="1601304811136" />
+    <state x="898" y="411" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1601307818655">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="898" y="411" key="com.intellij.database.actions.DdlActions$CreateObject$1/74.0.1846.1080@74.0.1846.1080" timestamp="1601307818655" />
     <state x="705" y="277" width="583" height="526" key="find.popup" timestamp="1601303055690">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state x="705" y="277" width="583" height="526" key="find.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601303055690" />
+    <state x="653" y="250" key="run.anything.popup" timestamp="1601309116133">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="653" y="250" key="run.anything.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601309116133" />
     <state x="660" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1601209311557">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
