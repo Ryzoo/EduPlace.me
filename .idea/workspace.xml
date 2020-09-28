@@ -20,20 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc6f5fcc-0c67-45b5-a0e0-18cc8a313963" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/EduPlace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EduPlace.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/LoginRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/RegisterRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/ResetPasswordRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/SendResetPasswordLinkRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Auth/PasswordReset.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/Auth/EmailVerificationNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/Auth/PasswordResetNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/AuthService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_28_191237_create_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Auth/LoginTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Auth/RegistrationTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/3acac47c-025f-460f-ac1b-89c217c966df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3acac47c-025f-460f-ac1b-89c217c966df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordResetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordResetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +54,38 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/3_create_project_basic_structure" />
+                    <option name="lastUsedInstant" value="1601309901" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1601309900" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -181,12 +218,15 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Feature/Auth" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gkast\PhpstormProjects\EduPlace\tests\Feature\Auth" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gkast\PhpstormProjects\EduPlace\resources\js\features" />
       <recent name="C:\Users\gkast\PhpstormProjects\EduPlace\resources\js\pages\main" />
@@ -195,11 +235,20 @@
       <recent name="C:\Users\gkast\PhpstormProjects\EduPlace\resources\js\pages" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.tests">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -219,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601304806590</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create basic structure for work">
+      <created>1601309822731</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601309822731</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,17 +295,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add crawler for 'seo friendly' need to be served by node from other hosting and enabled in .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add crawler for 'seo friendly' need to be served by node from other hosting and enabled in .env" />
+    <MESSAGE value="create basic structure for work" />
+    <MESSAGE value="add register method with service" />
+    <MESSAGE value="add login, registration, reset password, email validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login, registration, reset password, email validation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="589" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601209177035">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state x="589" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601209177035" />
-    <state x="777" y="294" key="FileChooserDialogImpl" timestamp="1601209083614">
+    <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601325942415">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
-    <state x="777" y="294" key="FileChooserDialogImpl/74.0.1846.1080@74.0.1846.1080" timestamp="1601209083614" />
+    <state x="727" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601325942415" />
+    <state x="777" y="294" key="FileChooserDialogImpl" timestamp="1601322308641">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="777" y="294" key="FileChooserDialogImpl/74.0.1846.1080@74.0.1846.1080" timestamp="1601322308641" />
     <state width="1803" height="293" key="GridCell.Tab.0.bottom" timestamp="1601220250354">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
@@ -270,6 +333,10 @@
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state width="273" height="539" key="HiddenNamespacesPopup/74.0.1846.1080@74.0.1846.1080" timestamp="1601307798839" />
+    <state x="750" y="266" key="NewPhpClassDialog" timestamp="1601327050067">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="750" y="266" key="NewPhpClassDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601327050067" />
     <state x="831" y="464" key="NewPhpFileDialog" timestamp="1601220111076">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
@@ -278,25 +345,33 @@
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state x="791" y="158" key="RollbackChangesDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601304701980" />
-    <state x="589" y="272" key="Vcs.Push.Dialog.v2" timestamp="1601304811136">
+    <state x="589" y="272" key="Vcs.Push.Dialog.v2" timestamp="1601309825001">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
-    <state x="589" y="272" key="Vcs.Push.Dialog.v2/74.0.1846.1080@74.0.1846.1080" timestamp="1601304811136" />
+    <state x="589" y="272" key="Vcs.Push.Dialog.v2/74.0.1846.1080@74.0.1846.1080" timestamp="1601309825001" />
     <state x="898" y="411" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1601307818655">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
     <state x="898" y="411" key="com.intellij.database.actions.DdlActions$CreateObject$1/74.0.1846.1080@74.0.1846.1080" timestamp="1601307818655" />
-    <state x="705" y="277" width="583" height="526" key="find.popup" timestamp="1601303055690">
+    <state x="814" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601309894602">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
-    <state x="705" y="277" width="583" height="526" key="find.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601303055690" />
-    <state x="653" y="250" key="run.anything.popup" timestamp="1601309116133">
+    <state x="814" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/74.0.1846.1080@74.0.1846.1080" timestamp="1601309894602" />
+    <state x="700" y="286" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1601327057337">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
-    <state x="653" y="250" key="run.anything.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601309116133" />
-    <state x="660" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1601209311557">
+    <state x="700" y="286" key="com.jetbrains.php.test.PhpNewTestDialog/74.0.1846.1080@74.0.1846.1080" timestamp="1601327057337" />
+    <state x="705" y="277" width="785" height="526" key="find.popup" timestamp="1601328499004">
       <screen x="74" y="0" width="1846" height="1080" />
     </state>
-    <state x="660" y="235" width="672" height="678" key="search.everywhere.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601209311557" />
+    <state x="705" y="277" width="785" height="526" key="find.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601328499004" />
+    <state x="653" y="250" key="run.anything.popup" timestamp="1601320766446">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="653" y="250" key="run.anything.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601320766446" />
+    <state x="660" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1601329263802">
+      <screen x="74" y="0" width="1846" height="1080" />
+    </state>
+    <state x="660" y="235" width="672" height="678" key="search.everywhere.popup/74.0.1846.1080@74.0.1846.1080" timestamp="1601329263802" />
   </component>
 </project>
