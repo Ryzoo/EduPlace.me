@@ -23,6 +23,7 @@
         "@reduxjs/toolkit": "^1.4.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-redux": "^7.2.1"
+        "react-redux": "^7.2.1",
+        "rendertron": "^3.0.0"
     }
 }
