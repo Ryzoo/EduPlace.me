@@ -52,5 +52,8 @@ class EmailVerificationTest extends TestCase
 		$response = $this->get($emailConfirmationLink);
 		$response->isRedirect($searchUrl);
 		$response->assertSessionDoesntHaveErrors();
+
+		$user = User::where('email', $email)->first();
+		$this->assertTrue($user->hasVerifiedEmail());
 	}
 }
