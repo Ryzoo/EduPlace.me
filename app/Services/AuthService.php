@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Notifications\Auth\EmailVerificationNotification;
 use App\Notifications\Auth\PasswordResetNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -19,7 +20,7 @@ class AuthService
 		$user = User::where('email', $email)->first();
 
 		if(isset($user)) Auth::login($user);
-		else $this->registerUser($name, $email, Str::random(16));
+		else $this->registerUser($name, $email, Str::random(16), true);
 	}
 
 	public function registerUser(string $name, string $email, string $password, bool $isVerified = false){
@@ -30,7 +31,11 @@ class AuthService
 		]);
 
 		Auth::login($user);
+
 		if(!$isVerified) $user->notify(new EmailVerificationNotification());
+		else $user->forceFill([
+				'email_verified_at' => Date::now()
+			])->save();
 	}
 
 	public function sendResetLink(string $email)
