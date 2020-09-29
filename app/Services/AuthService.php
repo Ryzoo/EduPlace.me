@@ -28,7 +28,7 @@ class AuthService
 	public function sendResetLink(string $email)
 	{
 		PasswordReset::where('email', $email)->delete();
-		$user = User::where('email', $email)->get();
+		$user = User::where('email', $email)->first();
 		$token = Str::random(60);
 
 		PasswordReset::create([
@@ -41,7 +41,7 @@ class AuthService
 
 	public function resetUserPassword(string $email, string $password, string $token)
 	{
-		$pwdPrompt = PasswordReset::where('email', $email)->get();
+		$pwdPrompt = PasswordReset::where('email', $email)->first();
 
 		if(!isset($pwdPrompt) || $pwdPrompt->token !== $token){
 			redirect()
@@ -50,7 +50,7 @@ class AuthService
 				->send();
 		}
 
-		$user = User::where('email', $email)->get();
+		$user = User::where('email', $email)->first();
 		$user->forceFill([
 				'password' => Hash::make($password)
 			])

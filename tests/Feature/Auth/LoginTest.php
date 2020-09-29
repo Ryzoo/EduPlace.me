@@ -15,9 +15,9 @@ class LoginTest extends TestCase
 		$routeUrl = route('pages.auth.login');
 		$searchUrl = route('pages.search');
 		$email = $this->faker->email;
-		$password = $this->faker->password;
+		$password = $this->faker->password(8);
 
-		User::factory()->make([
+		User::factory()->create([
 			'email' => $email,
 			'password' => $password,
 		]);
@@ -35,9 +35,9 @@ class LoginTest extends TestCase
 	{
 		$routeUrl = route('pages.auth.login');
 		$email = $this->faker->email;
-		$password = $this->faker->password;
+		$password = $this->faker->password(8);
 
-		User::factory()->make([
+		User::factory()->create([
 			'email' => $email,
 			'password' => $password,
 		]);
