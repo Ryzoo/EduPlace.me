@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,9 +16,15 @@ Route::get('/search', function () {
 })->name('pages.search');
 
 Route::prefix('auth')->group(function () {
+
 	Route::prefix('login')->group(function () {
 		Route::get('/', [LoginController::class, 'getLoginPage'])->middleware(['guest'])->name('pages.auth.login');
 		Route::post('/', [LoginController::class, 'loginUser'])->middleware(['throttle:6,1']);
+
+		Route::prefix('social')->group(function () {
+			Route::get('{provider}', [SocialLoginController::class, 'redirectToProvider'])->middleware(['guest'])->name('pages.auth.social');
+			Route::post('{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])->middleware(['throttle:6,1']);
+		});
 	});
 
 	Route::prefix('register')->group(function () {
