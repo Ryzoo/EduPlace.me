@@ -15,9 +15,17 @@
             @yield('content')
         </div>
     </body>
-    {{--Data from server for components--}}
+    {{--Data from server for store--}}
     <script>
-      window.serverData = @json($data ?? '')
+      const success = "{{ session('status') ?? '' }}";
+      const error = "{{ session('error') ?? '' }}";
+      const sharedData = @json($sharedData ?? '{}');
+
+      window.serverData = {
+        ...sharedData,
+        success,
+        error,
+      }
     </script>
     @stack('scripts')
 </html>

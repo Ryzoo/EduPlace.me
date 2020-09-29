@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 
 class LanguageMiddleware
 {
@@ -20,6 +21,12 @@ class LanguageMiddleware
     {
 		$code = Session::get('languageCode');
 		if($code) App::setLocale($code);
+
+		View::share('sharedData', [
+			"pageSettings" => [
+				"language" => App::getLocale()
+			]
+		]);
 
 		return $next($request);
     }

@@ -13,7 +13,7 @@ class LanguageController extends Controller
 		App::setLocale($code);
 
 		return redirect()
-			->back()
+			->route('pages.main')
 			->with('status', __('Language changed successfully!'));
     }
 }

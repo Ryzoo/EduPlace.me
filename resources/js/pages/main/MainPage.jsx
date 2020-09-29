@@ -1,33 +1,18 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import {useSelector} from 'react-redux'
 import {
-  increment, decrement, selectCount
-} from '../../store/example'
-import styles from './MainPage.module.css'
+  getLanguage
+} from '../../store/features/pageSettings/pageSettings'
+import {Empty} from "antd";
 
 export default function MainPage() {
-  const count = useSelector(selectCount)
-  const dispatch = useDispatch()
-  const [incrementAmount, setIncrementAmount] = useState('2')
+  const language = useSelector(getLanguage)
 
   return (
     <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
+      <div>
+        current: <b>{language}</b>
+        <Empty/>
       </div>
     </div>
   )
