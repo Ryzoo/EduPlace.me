@@ -1,0 +1,16 @@
+{
+  "You are logged successfully!": "Jesteś zalogowany pomyślnie!",
+  "Verification link send to your email!": "Link weryfikacyjny został wysłany na Twój adres e-mail!",
+  "Email or password not match! Try again.": "Email lub hasło nie pasują! Spróbuj jeszcze raz.",
+  "Reset link was sent to your email address.": "Link resetujący został wysłany na Twój adres e-mail.",
+  "Your password was successfully changed! You can now login to system.": "Twoje hasło zostało pomyślnie zmienione! Teraz możesz zalogować się do systemu.",
+  "Your new account created! Confirm your email first before you try to login.": "Twoje nowe konto założone! Zanim spróbujesz się zalogować, najpierw potwierdź swój e-mail.",
+  "Hi :userName": "Witaj :userName",
+  "Thank you for register! To finish registration, click on button below.": "Dziękujemy za rejestrację! Aby zakończyć rejestrację, kliknij na przycisk poniżej.",
+  "Verify this email": "Zweryfikuj ten adres email",
+  "You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below.": "Zostałeś poproszony o zresetowanie hasła. Jeśli to nie ty, zignoruj tę wiadomość. W przeciwnym razie kliknij na przycisk poniżej.",
+  "Go to reset password": "Przejdź do zresetowania hasła",
+  "Thank you for using our application!": "Dziękujemy za skorzystanie z naszej aplikacji!",
+  "Email and token not match! Try reset password again.": "Email i token nie pasują! Spróbuj zresetować hasło ponownie.",
+  "Language changed successfully!": "Język zmieniony pomyślnie!"
+}

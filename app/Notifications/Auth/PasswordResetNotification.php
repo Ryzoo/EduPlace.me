@@ -31,7 +31,7 @@ class PasswordResetNotification extends Notification implements ShouldQueue
     	$resetPasswordUrl = $this->getResetPasswordUrl();
 
         return (new MailMessage)
-                    ->line(__('You prompted for reset password. If it\'s not you, then ignore this email. Otherwise, click on button below.'))
+                    ->line(__("You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below."))
                     ->action(__('Go to reset password'), $resetPasswordUrl)
                     ->line(__('Thank you for using our application!'));
     }
