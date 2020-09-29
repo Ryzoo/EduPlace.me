@@ -1,0 +1,16 @@
+{
+  "You are logged successfully!": "You are logged successfully!",
+  "Verification link send to your email!": "Verification link send to your email!",
+  "Email or password not match! Try again.": "Email or password not match! Try again.",
+  "Reset link was sent to your email address.": "Reset link was sent to your email address.",
+  "Your password was successfully changed! You can now login to system.": "Your password was successfully changed! You can now login to system.",
+  "Your new account created! Confirm your email first before you try to login.": "Your new account created! Confirm your email first before you try to login.",
+  "Hi :userName": "Hi :userName",
+  "Thank you for register! To finish registration, click on button below.": "Thank you for register! To finish registration, click on button below.",
+  "Verify this email": "Verify this email",
+  "You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below.": "You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below.",
+  "Go to reset password": "Go to reset password",
+  "Thank you for using our application!": "Thank you for using our application!",
+  "Email and token not match! Try reset password again.": "Email and token not match! Try reset password again.",
+  "Language changed successfully!": "Language changed successfully!"
+}

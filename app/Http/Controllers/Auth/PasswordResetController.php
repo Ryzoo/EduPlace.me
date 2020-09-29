@@ -28,7 +28,7 @@ class PasswordResetController extends Controller
 		$this->authService->sendResetLink($email);
 
 		return back()
-			->with(['status' => __('Reset link was sended to your email address.')]);
+			->with(['status' => __('Reset link was sent to your email address.')]);
 	}
 
 	public function resetUserPassword(ResetPasswordRequest $request) {
