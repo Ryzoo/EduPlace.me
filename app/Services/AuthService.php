@@ -14,7 +14,15 @@ use Illuminate\Support\Str;
 
 class AuthService
 {
-	public function registerUser(string $name, string $email, string $password){
+	public function loginUserBySocial(string $name, string $email)
+	{
+		$user = User::where('email', $email)->first();
+
+		if(isset($user)) Auth::login($user);
+		else $this->registerUser($name, $email, Str::random(16));
+	}
+
+	public function registerUser(string $name, string $email, string $password, bool $isVerified = false){
 		$user = User::create([
 			'name' => $name,
 			'email' => $email,
@@ -22,7 +30,7 @@ class AuthService
 		]);
 
 		Auth::login($user);
-		$user->notify(new EmailVerificationNotification());
+		if(!$isVerified) $user->notify(new EmailVerificationNotification());
 	}
 
 	public function sendResetLink(string $email)

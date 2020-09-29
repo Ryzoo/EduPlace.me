@@ -25,8 +25,9 @@ class LoginController extends Controller
 		$credentials = $request->only('email', 'password');
 
 		if (Auth::attempt($credentials)) {
-			return redirect()
-				->route('pages.search');
+			redirect()
+				->route('pages.search')
+				->with('status', __('You are logged successfully!'));
 		}
 
 		return redirect()
