@@ -1,0 +1,62 @@
+<?php
+
+
+namespace App\Services;
+
+
+use App\Models\Auth\PasswordReset;
+use App\Models\User;
+use App\Notifications\Auth\EmailVerificationNotification;
+use App\Notifications\Auth\PasswordResetNotification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+class AuthService
+{
+	public function registerUser(string $name, string $email, string $password){
+		$user = User::create([
+			'name' => $name,
+			'email' => $email,
+			'password' => Hash::make($password),
+		]);
+
+		Auth::login($user);
+		$user->notify(new EmailVerificationNotification());
+	}
+
+	public function sendResetLink(string $email)
+	{
+		PasswordReset::where('email', $email)->delete();
+		$user = User::where('email', $email)->get();
+		$token = Str::random(60);
+
+		PasswordReset::create([
+			'email' => $email,
+			'token' => $token,
+		]);
+
+		$user->notify(new PasswordResetNotification($token));
+	}
+
+	public function resetUserPassword(string $email, string $password, string $token)
+	{
+		$pwdPrompt = PasswordReset::where('email', $email)->get();
+
+		if(!isset($pwdPrompt) || $pwdPrompt->token !== $token){
+			redirect()
+				->route('password.request')
+				->with('error', __('Email and token not match! Try reset password again.'))
+				->send();
+		}
+
+		$user = User::where('email', $email)->get();
+		$user->forceFill([
+				'password' => Hash::make($password)
+			])
+			->save();
+
+		$user->setRememberToken(Str::random(60));
+		PasswordReset::where('email', $email)->delete();
+	}
+}
