@@ -2,20 +2,24 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\User;
 use App\Notifications\Auth\EmailVerificationNotification;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 
-class RegistrationTest extends TestCase
+
+class EmailVerificationTest extends TestCase
 {
 	use WithFaker;
 
-	public function test_userWithValidData_canRegister()
+	public function test_userWhenUseLink_userEmailVerified()
 	{
 		Notification::fake();
 		Notification::assertNothingSent();
 
+		$emailConfirmationLink = '';
 		$routeUrl = route('pages.auth.register');
 		$searchUrl = route('pages.search');
 		$name = $this->faker->name;
@@ -36,6 +40,20 @@ class RegistrationTest extends TestCase
 		$response->isRedirect($searchUrl);
 		$response->assertSessionDoesntHaveErrors();
 
-		Notification::assertTimesSent(1, EmailVerificationNotification::class);
+		$user = User::where('email', $email)->first();
+		$this->assertNotNull($user);
+
+		Notification::assertSentTo($user, EmailVerificationNotification::class,
+			function($notification) use($user, &$emailConfirmationLink){
+				$emailConfirmationLink = $notification->verificationUrl($user);
+				return Str::length($emailConfirmationLink) > 0;
+			});
+
+		$response = $this->get($emailConfirmationLink);
+		$response->isRedirect($searchUrl);
+		$response->assertSessionDoesntHaveErrors();
+
+		$user = User::where('email', $email)->first();
+		$this->assertTrue($user->hasVerifiedEmail());
 	}
 }
