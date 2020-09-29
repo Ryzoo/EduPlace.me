@@ -3,17 +3,18 @@
 namespace App\Notifications\Auth;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\URL;
 
-class PasswordResetNotification extends Notification
+class PasswordResetNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
-	private string $token;
+	public string $token;
 
 	public function __construct(string $token)
     {
@@ -30,9 +31,9 @@ class PasswordResetNotification extends Notification
     	$resetPasswordUrl = $this->getResetPasswordUrl();
 
         return (new MailMessage)
-                    ->line('You prompted for reset password. If it\'s not you, then ignore this email. Otherwise, click on button below.')
-                    ->action('Go to reset password', $resetPasswordUrl)
-                    ->line('Thank you for using our application!');
+                    ->line(__('You prompted for reset password. If it\'s not you, then ignore this email. Otherwise, click on button below.'))
+                    ->action(__('Go to reset password'), $resetPasswordUrl)
+                    ->line(__('Thank you for using our application!'));
     }
 
     protected function getResetPasswordUrl(){

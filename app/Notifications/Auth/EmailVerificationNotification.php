@@ -53,7 +53,7 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 	 * @param  mixed  $notifiable
 	 * @return string
 	 */
-	protected function verificationUrl($notifiable)
+	public function verificationUrl($notifiable)
 	{
 		return URL::temporarySignedRoute(
 			'verification.verify',
