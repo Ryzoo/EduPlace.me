@@ -22,7 +22,7 @@ steps:
   displayName: 'Installing System Dependencies'
 
 - script: |
-    cp .env.test .env
+    cp .env.testing .env
   displayName: 'Environment Setup'
 
 - script: |
