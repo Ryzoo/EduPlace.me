@@ -3,12 +3,14 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class LoginTest extends TestCase
 {
 	use WithFaker;
+	use RefreshDatabase;
 
 	public function test_userWithValidData_canLogin()
 	{

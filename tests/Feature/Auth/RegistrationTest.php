@@ -3,6 +3,7 @@
 namespace Tests\Feature\Auth;
 
 use App\Notifications\Auth\EmailVerificationNotification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -10,6 +11,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 class RegistrationTest extends TestCase
 {
 	use WithFaker;
+	use RefreshDatabase;
 
 	public function test_userWithValidData_canRegister()
 	{

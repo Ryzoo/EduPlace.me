@@ -4,6 +4,7 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use App\Notifications\Auth\EmailVerificationNotification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 class EmailVerificationTest extends TestCase
 {
 	use WithFaker;
+	use RefreshDatabase;
 
 	public function test_userWhenUseLink_userEmailVerified()
 	{

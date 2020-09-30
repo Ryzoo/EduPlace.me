@@ -2,12 +2,14 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class LanguageTest extends TestCase
 {
 	use WithFaker;
+	use RefreshDatabase;
 
 	public function test_whenPromptChangeLangToPl_langChanged()
 	{
