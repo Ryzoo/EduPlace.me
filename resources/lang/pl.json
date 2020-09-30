@@ -12,5 +12,10 @@
   "Go to reset password": "Przejdź do zresetowania hasła",
   "Thank you for using our application!": "Dziękujemy za skorzystanie z naszej aplikacji!",
   "Email and token not match! Try reset password again.": "Email i token nie pasują! Spróbuj zresetować hasło ponownie.",
-  "Language changed successfully!": "Język zmieniony pomyślnie!"
+  "Language changed successfully!": "Język zmieniony pomyślnie!",
+  "Login": "Logowanie",
+  "Join us": "Dołącz do nas",
+  "For Company": "Dla firm",
+  "For Education": "Dla edukacji",
+  "Created by Educated team": "Stworzone przez wykształcony zespół"
 }

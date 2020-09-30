@@ -23,9 +23,7 @@ class LanguageMiddleware
 		if($code) App::setLocale($code);
 
 		View::share('sharedData', [
-			"pageSettings" => [
-				"language" => App::getLocale()
-			]
+			"language" => App::getLocale()
 		]);
 
 		return $next($request);
