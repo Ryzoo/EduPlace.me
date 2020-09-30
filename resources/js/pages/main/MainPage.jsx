@@ -1,10 +1,10 @@
-import React, {useContext} from 'react'
-import {Col, Empty, DatePicker, Slider, Row} from "antd";
-import dayjs from "dayjs";
-import {ServerDataContext} from "../../context";
+import React, { useContext } from 'react';
+import { Col, Empty, DatePicker, Slider, Row } from 'antd';
+import dayjs from 'dayjs';
+import { ServerDataContext } from '../../context';
 
 export default function MainPage() {
-  const {language} = useContext(ServerDataContext);
+  const { language } = useContext(ServerDataContext);
 
   return (
     <>
@@ -19,16 +19,15 @@ export default function MainPage() {
         </Col>
       </Row>
       <Row>
-        <Col span={24}>
-          {dayjs(dayjs().subtract(2, 'year')).fromNow()}
-        </Col>
+        <Col span={24}>{dayjs(dayjs().subtract(2, 'year')).fromNow()}</Col>
       </Row>
       <Row>
         <Col span={24}>
-          current: <b>{language}</b>
-          <Empty/>
+          current:
+          <b>{language}</b>
+          <Empty />
         </Col>
       </Row>
     </>
-  )
+  );
 }

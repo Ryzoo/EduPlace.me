@@ -35,7 +35,7 @@
             register: '{{route('pages.auth.register')}}',
           }
         },
-        translation: {
+        t: {
           ['Login']: '{{__('Login')}}',
           ['Join us']: '{{__('Join us')}}',
           ['For Company']: '{{__('For Company')}}',
