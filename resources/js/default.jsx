@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import {Provider, useSelector} from 'react-redux'
 import 'antd/dist/antd.less'
 import buildStore from "./store/index";
-import {ConfigProvider} from 'antd';
+import {ConfigProvider, message} from 'antd';
 import enLanguageData from 'antd/es/locale/en_US';
 import plLanguageData from 'antd/es/locale/pl_PL';
 import enDayJsData from 'dayjs/locale/en';
@@ -16,16 +16,18 @@ export default function buildApp(renderLayout) {
   render(
     <Provider store={buildStore(window.serverData)}>
       <ServerDataContext.Provider value={window.serverData}>
-        <LanguagePropagator>
-          {renderLayout}
-        </LanguagePropagator>
+        <PageStatusPropagator>
+          <LanguagePropagator>
+            {renderLayout}
+          </LanguagePropagator>
+        </PageStatusPropagator>
       </ServerDataContext.Provider>
     </Provider>,
     document.getElementById('app')
   )
 }
 
-export function LanguagePropagator(props) {
+function LanguagePropagator(props) {
   const {language} = useContext(ServerDataContext);
   dayjs.locale(language)
   dayjs.extend(relativeTime)
@@ -47,3 +49,15 @@ export function LanguagePropagator(props) {
     </ConfigProvider>
   )
 }
+
+function PageStatusPropagator(props) {
+  const {success, error} = useContext(ServerDataContext);
+
+  setTimeout(()=>{
+    if(success && success.length) message.success(success)
+    if(error && error.length) message.error(error)
+  }, 100)
+
+  return props.children
+}
+
