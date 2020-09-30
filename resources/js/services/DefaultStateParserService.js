@@ -1,5 +1,5 @@
-export default new class DefaultStateParserService{
-  parseDataFromServerToState(serverData){
+export default class DefaultStateParserService{
+  static parseDataFromServerToState(serverData){
     return {
       pageSettings: {
         ...serverData.pageSettings,
