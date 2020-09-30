@@ -1,34 +1,34 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {
-  increment, decrement, selectCount
-} from '../../store/example'
-import styles from './MainPage.module.css'
+import React, {useContext} from 'react'
+import {Col, Empty, DatePicker, Slider, Row} from "antd";
+import dayjs from "dayjs";
+import {ServerDataContext} from "../../context";
 
 export default function MainPage() {
-  const count = useSelector(selectCount)
-  const dispatch = useDispatch()
-  const [incrementAmount, setIncrementAmount] = useState('2')
+  const {language} = useContext(ServerDataContext);
 
   return (
-    <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-      </div>
-    </div>
+    <>
+      <Row>
+        <Col span={24}>
+          <DatePicker />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Slider defaultValue={30} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          {dayjs(dayjs().subtract(2, 'year')).fromNow()}
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          current: <b>{language}</b>
+          <Empty/>
+        </Col>
+      </Row>
+    </>
   )
 }

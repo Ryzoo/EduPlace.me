@@ -15,9 +15,34 @@
             @yield('content')
         </div>
     </body>
-    {{--Data from server for components--}}
+    {{--Data from server for store--}}
     <script>
-      window.serverData = @json($data ?? '')
+      const success = "{{ session('status') ?? '' }}";
+      const error = "{{ session('error') ?? '' }}";
+      const sharedData = @json($sharedData ?? '{}');
+
+      window.serverData = {
+        ...sharedData,
+        success,
+        error,
+        routes: {
+          language: {
+            pl: '{{route('language', ["code" => "pl"])}}',
+            en: '{{route('language', ["code" => "en"])}}',
+          },
+          auth: {
+            login: '{{route('pages.auth.login')}}',
+            register: '{{route('pages.auth.register')}}',
+          }
+        },
+        translation: {
+          ['Login']: '{{__('Login')}}',
+          ['Join us']: '{{__('Join us')}}',
+          ['For Company']: '{{__('For Company')}}',
+          ['For Education']: '{{__('For Education')}}',
+          ['Created by Educated team']: '{{__('Created by Educated team')}}',
+        },
+      }
     </script>
     @stack('scripts')
 </html>

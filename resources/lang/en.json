@@ -12,5 +12,10 @@
   "Go to reset password": "Go to reset password",
   "Thank you for using our application!": "Thank you for using our application!",
   "Email and token not match! Try reset password again.": "Email and token not match! Try reset password again.",
-  "Language changed successfully!": "Language changed successfully!"
+  "Language changed successfully!": "Language changed successfully!",
+  "Login": "Login",
+  "Join us": "Join us",
+  "For Company": "For Company",
+  "For Education": "For Education",
+  "Created by Educated team": "Created by Educated team"
 }
