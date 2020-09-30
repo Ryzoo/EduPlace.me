@@ -1,6 +1,3 @@
-trigger:
-- master
-
 pool:
   vmImage: 'Ubuntu 16.04'
 
@@ -14,16 +11,7 @@ steps:
     sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
     sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
     sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-    php -version
   displayName: 'Use PHP version $(phpVersion)'
-
-- script: |
-    touch database/database.sqlite
-  displayName: 'Installing System Dependencies'
-
-- script: |
-    cp .env.testing .env
-  displayName: 'Environment Setup'
 
 - script: |
     sudo composer self-update
@@ -32,8 +20,7 @@ steps:
 
 - script: |
     php artisan key:generate
-    php artisan migrate
-  displayName: 'Running Migrations'
+  displayName: 'Prepare application key'
 
 - script: |
     sudo npm i -g npm
