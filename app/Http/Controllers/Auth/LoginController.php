@@ -35,7 +35,7 @@ class LoginController extends Controller
 		$isRemember = $request->has('remember') && boolval($request->get('remember'));
 
 		if (Auth::attempt($credentials, $isRemember)) {
-			redirect()
+			return redirect()
 				->route('pages.search')
 				->with('status', __('You are logged successfully!'));
 		}
