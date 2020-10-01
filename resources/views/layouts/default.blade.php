@@ -8,6 +8,7 @@
         <title>EduPlace | @yield('meta-title')</title>
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
         @stack('css')
     </head>
     <body>
