@@ -28,6 +28,7 @@
         error: "{{ session('error') ?? '' }}",
         validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
         csrfToken: '{{csrf_field()}}',
+        old: @json(Session::getOldInput()),
         routes: {
           language: {
             pl: '{{route('language', ["code" => "pl"])}}',

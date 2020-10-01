@@ -28,4 +28,12 @@ class LoginRequest extends FormRequest
 			'password' => 'required|string|min:8',
         ];
     }
+
+	public function attributes()
+	{
+		return [
+			'email' => __('Email'),
+			'password' => __('Password'),
+		];
+	}
 }

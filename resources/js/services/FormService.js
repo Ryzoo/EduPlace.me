@@ -29,9 +29,36 @@ export default class FormService {
   static getValidateError(name) {
     for (const key in window.serverData.validationErrors) {
       if (key === name && window.serverData.validationErrors[key].length) {
-        return window.serverData.validationErrors[key][0];
+        const message = window.serverData.validationErrors[key][0];
+        return message;
       }
     }
     return null;
   }
+
+  static getOldValue(name, type) {
+    for (const key in window.serverData.old)
+      if (key === name) {
+        if (window.serverData.old[key] && window.serverData.old[key] !== 'undefined') {
+          return FormService.parseValue(window.serverData.old[key], type);
+        }
+      }
+    return FormService.parseValue(null, type);
+  }
+
+  static parseValue(value, type = OldValueType.TEXT) {
+    switch (type) {
+      case OldValueType.BOOL:
+        return value ? value == 'true' : false;
+      case OldValueType.NUMBER:
+        return value ? (isNaN(value) ? 0 : Number(value)) : 0;
+    }
+    return value;
+  }
 }
+
+export const OldValueType = {
+  BOOL: 'BOOL',
+  NUMBER: 'NUMBER',
+  TEXT: 'TEXT',
+};

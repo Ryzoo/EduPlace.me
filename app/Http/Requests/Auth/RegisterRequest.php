@@ -21,4 +21,15 @@ class RegisterRequest extends FormRequest
 			'rodo_accept' => 'required|accepted',
         ];
     }
+
+	public function attributes()
+	{
+		return [
+			'name' => __('Name'),
+			'email' => __('Email'),
+			'password' => __('Password'),
+			'rodo_accept' => 'RODO',
+			'regulation_accept' => __('Agreement'),
+		];
+	}
 }
