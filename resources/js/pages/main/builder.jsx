@@ -1,10 +1,10 @@
-import React from 'react'
-import MainPage from './MainPage'
-import MainLayout from "../../layouts/MainLayout"
-import buildApp from "../../default";
+import React from 'react';
+import MainPage from './MainPage';
+import MainLayout from '../../layouts/MainLayout';
+import buildApp from '../../default';
 
-buildApp((
+buildApp(
   <MainLayout>
     <MainPage />
   </MainLayout>
-))
+);
