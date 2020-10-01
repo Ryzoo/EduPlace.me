@@ -9,6 +9,7 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
         @stack('css')
     </head>
     <body>
@@ -34,7 +35,9 @@
           auth: {
             login: '{{route('pages.auth.login')}}',
             register: '{{route('pages.auth.register')}}',
-          }
+          },
+          main: '{{route('pages.main')}}',
+          current: '{{Request::url()}}'
         },
         t: {
           ['Login']: '{{__('Login')}}',
@@ -45,5 +48,6 @@
         },
       }
     </script>
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     @stack('scripts')
 </html>

@@ -15,7 +15,7 @@ mix.webpackConfig({
           options: {
             lessOptions: {
               modifyVars: {
-                'primary-color': '#3790ff',
+                'primary-color': '#D61889',
               },
               javascriptEnabled: true
             }
