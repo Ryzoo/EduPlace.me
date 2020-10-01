@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Drawer, Layout, Menu } from 'antd';
-import { ServerDataContext } from '../context';
-import URLService from '../services/URLService';
+import { ServerDataContext } from '../../context';
+import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -46,7 +46,7 @@ export default function MainLayout(props) {
   };
 
   return (
-    <Layout className="layout">
+    <Layout className="main-layout">
       <Drawer
         width={300}
         title="EduPlace.me"
@@ -81,9 +81,7 @@ export default function MainLayout(props) {
         </Menu>
         {getMenuList(false)}
       </Header>
-      <Content className="p-5" style={{ minHeight: 'calc(100vh - 135px)' }}>
-        {props.children}
-      </Content>
+      <Content className="p-5">{props.children}</Content>
       <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
     </Layout>
   );

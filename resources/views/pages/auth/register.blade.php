@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
-@section('meta-title', 'About')
-@section('meta-description', 'About Description')
+@section('meta-title', 'Register')
+@section('meta-description', 'Register Description')
 @section('meta-keywords', 'Page keywords')
 
 @push('scripts')
@@ -10,9 +10,11 @@
         ...window.serverData,
         routes: {
           ...window.serverData.routes,
-          search: '{{route('pages.search')}}',
+          action: {
+            register: '{{route('pages.auth.register')}}'
+          },
         }
       }
     </script>
-    <script src="{{mix('js/pages/mainPage.js')}}"></script>
+    <script src="{{mix('js/pages/registerPage.js')}}"></script>
 @endpush

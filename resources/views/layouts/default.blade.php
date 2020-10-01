@@ -17,16 +17,17 @@
             @yield('content')
         </div>
     </body>
+
     {{--Data from server for store--}}
     <script>
-      const success = "{{ session('status') ?? '' }}";
-      const error = "{{ session('error') ?? '' }}";
       const sharedData = @json($sharedData ?? '{}');
 
       window.serverData = {
         ...sharedData,
-        success,
-        error,
+        success: "{{ session('status') ?? '' }}",
+        error: "{{ session('error') ?? '' }}",
+        validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
+        csrfToken: '{{csrf_field()}}',
         routes: {
           language: {
             pl: '{{route('language', ["code" => "pl"])}}',

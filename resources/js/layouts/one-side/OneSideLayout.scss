@@ -1,0 +1,32 @@
+.one-side-layout {
+  display: flex !important;
+  min-height: 100vh !important;
+  flex-direction: row !important;
+
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+  }
+
+  main.black-side{
+    background: #001529;
+    width: 40%;
+    color: #f0f2f5;
+  }
+
+  main.light-side{
+    background: #f0f2f5;
+    width: 60%;
+  }
+}
+
+@media (max-width: 960px) {
+  main.black-side{
+    display: none;
+  }
+  main.light-side{
+    width: 100%;
+  }
+}
