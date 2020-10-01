@@ -1,0 +1,73 @@
+@for $i from 0 through 10{
+  .p-l-#{$i}{ padding-left: $i * $space-basic !important; }
+  .p-r-#{$i}{ padding-right: $i * $space-basic !important; }
+  .p-t-#{$i}{ padding-top: $i * $space-basic !important; }
+  .p-b-#{$i}{ padding-bottom: $i * $space-basic !important; }
+  .p-x-#{$i}{ padding-left: $i * $space-basic !important; padding-right: $i * $space-basic !important;}
+  .p-y-#{$i}{ padding-top: $i * $space-basic !important; padding-bottom: $i * $space-basic !important;}
+  .p-#{$i}{ padding: $i * $space-basic !important; }
+
+  .m-l-#{$i}{ margin-left: $i * $space-basic !important; }
+  .m-r-#{$i}{ margin-right: $i * $space-basic !important; }
+  .m-t-#{$i}{ margin-top: $i * $space-basic !important; }
+  .m-b-#{$i}{ margin-bottom: $i * $space-basic !important; }
+  .m-x-#{$i}{ margin-left: $i * $space-basic !important; margin-right: $i * $space-basic !important;}
+  .m-y-#{$i}{ margin-top: $i * $space-basic !important; margin-bottom: $i * $space-basic !important;}
+  .m-#{$i}{ margin: $i * $space-basic !important; }
+}
+
+.m-l-a{ margin-left: auto !important; }
+.m-r-a{ margin-right: auto !important; }
+.m-t-a{ margin-top: auto !important; }
+.m-b-a{ margin-bottom: auto !important; }
+.m-x-a{ margin-left: auto !important; margin-right: auto !important;}
+.m-y-a{ margin-top: auto !important; margin-bottom: auto !important;}
+.m-a{ margin-bottom: auto !important; }
+
+.display-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.center-flex-a{
+  @extend .display-flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+.center-flex-x{
+  @extend .display-flex;
+  height: 100%;
+  justify-content: center;
+}
+.center-flex-y{
+  @extend .display-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.flex-align-left{
+  @extend .display-flex;
+  justify-content: flex-start;
+}
+
+.flex-align-right{
+  @extend .display-flex;
+  justify-content: flex-end;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}

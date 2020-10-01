@@ -21,6 +21,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.21.2",
         "eslint-plugin-react-hooks": "^4.1.2",
+        "husky": "^4.3.0",
         "laravel-mix": "^5.0.1",
         "less": "^3.12.2",
         "less-loader": "^7.0.1",
@@ -39,5 +40,10 @@
         "react-dom": "^16.13.1",
         "react-redux": "^7.2.1",
         "rendertron": "^3.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint:js --fix"
+        }
     }
 }

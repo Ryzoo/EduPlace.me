@@ -23,7 +23,7 @@ export default function MainLayout(props) {
             </Menu.Item>
           </SubMenu>
         </Menu>
-        <div style={{ float: 'right', margin: '0 25px' }}>
+        <div className="float-right m-x-5">
           <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
           <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
             {t['Join us']}
