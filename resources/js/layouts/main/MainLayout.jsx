@@ -8,38 +8,54 @@ const { SubMenu } = Menu;
 
 export default function MainLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
-  const { routes, language, t } = useContext(ServerDataContext);
+  const { routes, language, t, auth } = useContext(ServerDataContext);
 
   const getNavigationLink = () => [
     { label: 'EduPlace', url: routes.main },
     { label: t['For Education'], url: 'edu' },
     { label: t['For Company'], url: 'com' },
+    { label: t['Search'], url: routes.search, onlyLogged: true },
   ];
   const getMenuList = (inDrawer) => {
     return (
       <>
-        <div className={inDrawer ? 'center-flex-x mb-1' : 'float-right mx-5 show-lg'}>
-          <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
-          <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
-            {t['Join us']}
-          </Button>
-        </div>
+        {!auth.isUserLogged ? (
+          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
+            <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
+            <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
+              {t['Join us']}
+            </Button>
+          </div>
+        ) : (
+          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
+            <span className={inDrawer ? '' : 'text-light'}>{auth.user.name}</span>
+            <Button className="ml-2" onClick={() => URLService.goTo(routes.auth.logout)}>
+              {t['Logout']}
+            </Button>
+          </div>
+        )}
         <Menu
           theme={inDrawer ? 'light' : 'dark'}
           mode={inDrawer ? 'vertical' : 'horizontal'}
           className={inDrawer ? '' : 'float-right show-lg'}
           defaultSelectedKeys={[routes.current]}
         >
-          {getNavigationLink().map((nav) => (
-            <Menu.Item
-              key={nav.url}
-              onClick={() => {
-                URLService.goTo(nav.url);
-              }}
-            >
-              {nav.label}
-            </Menu.Item>
-          ))}
+          {getNavigationLink().map((nav) => {
+            if (nav.onlyLogged && !auth.isUserLogged) {
+              return null;
+            }
+
+            return (
+              <Menu.Item
+                key={nav.url}
+                onClick={() => {
+                  URLService.goTo(nav.url);
+                }}
+              >
+                {nav.label}
+              </Menu.Item>
+            );
+          })}
         </Menu>
       </>
     );

@@ -14,7 +14,7 @@ class LoginTest extends TestCase
 
 	public function test_userWithValidData_canLogin()
 	{
-		$routeUrl = route('pages.auth.login');
+		$routeUrl = route('login');
 		$searchUrl = route('pages.search');
 		$email = $this->faker->email;
 		$password = $this->faker->password(8);
@@ -35,7 +35,7 @@ class LoginTest extends TestCase
 
 	public function test_userWithInvalidPassword_cantLogin()
 	{
-		$routeUrl = route('pages.auth.login');
+		$routeUrl = route('login');
 		$email = $this->faker->email;
 		$password = $this->faker->password(8);
 

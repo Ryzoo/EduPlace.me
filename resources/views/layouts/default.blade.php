@@ -35,13 +35,18 @@
             en: '{{route('language', ["code" => "en"])}}',
           },
           auth: {
-            login: '{{route('pages.auth.login')}}',
+            logout: '{{route('pages.auth.logout')}}',
+            login: '{{route('login')}}',
             register: '{{route('pages.auth.register')}}',
+            passwordReset: '{{route('password.request')}}',
           },
           main: '{{route('pages.main')}}',
+          search: '{{route('pages.search')}}',
           current: '{{Request::url()}}'
         },
         t: {
+          ['Search']: '{{__('Search')}}',
+          ['Logout']: '{{__('Logout')}}',
           ['Login']: '{{__('Login')}}',
           ['Join us']: '{{__('Join us')}}',
           ['For Company']: '{{__('For Company')}}',

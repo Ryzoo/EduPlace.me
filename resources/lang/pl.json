@@ -27,5 +27,12 @@
   "I accept the": "Akceptuje",
   "Name": "Nazwa",
   "Very much so, but you will learn about it only after you create your account.": "Bardzo dużo, ale o tym dowiesz się dopiero jak utworzysz swoje konto.",
-  "What does having an account in our platform give?": "Co daje posiadanie konta w naszej platformie?"
+  "What does having an account in our platform give?": "Co daje posiadanie konta w naszej platformie?",
+  "Login to system": "Zaloguj się do systemu",
+  "Remember me": "Zapamiętaj mnie",
+  "I forgot my password.": "Zapomniałem hasła.",
+  "I dont have account yet.": "Nie mam jeszcze konta.",
+  "Logout": "Wyloguj",
+  "You are logout successfully!": "Zostałeś pomyślnie wylogowany!",
+  "Search": "Szukaj"
 }

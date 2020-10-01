@@ -1,5 +1,7 @@
 {
-    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=f81439367196095b6c3f",
-    "/css/app.css": "/css/app.css?id=e1a454dfc5d2de9e97b7",
-    "/js/pages/registerPage.js": "/js/pages/registerPage.js?id=e277828f119c7a99872a"
+    "/js/pages/loginPage.js": "/js/pages/loginPage.js?id=1db287c9da1d81827976",
+    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=d37b18123a25a225a478",
+    "/css/app.css": "/css/app.css?id=e739e1965efc1054901c",
+    "/js/pages/registerPage.js": "/js/pages/registerPage.js?id=7f1f011301e90c7743b4",
+    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=98869731edcb4c3d85e9"
 }

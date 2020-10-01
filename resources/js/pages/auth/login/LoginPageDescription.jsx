@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { ServerDataContext } from '../../context';
+import { ServerDataContext } from '../../../context';
 import { Typography, Space } from 'antd';
 
 const { Text, Title } = Typography;
 
-export default function RegisterPageDescription() {
+export default function LoginPageDescription() {
   const { t } = useContext(ServerDataContext);
 
   return (

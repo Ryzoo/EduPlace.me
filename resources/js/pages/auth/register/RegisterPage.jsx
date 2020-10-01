@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { ServerDataContext } from '../../context';
-import Form from '../../components/form/Form';
-import TextFormInput from '../../components/form/form-inputs/TextFormInput';
-import CheckboxFormInput from '../../components/form/form-inputs/CheckboxFormInput';
-import SubmitFormInput from '../../components/form/form-inputs/SubmitFormInput';
-import FormService, { OldValueType } from '../../services/FormService';
+import { ServerDataContext } from '../../../context';
+import Form from '../../../components/form/Form';
+import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
+import CheckboxFormInput from '../../../components/form/form-inputs/CheckboxFormInput';
+import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
+import FormService, { OldValueType } from '../../../services/FormService';
 
 export default function RegisterPage() {
   const { routes, t } = useContext(ServerDataContext);
@@ -48,7 +48,7 @@ export default function RegisterPage() {
         {t['I accept the']} <a href="">RODO</a>
       </CheckboxFormInput>
       <SubmitFormInput label={t['Create new account']}>
-        <a href="" className="flex-align-right mt-2">
+        <a href={routes.auth.login} className="flex-align-right mt-2">
           {t['I already have account']}
         </a>
       </SubmitFormInput>
