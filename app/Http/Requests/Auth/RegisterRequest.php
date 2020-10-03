@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
 			'name' => __('Name'),
 			'email' => __('Email'),
 			'password' => __('Password'),
-			'rodo_accept' => 'RODO',
+			'rodo_accept' => __('RODO'),
 			'regulation_accept' => __('Agreement'),
 		];
 	}
