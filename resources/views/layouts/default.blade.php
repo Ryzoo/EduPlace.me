@@ -9,6 +9,7 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
         @stack('css')
     </head>
     <body>
@@ -16,27 +17,36 @@
             @yield('content')
         </div>
     </body>
+
     {{--Data from server for store--}}
     <script>
-      const success = "{{ session('status') ?? '' }}";
-      const error = "{{ session('error') ?? '' }}";
       const sharedData = @json($sharedData ?? '{}');
 
       window.serverData = {
         ...sharedData,
-        success,
-        error,
+        success: "{{ session('status') ?? '' }}",
+        error: "{{ session('error') ?? '' }}",
+        validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
+        csrfToken: '{{csrf_field()}}',
+        old: @json(Session::getOldInput()),
         routes: {
           language: {
             pl: '{{route('language', ["code" => "pl"])}}',
             en: '{{route('language', ["code" => "en"])}}',
           },
           auth: {
-            login: '{{route('pages.auth.login')}}',
+            logout: '{{route('pages.auth.logout')}}',
+            login: '{{route('login')}}',
             register: '{{route('pages.auth.register')}}',
-          }
+            passwordReset: '{{route('password.request')}}',
+          },
+          main: '{{route('pages.main')}}',
+          search: '{{route('pages.search')}}',
+          current: '{{Request::url()}}'
         },
         t: {
+          ['Search']: '{{__('Search')}}',
+          ['Logout']: '{{__('Logout')}}',
           ['Login']: '{{__('Login')}}',
           ['Join us']: '{{__('Join us')}}',
           ['For Company']: '{{__('For Company')}}',
@@ -45,5 +55,6 @@
         },
       }
     </script>
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
     @stack('scripts')
 </html>

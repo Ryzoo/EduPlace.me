@@ -20,18 +20,28 @@ class LoginController extends Controller
 		return view('pages.auth.login');
 	}
 
+	public function logoutUser()
+	{
+		Auth::logout();
+
+		return redirect()
+			->route('pages.main')
+			->with('status', __('You are logout successfully!'));
+	}
+
 	public function loginUser(LoginRequest $request)
 	{
 		$credentials = $request->only('email', 'password');
+		$isRemember = $request->has('remember') && boolval($request->get('remember'));
 
-		if (Auth::attempt($credentials)) {
-			redirect()
+		if (Auth::attempt($credentials, $isRemember)) {
+			return redirect()
 				->route('pages.search')
 				->with('status', __('You are logged successfully!'));
 		}
 
 		return redirect()
-			->route('pages.auth.login')
+			->route('login')
 			->with('error', __('Email or password not match! Try again.'));
 	}
 }

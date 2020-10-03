@@ -45,7 +45,7 @@ class PasswordResetTest extends TestCase
 
 		$resetUrl = route('password.email');
 		$searchUrl = route('pages.search');
-		$loginUrl = route('pages.auth.login');
+		$loginUrl = route('login');
 		$routeUrl = route('password.update');
 		$email = $this->faker->email;
 		$password = $this->faker->password(8);

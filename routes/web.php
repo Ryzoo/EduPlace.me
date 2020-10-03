@@ -10,12 +10,13 @@ use App\Http\Controllers\MainPageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
-Route::get('/search', function () { return view('pages.search'); })->name('pages.search');
+Route::get('/search', function () { return view('pages.search'); })->middleware(['auth'])->name('pages.search');
 Route::get('/language/{code}', [LanguageController::class, 'setLanguage'])->name('language');
 
 Route::prefix('auth')->group(function () {
+	Route::get('/', [LoginController::class, 'logoutUser'])->middleware(['auth'])->name('pages.auth.logout');
 	Route::prefix('login')->group(function () {
-		Route::get('/', [LoginController::class, 'getLoginPage'])->middleware(['guest'])->name('pages.auth.login');
+		Route::get('/', [LoginController::class, 'getLoginPage'])->middleware(['guest'])->name('login');
 		Route::post('/', [LoginController::class, 'loginUser'])->middleware(['throttle:6,1']);
 		Route::prefix('social')->group(function () {
 			Route::get('{provider}', [SocialLoginController::class, 'redirectToProvider'])->middleware(['guest'])->name('pages.auth.social');

@@ -1,4 +1,7 @@
 {
-    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=0ea24ea76ab34a68830a",
-    "/css/app.css": "/css/app.css?id=3158536a83f6933578da"
+    "/js/pages/loginPage.js": "/js/pages/loginPage.js?id=1db287c9da1d81827976",
+    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=d37b18123a25a225a478",
+    "/css/app.css": "/css/app.css?id=e739e1965efc1054901c",
+    "/js/pages/registerPage.js": "/js/pages/registerPage.js?id=6f9680a1cbdd35e23321",
+    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=98869731edcb4c3d85e9"
 }

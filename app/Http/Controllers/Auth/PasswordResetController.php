@@ -38,7 +38,7 @@ class PasswordResetController extends Controller
 		$this->authService->resetUserPassword($email, $password, $token);
 
 		return redirect()
-			->route('pages.auth.login')
+			->route('login')
 			->with(['status' => __('Your password was successfully changed! You can now login to system.')]);
 	}
 }

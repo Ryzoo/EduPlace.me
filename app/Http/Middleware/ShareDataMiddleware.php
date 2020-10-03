@@ -5,10 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
-class LanguageMiddleware
+class ShareDataMiddleware
 {
     /**
      * Handle an incoming request.
@@ -19,9 +19,14 @@ class LanguageMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-		$code = Session::get('languageCode');
-		if($code) App::setLocale($code);
+		View::share('sharedData', [
+			"language" => App::getLocale(),
+			"auth" => [
+				"isUserLogged" => Auth::check(),
+				"user" => Auth::user(),
+			]
+		]);
 
-		return $next($request);
+        return $next($request);
     }
 }
