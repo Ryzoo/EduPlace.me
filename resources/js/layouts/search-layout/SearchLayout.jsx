@@ -1,62 +1,64 @@
 import React, { useContext, useState } from 'react';
-import { Button, Drawer, Layout, Menu } from 'antd';
+import { Badge, Button, Drawer, Layout, Menu } from 'antd';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
+import { authUser } from '../../store/features/user/user';
+import { useSelector } from 'react-redux';
 import Logo from '../../components/layouts/logo/Logo';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
-export default function MainLayout(props) {
+export default function SearchLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
-  const { routes, language, t, auth } = useContext(ServerDataContext);
+  const { routes, language, t } = useContext(ServerDataContext);
+  const user = useSelector(authUser);
 
-  const getNavigationLink = () => [
-    { label: 'EduPlace', url: routes.main },
-    { label: t['For Education'], url: 'edu' },
-    { label: t['For Company'], url: 'com' },
-    { label: t['Search'], url: routes.search, onlyLogged: true },
-  ];
+  const getNavigationLink = () => [{ label: t['Search'], url: routes.search }];
+
+  const getUserMenu = () => (
+    <SubMenu
+      icon={<i className="far fa-user mr-2" />}
+      title={
+        <Badge count={user.notifications.count}>
+          <span className="pr-3">{user.name}</span>
+        </Badge>
+      }
+    >
+      <Menu.Item onClick={() => URLService.goTo(routes.user.notifications)}>
+        <Badge count={user.notifications.count}>
+          <span className="pr-3">{t['Notifications']}</span>
+        </Badge>
+      </Menu.Item>
+      <Menu.Item onClick={() => URLService.goTo(routes.user.settings)}>{t['Settings']}</Menu.Item>
+      <Menu.Divider />
+      <Menu.Item onClick={() => URLService.goTo(routes.auth.logout)}>{t['Logout']}</Menu.Item>
+    </SubMenu>
+  );
+
   const getMenuList = (inDrawer) => {
     return (
       <>
-        {!auth.isUserLogged ? (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
-            <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
-            <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
-              {t['Join us']}
-            </Button>
-          </div>
-        ) : (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
-            <span className={inDrawer ? '' : 'text-light'}>{auth.user.name}</span>
-            <Button className="ml-2" onClick={() => URLService.goTo(routes.auth.logout)}>
-              {t['Logout']}
-            </Button>
-          </div>
-        )}
+        <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
+          <span className={inDrawer ? '' : 'text-light'} />
+        </div>
         <Menu
           theme={inDrawer ? 'light' : 'dark'}
           mode={inDrawer ? 'inline' : 'horizontal'}
           className={inDrawer ? '' : 'float-right show-lg'}
           defaultSelectedKeys={[routes.current]}
         >
-          {getNavigationLink().map((nav) => {
-            if (nav.onlyLogged && !auth.isUserLogged) {
-              return null;
-            }
-
-            return (
-              <Menu.Item
-                key={nav.url}
-                onClick={() => {
-                  URLService.goTo(nav.url);
-                }}
-              >
-                {nav.label}
-              </Menu.Item>
-            );
-          })}
+          {getNavigationLink().map((nav) => (
+            <Menu.Item
+              key={nav.url}
+              onClick={() => {
+                URLService.goTo(nav.url);
+              }}
+            >
+              {nav.label}
+            </Menu.Item>
+          ))}
+          {getUserMenu()}
         </Menu>
       </>
     );

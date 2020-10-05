@@ -44,6 +44,7 @@ export default function RegisterPage() {
       <CheckboxFormInput name="regulation_accept">
         {t['I accept the']} <a href="">{t['Agreement']}</a>
       </CheckboxFormInput>
+
       <CheckboxFormInput name="rodo_accept">
         {t['I accept the']} <a href="">{t['RODO']}</a>
       </CheckboxFormInput>

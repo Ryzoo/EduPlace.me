@@ -1,10 +1,10 @@
 import React from 'react';
 import SearchPage from './SearchPage';
-import MainLayout from '../../layouts/main/MainLayout';
 import buildApp from '../../default';
+import SearchLayout from '../../layouts/search-layout/SearchLayout';
 
 buildApp(
-  <MainLayout>
+  <SearchLayout>
     <SearchPage />
-  </MainLayout>
+  </SearchLayout>
 );

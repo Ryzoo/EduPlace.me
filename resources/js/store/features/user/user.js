@@ -3,22 +3,30 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    value: 0,
+    name: '',
+    notifications: {
+      count: 0,
+    },
   },
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
+    // incrementByAmount: (state, action) => {
+    //   state.value += action.payload;
+    // },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions;
-export const selectCount = (state) => state.user.value;
+// export const { incrementByAmount } = userSlice.actions;
+export const authUser = (state) => state.user;
+export const userDefaultValueProvider = (serverData) =>
+  serverData.auth && serverData.auth.user
+    ? {
+        id: serverData.auth.user.id,
+        email: serverData.auth.user.email,
+        name: serverData.auth.user.name,
+        notifications: {
+          count: 2,
+        },
+      }
+    : {};
 
 export default userSlice.reducer;
