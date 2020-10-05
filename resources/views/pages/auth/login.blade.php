@@ -28,5 +28,5 @@
         }
       }
     </script>
-    <script src="{{mix('js/pages/loginPage.js')}}"></script>
+    <script src="{{mix('js/pages/auth/loginPage.js')}}"></script>
 @endpush

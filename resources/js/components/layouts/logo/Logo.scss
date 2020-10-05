@@ -1,0 +1,29 @@
+.main-logo{
+  height: 35px;
+  display: inline-block;
+  .ant-image{
+    height: 100%;
+    img{
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+@media(max-width: 960px) {
+  .main-logo{
+    margin-left: 10px;
+  }
+}
+
+@media(max-width: 460px) {
+  .main-logo{
+    height: 20px;
+  }
+}
+
+@media(max-width: 400px) {
+  .main-logo{
+    height: 15px;
+  }
+}

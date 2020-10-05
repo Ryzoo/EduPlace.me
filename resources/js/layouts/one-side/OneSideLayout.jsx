@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import './OneSideLayout.scss';
 import URLService from '../../services/URLService';
 import { ServerDataContext } from '../../context';
+import Logo from '../../components/layouts/logo/Logo';
 
 const { Content, Header } = Layout;
 const { SubMenu } = Menu;
@@ -18,10 +19,11 @@ export default function OneSideLayout(props) {
           width: '100%',
         }}
       >
+        <Logo dark={!props.blackOnLeft} />
         <Menu
           theme={props.blackOnLeft ? 'dark' : 'light'}
-          mode="horizontal"
           className="float-right"
+          mode="horizontal"
         >
           <SubMenu key="language" title={language.toUpperCase()}>
             <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>

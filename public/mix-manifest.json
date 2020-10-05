@@ -1,7 +1,8 @@
 {
-    "/js/pages/loginPage.js": "/js/pages/loginPage.js?id=a63dfdcf385f771dfc9a",
-    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=6e868f497a536b07ce08",
-    "/css/app.css": "/css/app.css?id=dec9135ee1f814973a7e",
-    "/js/pages/registerPage.js": "/js/pages/registerPage.js?id=d71365ac119131946dae",
-    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=75910898918159660007"
+    "/js/pages/auth/loginPage.js": "/js/pages/auth/loginPage.js?id=4222217138512fc71983",
+    "/js/pages/auth/registerPage.js": "/js/pages/auth/registerPage.js?id=9f79b9982b90d98a8f20",
+    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=2999045690b654ee449f",
+    "/css/app.css": "/css/app.css?id=e739e1965efc1054901c",
+    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=44747fefd8ddfbf3a715",
+    "/js/pages/user/settingsPage.js": "/js/pages/user/settingsPage.js?id=acc6ece02f4eabbaf73f"
 }
