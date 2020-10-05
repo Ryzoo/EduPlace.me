@@ -45,7 +45,7 @@ export default function RegisterPage() {
         {t['I accept the']} <a href="">{t['Agreement']}</a>
       </CheckboxFormInput>
       <CheckboxFormInput name="rodo_accept">
-        {t['I accept the']} <a href="">RODO</a>
+        {t['I accept the']} <a href="">{t['RODO']}</a>
       </CheckboxFormInput>
       <SubmitFormInput label={t['Create new account']}>
         <a href={routes.auth.login} className="flex-align-right mt-2">

@@ -55,7 +55,7 @@ module.exports = {
       },
     ],
     'react/destructuring-assignment': 0,
-    'react/jsx-one-expression-per-line': [0, { allow: 'single-child' }],
+    'react/jsx-one-expression-per-line': [1, { allow: 'single-child' }],
     'react/no-array-index-key': 1,
     'react/no-danger': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
