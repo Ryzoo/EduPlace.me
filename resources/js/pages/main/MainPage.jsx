@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Col, Row, Layout, Button, Carousel, Typography, Image, Grid } from 'antd';
+import { Col, Row, Button, Carousel, Typography, Image, Grid } from 'antd';
 import { RightCircleFilled, LeftCircleFilled, CrownFilled } from '@ant-design/icons';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
-import { Container } from '../../components/Container';
 
 import './MainPage.scss';
 
@@ -27,8 +26,8 @@ export const MainPage = () => {
   }, [screen]);
 
   return (
-    <Layout className="main-page">
-      <Container className="start-section">
+    <>
+      <div className="start-section">
         <Row>
           <Col span={12}>
             <Row className="h-100 direction-column px-10 text-row" justify="center">
@@ -49,12 +48,17 @@ export const MainPage = () => {
               </Row>
             </Row>
           </Col>
-          <Col span={12}>
-            <Image preview={false} src="../../img/1.svg" alt="Header image" />
+          <Col style={{ textAlign: 'center' }} span={12}>
+            <Image
+              preview={false}
+              src="../../img/1.svg"
+              alt="Header image"
+              width={!screen.md ? '50%' : '100%'}
+            />
           </Col>
         </Row>
-      </Container>
-      <Container className="partners-section py-6">
+      </div>
+      <div className="partners-section py-6">
         <Row>
           <Col span={24}>
             <Row align="center">
@@ -74,8 +78,8 @@ export const MainPage = () => {
             </div>
           </Col>
         </Row>
-      </Container>
-      <Container className="promo-section py-6">
+      </div>
+      <div className="promo-section py-6">
         <Row align="middle">
           <Col className="px-10" span={12}>
             <Title level={2}>Edu Place pozwoli Ci</Title>
@@ -85,7 +89,7 @@ export const MainPage = () => {
               nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
               commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
             </p>
-            <Button type="primary" className="mr-2 float-right">
+            <Button type="primary" className="mr-2">
               Stwórz tablice już teraz
             </Button>
           </Col>
@@ -93,8 +97,8 @@ export const MainPage = () => {
             <Image width="100%" src="https://via.placeholder.com/800x500" />
           </Col>
         </Row>
-      </Container>
-      <Container className="promo-section-columns py-6">
+      </div>
+      <div className="promo-section-columns py-6">
         <Row>
           <Col span={8} className="center-flex-x text-center px-4">
             <div className="heading">
@@ -127,8 +131,8 @@ export const MainPage = () => {
             </p>
           </Col>
         </Row>
-      </Container>
-      <Container className="promo-section py-6">
+      </div>
+      <div className="promo-section py-6">
         <Row align="middle">
           <Col span={12}>
             <Image width="100%" src="https://via.placeholder.com/800x500" />
@@ -141,12 +145,12 @@ export const MainPage = () => {
               nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
               commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
             </p>
-            <Button type="primary" className="mr-2 float-right">
+            <Button type="primary" className="mr-2">
               Stwórz tablice już teraz
             </Button>
           </Col>
         </Row>
-      </Container>
-    </Layout>
+      </div>
+    </>
   );
 };
