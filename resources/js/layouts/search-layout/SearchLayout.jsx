@@ -31,7 +31,6 @@ export default function SearchLayout(props) {
         </Badge>
       </Menu.Item>
       <Menu.Item onClick={() => URLService.goTo(routes.user.settings)}>{t['Settings']}</Menu.Item>
-      <Menu.Divider />
       <Menu.Item onClick={() => URLService.goTo(routes.auth.logout)}>{t['Logout']}</Menu.Item>
     </SubMenu>
   );
