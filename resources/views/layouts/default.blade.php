@@ -43,7 +43,7 @@
           },
           user: {
             notifications: '{{route('pages.auth.register')}}',
-            settings: '{{route('pages.auth.register')}}',
+            settings: '{{route('pages.user.settings')}}',
           },
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
@@ -57,6 +57,8 @@
           ['For Company']: '{{__('For Company')}}',
           ['For Education']: '{{__('For Education')}}',
           ['Created by Educated team']: '{{__('Created by Educated team')}}',
+          ['Notifications']: '{{__('Notifications')}}',
+          ['Settings']: '{{__('Settings')}}',
         },
       }
     </script>
