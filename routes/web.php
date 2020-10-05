@@ -7,11 +7,16 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\User\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
 Route::get('/search', function () { return view('pages.search'); })->middleware(['auth'])->name('pages.search');
 Route::get('/language/{code}', [LanguageController::class, 'setLanguage'])->name('language');
+
+Route::prefix('user')->group(function () {
+	Route::get('/settings', [SettingsController::class, 'getSettingsPage'])->middleware(['auth'])->name('pages.user.settings');
+});
 
 Route::prefix('auth')->group(function () {
 	Route::get('/', [LoginController::class, 'logoutUser'])->middleware(['auth'])->name('pages.auth.logout');

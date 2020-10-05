@@ -35,5 +35,7 @@
   "Logout": "Logout",
   "You are logout successfully!": "You are logout successfully!",
   "Search": "Search",
-  "RODO": "GDPR"
+  "RODO": "GDPR",
+  "Notifications": "Notifications",
+  "Settings": "Settings"
 }

@@ -8,6 +8,7 @@
         <title>EduPlace | @yield('meta-title')</title>
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
+        <link rel="icon" type="image/svg" href="/images/favicon.svg">
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
         @stack('css')
@@ -40,9 +41,13 @@
             register: '{{route('pages.auth.register')}}',
             passwordReset: '{{route('password.request')}}',
           },
+          user: {
+            notifications: '{{route('pages.auth.register')}}',
+            settings: '{{route('pages.user.settings')}}',
+          },
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
-          current: '{{Request::url()}}'
+          current: '{{Request::url()}}',
         },
         t: {
           ['Search']: '{{__('Search')}}',
@@ -52,6 +57,8 @@
           ['For Company']: '{{__('For Company')}}',
           ['For Education']: '{{__('For Education')}}',
           ['Created by Educated team']: '{{__('Created by Educated team')}}',
+          ['Notifications']: '{{__('Notifications')}}',
+          ['Settings']: '{{__('Settings')}}',
         },
       }
     </script>
