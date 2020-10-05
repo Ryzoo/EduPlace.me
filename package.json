@@ -8,7 +8,8 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "lint:js": "eslint ./resources/js --ext .js,.jsx"
+        "lint:js": "eslint ./resources/js --ext .js,.jsx",
+        "lint:scss": "stylelint \"resources/**/*.scss\" --fix"
     },
     "devDependencies": {
         "@ant-design/icons": "^4.2.2",
@@ -30,7 +31,13 @@
         "prettier": "2.1.2",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.26.11",
-        "sass-loader": "^8.0.2"
+        "sass-loader": "^8.0.2",
+        "stylelint": "^13.7.2",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-prettier": "^1.1.2",
+        "stylelint-scss": "^3.18.0"
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.4.0",
@@ -44,7 +51,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run lint:js --fix"
+            "pre-commit": "npm run lint:js --fix && npm run lint:scss"
         }
     }
 }

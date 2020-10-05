@@ -1,44 +1,44 @@
 .one-side-layout {
   display: flex !important;
-  min-height: 100vh !important;
   flex-direction: row !important;
+  min-height: 100vh !important;
 
-  main{
+  main {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 25px;
   }
 
-  main.black-side{
-    background: #001529;
-    width: 40%;
+  main.black-side {
     color: #f0f2f5;
-    padding: 35px;
     text-align: center;
+    width: 40%;
+    padding: 35px;
+    background: #001529;
 
-    h1{
+    h1 {
       color: #d61889;
     }
 
-    span{
-      color: #f0f2f5;
+    span {
       font-size: 30px;
+      color: #f0f2f5;
     }
-
   }
 
-  main.light-side{
-    background: #f0f2f5;
+  main.light-side {
     width: 60%;
+    background: #f0f2f5;
   }
 }
 
 @media (max-width: 960px) {
-  main.black-side{
+  main.black-side {
     display: none;
   }
-  main.light-side{
+
+  main.light-side {
     width: 100%;
   }
 }
