@@ -1,0 +1,114 @@
+@use './../../../css/default';
+
+.main-page {
+  .start-section {
+    min-height: 500px;
+
+    .text-row {
+      width: max-content;
+    }
+
+    .main-text {
+      font-size: default.pxToRem(72px);
+      font-weight: 700;
+      line-height: 0.75;
+
+      span:nth-child(1) {
+        color: #641467;
+      }
+
+      span:nth-child(2) {
+        color: #d61889;
+      }
+
+      span:nth-child(3) {
+        color: #f89020;
+      }
+
+      span:nth-child(4) {
+        color: #49135f;
+      }
+    }
+
+    .sub-text {
+      font-size: default.pxToRem(18px);
+
+      span {
+        color: #d61889;
+        padding: 0 4px;
+      }
+    }
+  }
+
+  .partners-section {
+    background-color: #f0f2f5;
+
+    .carousel-container {
+      position: relative;
+
+      .slick-slide > div {
+        text-align: center;
+      }
+
+      .carousel-arrow {
+        font-size: 32px;
+        color: #d61889;
+        z-index: 1;
+
+        &.arrow-right {
+          position: absolute;
+          left: auto;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &.arrow-left {
+          position: absolute;
+          left: 20px;
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  .promo-section {
+    p {
+      max-width: 400px;
+    }
+
+    &-columns {
+      background-color: #f0f2f5;
+
+      .heading {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: default.pxToRem(30px);
+          margin-right: 10px;
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: default.$break-large) {
+  .main-page .start-section {
+    .main-text {
+      font-size: default.pxToRem(46px);
+    }
+
+    .sub-text {
+      font-size: default.pxToRem(16px);
+
+      span {
+        color: #d61889;
+        padding: 0 2px;
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@
         "lint:js": "eslint ./resources/js --ext .js,.jsx"
     },
     "devDependencies": {
+        "@ant-design/icons": "^4.2.2",
         "@babel/preset-react": "^7.10.4",
         "axios": "^0.19",
         "cross-env": "^7.0",

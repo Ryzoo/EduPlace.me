@@ -52,6 +52,7 @@
           ['For Company']: '{{__('For Company')}}',
           ['For Education']: '{{__('For Education')}}',
           ['Created by Educated team']: '{{__('Created by Educated team')}}',
+          ['Already with us:']: '{{__('Already with us:')}}',
         },
       }
     </script>
