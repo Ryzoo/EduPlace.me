@@ -5,6 +5,7 @@ import URLService from '../../services/URLService';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import Logo from '../../components/layouts/logo/Logo';
+import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -25,12 +26,34 @@ export default function SearchLayout(props) {
         </Badge>
       }
     >
-      <Menu.Item onClick={() => URLService.goTo(routes.user.notifications)}>
+      <Menu.Item
+        key={routes.user.notifications}
+        onClick={() => URLService.goTo(routes.user.notifications)}
+      >
         <Badge count={user.notifications.count}>
           <span className="pr-3">{t['Notifications']}</span>
         </Badge>
       </Menu.Item>
-      <Menu.Item onClick={() => URLService.goTo(routes.user.settings)}>{t['Settings']}</Menu.Item>
+      <SubMenu title={t['Settings']}>
+        <Menu.Item
+          key={routes.user.settings.data}
+          onClick={() => URLService.goTo(routes.user.settings.data)}
+        >
+          {t['User data']}
+        </Menu.Item>
+        <Menu.Item
+          key={routes.user.settings.password}
+          onClick={() => URLService.goTo(routes.user.settings.password)}
+        >
+          {t['Change password']}
+        </Menu.Item>
+        <Menu.Item
+          key={routes.user.settings.gdpr}
+          onClick={() => URLService.goTo(routes.user.settings.gdpr)}
+        >
+          {t['RODO']}
+        </Menu.Item>
+      </SubMenu>
       <Menu.Item onClick={() => URLService.goTo(routes.auth.logout)}>{t['Logout']}</Menu.Item>
     </SubMenu>
   );
@@ -64,44 +87,47 @@ export default function SearchLayout(props) {
   };
 
   return (
-    <Layout className="main-layout">
-      <Drawer
-        width={300}
-        title="EduPlace.me"
-        placement="left"
-        visible={drawerVisibility}
-        onClose={() => {
-          setDrawerVisibility(false);
-        }}
-      >
-        {getMenuList(true)}
-      </Drawer>
-      <Header>
-        <Button
-          type="primary"
-          className="float-left hide-lg"
-          style={{ marginTop: '17px' }}
-          onClick={() => {
-            setDrawerVisibility(true);
+    <>
+      <EmailNotVerifiedBanner />
+      <Layout className="main-layout">
+        <Drawer
+          width={300}
+          title="EduPlace.me"
+          placement="left"
+          visible={drawerVisibility}
+          onClose={() => {
+            setDrawerVisibility(false);
           }}
         >
-          <i className="fas fa-bars" />
-        </Button>
-        <Logo />
-        <Menu theme="dark" mode="horizontal" className="float-right">
-          <SubMenu key="language" title={language.toUpperCase()}>
-            <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
-              PL
-            </Menu.Item>
-            <Menu.Item key="language:en" onClick={() => URLService.goTo(routes.language.en)}>
-              EN
-            </Menu.Item>
-          </SubMenu>
-        </Menu>
-        {getMenuList(false)}
-      </Header>
-      <Content className="p-5">{props.children}</Content>
-      <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
-    </Layout>
+          {getMenuList(true)}
+        </Drawer>
+        <Header>
+          <Button
+            type="primary"
+            className="float-left hide-lg"
+            style={{ marginTop: '17px' }}
+            onClick={() => {
+              setDrawerVisibility(true);
+            }}
+          >
+            <i className="fas fa-bars" />
+          </Button>
+          <Logo />
+          <Menu theme="dark" mode="horizontal" className="float-right">
+            <SubMenu key="language" title={language.toUpperCase()}>
+              <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
+                PL
+              </Menu.Item>
+              <Menu.Item key="language:en" onClick={() => URLService.goTo(routes.language.en)}>
+                EN
+              </Menu.Item>
+            </SubMenu>
+          </Menu>
+          {getMenuList(false)}
+        </Header>
+        <Content className="p-5">{props.children}</Content>
+        <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
+      </Layout>
+    </>
   );
 }

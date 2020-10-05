@@ -20,7 +20,7 @@ export default function MainLayout(props) {
   const getMenuList = (inDrawer) => {
     return (
       <>
-        {!auth.isUserLogged ? (
+        {!auth.isLogged ? (
           <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
             <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
             <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
@@ -42,7 +42,7 @@ export default function MainLayout(props) {
           defaultSelectedKeys={[routes.current]}
         >
           {getNavigationLink().map((nav) => {
-            if (nav.onlyLogged && !auth.isUserLogged) {
+            if (nav.onlyLogged && !auth.isLogged) {
               return null;
             }
 

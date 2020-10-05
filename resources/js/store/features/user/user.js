@@ -22,6 +22,7 @@ export const userDefaultValueProvider = (serverData) =>
     ? {
         id: serverData.auth.user.id,
         email: serverData.auth.user.email,
+        isVerified: serverData.auth.isVerified,
         name: serverData.auth.user.name,
         notifications: {
           count: 2,
