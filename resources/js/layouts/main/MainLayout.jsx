@@ -99,7 +99,7 @@ export default function MainLayout(props) {
         </Menu>
         {getMenuList(false)}
       </Header>
-      <Content className="p-5">{props.children}</Content>
+      <Content>{props.children}</Content>
       <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
     </Layout>
   );

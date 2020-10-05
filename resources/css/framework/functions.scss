@@ -1,5 +1,3 @@
-@import "variables";
-
 @function pxToRem($size) {
   @return ($size / $font-size) + rem;
 }

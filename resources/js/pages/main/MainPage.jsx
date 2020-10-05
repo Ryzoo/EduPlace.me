@@ -1,33 +1,156 @@
-import React, { useContext } from 'react';
-import { Col, Empty, DatePicker, Slider, Row } from 'antd';
-import dayjs from 'dayjs';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Col, Row, Button, Carousel, Typography, Image, Grid } from 'antd';
+import { RightCircleFilled, LeftCircleFilled, CrownFilled } from '@ant-design/icons';
 import { ServerDataContext } from '../../context';
+import URLService from '../../services/URLService';
 
-export default function MainPage() {
-  const { language } = useContext(ServerDataContext);
+import './MainPage.scss';
+
+export const MainPage = () => {
+  const refCarousel = useRef(null);
+  const { routes, t } = useContext(ServerDataContext);
+  const { Title } = Typography;
+  const { useBreakpoint } = Grid;
+
+  const screen = useBreakpoint();
+  const next = () => refCarousel.current.next();
+  const prev = () => refCarousel.current.prev();
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  useEffect(() => {
+    if (!screen.lg && screen.md) {
+      setSlidesToShow(2);
+    } else if (!screen.lg && !screen.md && screen.sm) {
+      setSlidesToShow(1);
+    }
+  }, [screen]);
 
   return (
     <>
-      <Row>
-        <Col span={24}>
-          <DatePicker />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <Slider defaultValue={30} />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>{dayjs(dayjs().subtract(2, 'year')).fromNow()}</Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          current:
-          <b>{language}</b>
-          <Empty />
-        </Col>
-      </Row>
+      <div className="start-section">
+        <Row>
+          <Col span={12}>
+            <Row className="h-100 direction-column px-10 text-row" justify="center">
+              <div className="main-text">
+                <span>Edu</span>
+                <span>Place</span>
+                <span>.</span>
+                <span>me</span>
+              </div>
+              <div className="sub-text">
+                <span>Miejsce gdzie wiedza się porządkuje</span>
+              </div>
+              <Row className="pt-3" justify="end">
+                <Button className="mr-2">Jakaś akcja</Button>
+                <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
+                  {t['Join us']}
+                </Button>
+              </Row>
+            </Row>
+          </Col>
+          <Col style={{ textAlign: 'center' }} span={12}>
+            <Image
+              preview={false}
+              src="../../img/1.svg"
+              alt="Header image"
+              width={!screen.md ? '50%' : '100%'}
+            />
+          </Col>
+        </Row>
+      </div>
+      <div className="partners-section py-6">
+        <Row>
+          <Col span={24}>
+            <Row align="center">
+              <Title level={2}>{t['Already with us:']}</Title>
+            </Row>
+            <div className="carousel-container">
+              <LeftCircleFilled className="carousel-arrow arrow-left" onClick={prev} />
+              <Carousel slidesToShow={slidesToShow} ref={refCarousel} dots={false}>
+                <Image width={250} src="https://via.placeholder.com/250x100" />
+                <Image src="https://via.placeholder.com/250x100" />
+                <Image src="https://via.placeholder.com/250x100" />
+                <Image src="https://via.placeholder.com/250x100" />
+                <Image src="https://via.placeholder.com/250x100" />
+                <Image src="https://via.placeholder.com/250x100" />
+              </Carousel>
+              <RightCircleFilled className="carousel-arrow arrow-right" onClick={next} />
+            </div>
+          </Col>
+        </Row>
+      </div>
+      <div className="promo-section py-6">
+        <Row align="middle">
+          <Col className="px-10" span={12}>
+            <Title level={2}>Edu Place pozwoli Ci</Title>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
+              nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
+              commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
+            </p>
+            <Button type="primary" className="mr-2">
+              Stwórz tablice już teraz
+            </Button>
+          </Col>
+          <Col span={12}>
+            <Image width="100%" src="https://via.placeholder.com/800x500" />
+          </Col>
+        </Row>
+      </div>
+      <div className="promo-section-columns py-6">
+        <Row>
+          <Col span={8} className="center-flex-x text-center px-4">
+            <div className="heading">
+              <CrownFilled />
+              <Title level={2}>Zareklamuj się</Title>
+            </div>
+            <p className="px-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec.
+            </p>
+          </Col>
+          <Col span={8} className="center-flex-x text-center px-4">
+            <div className="heading">
+              <CrownFilled />
+              <Title level={2}>Uczelnia</Title>
+            </div>
+            <p className="px-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec.
+            </p>
+          </Col>
+          <Col span={8} className="center-flex-x text-center px-4">
+            <div className="heading">
+              <CrownFilled />
+              <Title level={2}>E-nauczanie</Title>
+            </div>
+            <p className="px-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec.
+            </p>
+          </Col>
+        </Row>
+      </div>
+      <div className="promo-section py-6">
+        <Row align="middle">
+          <Col span={12}>
+            <Image width="100%" src="https://via.placeholder.com/800x500" />
+          </Col>
+          <Col className="px-10" span={12}>
+            <Title level={2}>Edu Place pozwoli Ci</Title>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
+              nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
+              commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
+            </p>
+            <Button type="primary" className="mr-2">
+              Stwórz tablice już teraz
+            </Button>
+          </Col>
+        </Row>
+      </div>
     </>
   );
-}
+};

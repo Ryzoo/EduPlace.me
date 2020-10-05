@@ -59,6 +59,7 @@
           ['Created by Educated team']: '{{__('Created by Educated team')}}',
           ['Notifications']: '{{__('Notifications')}}',
           ['Settings']: '{{__('Settings')}}',
+          ['Already with us:']: '{{__('Already with us:')}}',
         },
       }
     </script>
