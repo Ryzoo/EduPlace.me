@@ -41,6 +41,10 @@ steps:
     php artisan test --log-junit tests/Results/TEST-phpunit-junit.xml
   displayName: 'Running Tests'
 
+- script: 
+    npm run lint:js && npm run lint:scss
+  displayName: 'Running linters'
+
 - task: PublishTestResults@2
   inputs:
     testRunner: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit

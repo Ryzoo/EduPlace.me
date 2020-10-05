@@ -40,6 +40,8 @@ mix.webpackConfig({
               lessOptions: {
                 modifyVars: {
                   'primary-color': '#D61889',
+                  'layout-body-background': '#fff',
+                  'font-size-base': '16px',
                 },
                 javascriptEnabled: true,
               },
