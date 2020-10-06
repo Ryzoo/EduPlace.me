@@ -1,8 +1,11 @@
 {
-    "/js/pages/auth/loginPage.js": "/js/pages/auth/loginPage.js?id=4222217138512fc71983",
-    "/js/pages/auth/registerPage.js": "/js/pages/auth/registerPage.js?id=9f79b9982b90d98a8f20",
-    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=2999045690b654ee449f",
-    "/css/app.css": "/css/app.css?id=e739e1965efc1054901c",
-    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=44747fefd8ddfbf3a715",
-    "/js/pages/user/settingsPage.js": "/js/pages/user/settingsPage.js?id=acc6ece02f4eabbaf73f"
+    "/js/pages/auth/loginPage.js": "/js/pages/auth/loginPage.js?id=75e14f8cd1d945512918",
+    "/js/pages/auth/registerPage.js": "/js/pages/auth/registerPage.js?id=ea71e68be376f0c2a36e",
+    "/js/pages/mainPage.js": "/js/pages/mainPage.js?id=ac3636d6d49325660efe",
+    "/css/app.css": "/css/app.css?id=dec9135ee1f814973a7e",
+    "/js/pages/searchPage.js": "/js/pages/searchPage.js?id=4f9f8c115084b7de5c74",
+    "/js/pages/user/notificationsPage.js": "/js/pages/user/notificationsPage.js?id=974c16713ccbb0d41dab",
+    "/js/pages/user/settings/gdprPage.js": "/js/pages/user/settings/gdprPage.js?id=c8fe6cd162afe231e31f",
+    "/js/pages/user/settings/passwordChangePage.js": "/js/pages/user/settings/passwordChangePage.js?id=6da6d01a55d6e6480446",
+    "/js/pages/user/settings/userDataPage.js": "/js/pages/user/settings/userDataPage.js?id=1f7623574f4b9387de14"
 }

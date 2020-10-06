@@ -10,7 +10,22 @@ mix.react('resources/js/pages/auth/register/builder.jsx', 'public/js/pages/auth/
 mix.react('resources/js/pages/auth/login/builder.jsx', 'public/js/pages/auth/loginPage.js');
 
 //user
-mix.react('resources/js/pages/user/settings/builder.jsx', 'public/js/pages/user/settingsPage.js');
+mix.react(
+  'resources/js/pages/user/notifications/builder.jsx',
+  'public/js/pages/user/notificationsPage.js'
+);
+mix.react(
+  'resources/js/pages/user/settings/user-data/builder.jsx',
+  'public/js/pages/user/settings/userDataPage.js'
+);
+mix.react(
+  'resources/js/pages/user/settings/password-change/builder.jsx',
+  'public/js/pages/user/settings/passwordChangePage.js'
+);
+mix.react(
+  'resources/js/pages/user/settings/gdpr/builder.jsx',
+  'public/js/pages/user/settings/gdprPage.js'
+);
 mix.version();
 
 mix.webpackConfig({

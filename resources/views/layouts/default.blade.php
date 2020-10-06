@@ -42,8 +42,15 @@
             passwordReset: '{{route('password.request')}}',
           },
           user: {
-            notifications: '{{route('pages.auth.register')}}',
-            settings: '{{route('pages.user.settings')}}',
+            notifications: '{{route('pages.user.notifications')}}',
+            settings: {
+              data: '{{route('pages.user.settings.data')}}',
+              password: '{{route('pages.user.settings.password')}}',
+              gdpr: '{{route('pages.user.settings.gdpr')}}',
+            }
+          },
+          verification: {
+            send: '{{route('verification.send')}}'
           },
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
@@ -60,6 +67,11 @@
           ['Notifications']: '{{__('Notifications')}}',
           ['Settings']: '{{__('Settings')}}',
           ['Already with us:']: '{{__('Already with us:')}}',
+          ['RODO']: '{{__('RODO')}}',
+          ['User data']: '{{__('User data')}}',
+          ['Change password']: '{{__('Change password')}}',
+          ['Resend verification email.']: '{{__('Resend verification email.')}}',
+          ['Your email are not verified. Please use button in email that was sent to you.']: '{{__('Your email are not verified. Please use button in email that was sent to you.')}}',
         },
       }
     </script>

@@ -38,5 +38,9 @@
   "Already with us:": "Są już z nami:",
   "RODO": "RODO",
   "Notifications": "Powiadomienia",
-  "Settings": "Ustawienia"
+  "Settings": "Ustawienia",
+  "User data": "Dane użytkownika",
+  "Change password": "Zmiana hasła",
+  "Resend verification email.": "Wyślij ponownie email weryfikacyjny.",
+  "Your email are not verified. Please use button in email that was sent to you.": "Twój email nie został zweryfikowany. Użyj proszę przycisku w wiadomości, którą do Ciebie wysłaliśmy."
 }

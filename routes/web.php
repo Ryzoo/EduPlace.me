@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\User\NotificationsController;
 use App\Http\Controllers\User\SettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,14 @@ Route::get('/search', function () { return view('pages.search'); })->middleware(
 Route::get('/language/{code}', [LanguageController::class, 'setLanguage'])->name('language');
 
 Route::prefix('user')->group(function () {
-	Route::get('/settings', [SettingsController::class, 'getSettingsPage'])->middleware(['auth'])->name('pages.user.settings');
+
+	Route::get('/notifications', [NotificationsController::class, 'getNotificationsPage'])->middleware(['auth'])->name('pages.user.notifications');
+
+	Route::prefix('settings')->group(function () {
+		Route::get('/user-data', [SettingsController::class, 'getUserDataPage'])->middleware(['auth'])->name('pages.user.settings.data');
+		Route::get('/password-change', [SettingsController::class, 'getPasswordChangePage'])->middleware(['auth'])->name('pages.user.settings.password');
+		Route::get('/gdpr', [SettingsController::class, 'getGDPRPage'])->middleware(['auth'])->name('pages.user.settings.gdpr');
+	});
 });
 
 Route::prefix('auth')->group(function () {
@@ -35,7 +43,7 @@ Route::prefix('auth')->group(function () {
 	Route::prefix('email')->group(function () {
 		Route::get('/verify', [EmailVerificationController::class, 'getNotificationPage'])->middleware(['auth'])->name('verification.notice');
 		Route::get('/verify/{id}/{hash}', [EmailVerificationController::class, 'getVerificationPage'])->middleware(['auth', 'signed'])->name('verification.verify');
-		Route::post('/send-link', [EmailVerificationController::class, 'resendVerificationEmail'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+		Route::get('/send-link', [EmailVerificationController::class, 'resendVerificationEmail'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 	});
 	Route::prefix('password')->group(function () {
 		Route::get('/forgot', [PasswordResetController::class, 'getForgotPasswordPage'])->middleware(['guest'])->name('password.request');

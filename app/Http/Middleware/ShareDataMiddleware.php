@@ -22,7 +22,8 @@ class ShareDataMiddleware
 		View::share('sharedData', [
 			"language" => App::getLocale(),
 			"auth" => [
-				"isUserLogged" => Auth::check(),
+				"isLogged" => Auth::check(),
+				"isVerified" => Auth::user() ?  Auth::user()->hasVerifiedEmail() : false,
 				"user" => Auth::user(),
 			]
 		]);

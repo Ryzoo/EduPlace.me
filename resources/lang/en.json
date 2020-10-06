@@ -38,5 +38,9 @@
   "RODO": "GDPR",
   "Notifications": "Notifications",
   "Settings": "Settings",
-  "Already with us:": "Already with us:"
+  "Already with us:": "Already with us:",
+  "User data": "User data",
+  "Change password": "Change password",
+  "Resend verification email.": "Resend verification email.",
+  "Your email are not verified. Please use button in email that was sent to you.": "Your email are not verified. Please use button in email that was sent to you."
 }
