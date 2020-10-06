@@ -21,7 +21,6 @@ mix
     'public/js/userSettingsPasswordChangePage.js'
   )
   .react('resources/js/pages/user/settings/gdpr/builder.jsx', 'public/js/userSettingsGdprPage.js')
-  .extract()
   .version();
 
 mix.webpackConfig({

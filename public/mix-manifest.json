@@ -1,13 +1,11 @@
 {
-    "/js/manifest.js": "/js/manifest.js?id=7db827d654313dce4250",
-    "/js/vendor.js": "/js/vendor.js?id=9100e7fc97b19457a419",
-    "/js/authLoginPage.js": "/js/authLoginPage.js?id=cac579f73c89e3a01f3e",
-    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=dcb9846c785a59102b8b",
-    "/js/mainPage.js": "/js/mainPage.js?id=6916a5620d3aacb5b611",
+    "/js/authLoginPage.js": "/js/authLoginPage.js?id=fc171fe7fabc50bb08d6",
+    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=7d2de153f6edebecc435",
+    "/js/mainPage.js": "/js/mainPage.js?id=f097f6f6b58d8b402ff1",
     "/css/app.css": "/css/app.css?id=1ec84de541ae4d6cda7b",
-    "/js/searchPage.js": "/js/searchPage.js?id=e3a948b02c677abfc669",
-    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=f52e8eac76c55e8ff00c",
-    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=459585987c78fadcc27c",
-    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=361249443d63271bbb3c",
-    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=f55b8c6ebc08822685cf"
+    "/js/searchPage.js": "/js/searchPage.js?id=c82a4f96ca881f34710a",
+    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=1a4d003c3af9836f8101",
+    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=b256eaac5b6e6000596a",
+    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=6ab4b91785658a9aa0a9",
+    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=981f94d394cdef254752"
 }
