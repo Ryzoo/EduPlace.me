@@ -9,8 +9,6 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="icon" type="image/svg" href="/images/favicon.svg">
-        <link rel="stylesheet" href="{{mix('css/app.css')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
         @stack('css')
     </head>
     <body>
@@ -20,6 +18,24 @@
     </body>
 
     {{--Data from server for store--}}
+    <script>
+      (function() {
+        var cssMain = document.createElement('link');
+        cssMain.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css';
+        cssMain.rel = 'stylesheet';
+        cssMain.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(cssMain);
+      })();
+    </script>
+    <script>
+      (function() {
+        var cssMain = document.createElement('link');
+        cssMain.href = '{{mix('css/app.css')}}';
+        cssMain.rel = 'stylesheet';
+        cssMain.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(cssMain);
+      })();
+    </script>
     <script>
       const sharedData = @json($sharedData ?? '{}');
 
