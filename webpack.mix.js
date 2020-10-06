@@ -46,5 +46,5 @@ mix.webpackConfig({
       },
     ],
   },
-  plugins: [new AntdDayjsWebpackPlugin(), new BundleAnalyzerPlugin()],
+  plugins: [new AntdDayjsWebpackPlugin()],
 });
