@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer/lib/BundleAnalyzerPlugin');
 
 mix
   .sass('resources/css/app.scss', 'public/css', [])
