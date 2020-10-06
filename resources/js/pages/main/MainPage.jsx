@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Col, Row, Button, Carousel, Typography, Image, Grid } from 'antd';
-import { RightCircleFilled, LeftCircleFilled, CrownFilled } from '@ant-design/icons';
+import Col from 'antd/es/col';
+import Row from 'antd/es/row';
+import Button from 'antd/es/button';
+import Carousel from 'antd/es/carousel';
+import Typography from 'antd/es/typography';
+import Image from 'antd/es/image';
+import Grid from 'antd/es/grid';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
 
@@ -13,8 +18,8 @@ export const MainPage = () => {
   const { useBreakpoint } = Grid;
 
   const screen = useBreakpoint();
-  const next = () => refCarousel.current.next();
-  const prev = () => refCarousel.current.prev();
+  // const next = () => refCarousel.current.next();
+  // const prev = () => refCarousel.current.prev();
   const [slidesToShow, setSlidesToShow] = useState(3);
 
   useEffect(() => {
@@ -65,7 +70,7 @@ export const MainPage = () => {
               <Title level={2}>{t['Already with us:']}</Title>
             </Row>
             <div className="carousel-container">
-              <LeftCircleFilled className="carousel-arrow arrow-left" onClick={prev} />
+              {/*<LeftCircleFilled className="carousel-arrow arrow-left" onClick={prev} />*/}
               <Carousel slidesToShow={slidesToShow} ref={refCarousel} dots={false}>
                 <Image width={250} src="https://via.placeholder.com/250x100" />
                 <Image src="https://via.placeholder.com/250x100" />
@@ -74,7 +79,7 @@ export const MainPage = () => {
                 <Image src="https://via.placeholder.com/250x100" />
                 <Image src="https://via.placeholder.com/250x100" />
               </Carousel>
-              <RightCircleFilled className="carousel-arrow arrow-right" onClick={next} />
+              {/*<RightCircleFilled className="carousel-arrow arrow-right" onClick={next} />*/}
             </div>
           </Col>
         </Row>
@@ -102,7 +107,7 @@ export const MainPage = () => {
         <Row>
           <Col span={8} className="center-flex-x text-center px-4">
             <div className="heading">
-              <CrownFilled />
+              {/*<CrownFilled />*/}
               <Title level={2}>Zareklamuj się</Title>
             </div>
             <p className="px-10">
@@ -112,7 +117,7 @@ export const MainPage = () => {
           </Col>
           <Col span={8} className="center-flex-x text-center px-4">
             <div className="heading">
-              <CrownFilled />
+              {/*<CrownFilled />*/}
               <Title level={2}>Uczelnia</Title>
             </div>
             <p className="px-10">
@@ -122,7 +127,7 @@ export const MainPage = () => {
           </Col>
           <Col span={8} className="center-flex-x text-center px-4">
             <div className="heading">
-              <CrownFilled />
+              {/*<CrownFilled />*/}
               <Title level={2}>E-nauczanie</Title>
             </div>
             <p className="px-10">

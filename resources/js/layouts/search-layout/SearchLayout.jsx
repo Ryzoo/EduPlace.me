@@ -1,5 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Badge, Button, Drawer, Layout, Menu } from 'antd';
+import Menu from 'antd/es/menu';
+import Layout from 'antd/es/layout';
+import Drawer from 'antd/es/drawer';
+import Button from 'antd/es/button';
+import Badge from 'antd/es/badge';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
 import { authUser } from '../../store/features/user/user';

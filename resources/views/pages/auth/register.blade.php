@@ -29,5 +29,5 @@
         }
       }
     </script>
-    <script src="{{mix('js/pages/auth/registerPage.js')}}"></script>
+    <script src="{{mix('js/authRegisterPage.js')}}"></script>
 @endpush

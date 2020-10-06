@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Spin, Form as FormAntd, Card } from 'antd';
+import FormAntd from 'antd/es/form';
+import Spin from 'antd/es/spin';
+import Card from 'antd/es/card';
 import FormService from '../../services/FormService';
 
 export default function Form(props) {

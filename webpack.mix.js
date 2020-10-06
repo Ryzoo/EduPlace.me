@@ -1,32 +1,28 @@
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const mix = require('laravel-mix');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer/lib/BundleAnalyzerPlugin');
 
-mix.sass('resources/css/app.scss', 'public/css', []);
-mix.react('resources/js/pages/main/builder.jsx', 'public/js/pages/mainPage.js');
-mix.react('resources/js/pages/search/builder.jsx', 'public/js/pages/searchPage.js');
-
-//auth
-mix.react('resources/js/pages/auth/register/builder.jsx', 'public/js/pages/auth/registerPage.js');
-mix.react('resources/js/pages/auth/login/builder.jsx', 'public/js/pages/auth/loginPage.js');
-
-//user
-mix.react(
-  'resources/js/pages/user/notifications/builder.jsx',
-  'public/js/pages/user/notificationsPage.js'
-);
-mix.react(
-  'resources/js/pages/user/settings/user-data/builder.jsx',
-  'public/js/pages/user/settings/userDataPage.js'
-);
-mix.react(
-  'resources/js/pages/user/settings/password-change/builder.jsx',
-  'public/js/pages/user/settings/passwordChangePage.js'
-);
-mix.react(
-  'resources/js/pages/user/settings/gdpr/builder.jsx',
-  'public/js/pages/user/settings/gdprPage.js'
-);
-mix.version();
+mix
+  .sass('resources/css/app.scss', 'public/css', [])
+  .react('resources/js/pages/main/builder.jsx', 'public/js/mainPage.js')
+  .react('resources/js/pages/search/builder.jsx', 'public/js/searchPage.js')
+  .react('resources/js/pages/auth/register/builder.jsx', 'public/js/authRegisterPage.js')
+  .react('resources/js/pages/auth/login/builder.jsx', 'public/js/authLoginPage.js')
+  .react(
+    'resources/js/pages/user/notifications/builder.jsx',
+    'public/js/userSettingsNotificationsPage.js'
+  )
+  .react(
+    'resources/js/pages/user/settings/user-data/builder.jsx',
+    'public/js/userSettingsUserDataPage.js'
+  )
+  .react(
+    'resources/js/pages/user/settings/password-change/builder.jsx',
+    'public/js/userSettingsPasswordChangePage.js'
+  )
+  .react('resources/js/pages/user/settings/gdpr/builder.jsx', 'public/js/userSettingsGdprPage.js')
+  .extract()
+  .version();
 
 mix.webpackConfig({
   module: {
@@ -51,5 +47,5 @@ mix.webpackConfig({
       },
     ],
   },
-  plugins: [new AntdDayjsWebpackPlugin()],
+  plugins: [new AntdDayjsWebpackPlugin(), new BundleAnalyzerPlugin()],
 });

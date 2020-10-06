@@ -5,5 +5,5 @@
 @section('meta-keywords', 'Page keywords')
 
 @push('scripts')
-    <script src="{{mix('js/pages/user/settings/userDataPage.js')}}"></script>
+    <script src="{{mix('js/userSettingsUserDataPage.js')}}"></script>
 @endpush

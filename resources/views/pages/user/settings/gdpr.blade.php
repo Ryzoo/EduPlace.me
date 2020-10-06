@@ -5,5 +5,5 @@
 @section('meta-keywords', 'Page keywords')
 
 @push('scripts')
-    <script src="{{mix('js/pages/user/settings/gdprPage.js')}}"></script>
+    <script src="{{mix('js/userSettingsGdprPage.js')}}"></script>
 @endpush

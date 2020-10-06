@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Logo.scss';
 import { ServerDataContext } from '../../../context';
-import { Image } from 'antd';
+import Image from 'antd/es/image';
 
 export default function Logo(props) {
   const { routes } = useContext(ServerDataContext);

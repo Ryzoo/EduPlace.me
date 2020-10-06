@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Button, Drawer, Layout, Menu } from 'antd';
+import Button from 'antd/es/button';
+import Drawer from 'antd/es/drawer';
+import Layout from 'antd/es/layout';
+import Menu from 'antd/es/menu';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
 import Logo from '../../components/layouts/logo/Logo';

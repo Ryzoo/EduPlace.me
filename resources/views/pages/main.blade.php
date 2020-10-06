@@ -5,5 +5,5 @@
 @section('meta-keywords', 'Page keywords')
 
 @push('scripts')
-    <script src="{{mix('js/pages/mainPage.js')}}"></script>
+    <script src="{{mix('js/mainPage.js')}}"></script>
 @endpush
