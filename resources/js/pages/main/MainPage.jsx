@@ -1,11 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import Col from 'antd/es/col';
-import Row from 'antd/es/row';
-import Button from 'antd/es/button';
-import Carousel from 'antd/es/carousel';
-import Typography from 'antd/es/typography';
-import Image from 'antd/es/image';
-import Grid from 'antd/es/grid';
+import { Grid, Image, Typography, Carousel, Button, Row, Col } from 'antd';
 import { ServerDataContext } from '../../context';
 import URLService from '../../services/URLService';
 

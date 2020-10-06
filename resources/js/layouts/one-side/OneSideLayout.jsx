@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import Menu from 'antd/es/menu';
-import Layout from 'antd/es/layout';
+import { Menu, Layout } from 'antd';
 import './OneSideLayout.scss';
 import URLService from '../../services/URLService';
 import { ServerDataContext } from '../../context';

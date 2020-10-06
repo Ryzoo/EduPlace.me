@@ -1,5 +1,11 @@
 {
   "plugins": [
-    ["import", { "libraryName": "antd", "style": true }]
+    ["import", { "libraryName": "antd", "style": true }],
+    ["transform-imports", {
+      "lodash": {
+        "transform": "antd/${member}",
+        "preventFullImport": true
+      }
+    }]
   ]
 }

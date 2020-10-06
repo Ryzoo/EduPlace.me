@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ServerDataContext } from '../../../context';
-import Typography from 'antd/es/typography';
-import Space from 'antd/es/space';
+import { Typography, Space } from 'antd';
 
 const { Text, Title } = Typography;
 
