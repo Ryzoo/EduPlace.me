@@ -8,6 +8,10 @@ mix
   .react('resources/js/pages/auth/register/builder.jsx', 'public/js/authRegisterPage.js')
   .react('resources/js/pages/auth/login/builder.jsx', 'public/js/authLoginPage.js')
   .react(
+    'resources/js/pages/auth/forgot-password/builder.jsx',
+    'public/js/authForgotPasswordPage.js'
+  )
+  .react(
     'resources/js/pages/user/notifications/builder.jsx',
     'public/js/userSettingsNotificationsPage.js'
   )
