@@ -5,16 +5,18 @@ import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import { ServerDataContext } from '../../../context';
 
-export const ForgotPasswordPage = () => {
+export const ResetPasswordPage = () => {
   const { routes, t } = useContext(ServerDataContext);
 
   return (
     <Form
-      title={t['Reset your password']}
-      action={routes.auth.passwordRequest}
+      title={t['Change your password']}
+      action={routes.auth.passwordUpdate}
       method="POST"
       initialValues={{
         email: FormService.getOldValue('email'),
+        password: FormService.getOldValue('password'),
+        password_confirmation: FormService.getOldValue('password_confirmation'),
       }}
     >
       <TextFormInput
@@ -22,14 +24,19 @@ export const ForgotPasswordPage = () => {
         label={t['Email']}
         prefix={<i className="far fa-envelope-open" />}
       />
-      <SubmitFormInput label={t['Reset password']}>
-        <a href={routes.auth.login} className="flex-align-right mt-2">
-          {t['I already have account']}
-        </a>
-        <a href={routes.auth.register} className="flex-align-right mt-2">
-          {t['I dont have account yet.']}
-        </a>
-      </SubmitFormInput>
+      <TextFormInput
+        name="password"
+        label={t['Password']}
+        prefix={<i className="fas fa-unlock-alt" />}
+        type="password"
+      />
+      <TextFormInput
+        name="password_confirmation"
+        label={t['Confirm password']}
+        prefix={<i className="fas fa-unlock-alt" />}
+        type="password"
+      />
+      <SubmitFormInput label={t['Change password']} />
     </Form>
   );
 };

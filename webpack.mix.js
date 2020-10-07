@@ -7,6 +7,7 @@ mix
   .react('resources/js/pages/search/builder.jsx', 'public/js/searchPage.js')
   .react('resources/js/pages/auth/register/builder.jsx', 'public/js/authRegisterPage.js')
   .react('resources/js/pages/auth/login/builder.jsx', 'public/js/authLoginPage.js')
+  .react('resources/js/pages/auth/reset-password/builder.jsx', 'public/js/authResetPasswordPage.js')
   .react(
     'resources/js/pages/auth/forgot-password/builder.jsx',
     'public/js/authForgotPasswordPage.js'

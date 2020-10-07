@@ -11,14 +11,16 @@
         routes: {
           ...window.serverData.routes,
           action: {
-            passwordRequest: '{{route('password.request')}}'
+            passwordUpdate: '{{route('password.update')}}',
           }
         },
         t: {
           ...window.serverData.t,
           ['Email']: '{{__('Email')}}',
-          ['Reset your password']: '{{__('Reset your password')}}',
-          ['Reset password']: '{{__('Reset password')}}',
+          ['Password']: '{{__('Password')}}',
+          ['Change your password']: '{{__('Change your password')}}',
+          ['Change password']: '{{__('Change password')}}',
+          ['Confirm password']: '{{__('Confirm password')}}',
           ['I already have account']: '{{__('I already have account')}}',
           ['I dont have account yet.']: '{{__('I dont have account yet.')}}',
           ['Very much so, but you will learn about it only after you create your account.']: '{{__('Very much so, but you will learn about it only after you create your account.')}}',
@@ -26,5 +28,5 @@
         }
       }
     </script>
-    <script src="{{mix('js/authForgotPasswordPage.js')}}"></script>
+    <script src="{{mix('js/authResetPasswordPage.js')}}"></script>
 @endpush

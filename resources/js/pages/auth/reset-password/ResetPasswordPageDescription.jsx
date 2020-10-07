@@ -4,7 +4,7 @@ import { Typography, Space } from 'antd';
 
 const { Text, Title } = Typography;
 
-export default function ForgotPasswordPageDescription() {
+export default function ResetPasswordPageDescription() {
   const { t } = useContext(ServerDataContext);
 
   return (

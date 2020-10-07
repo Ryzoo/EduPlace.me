@@ -20,7 +20,7 @@ class PasswordResetController extends Controller
 	}
 
 	public function getResetPasswordPage($token) {
-		return view('pages.auth.forgot-password', ['token' => $token]);
+		return view('pages.auth.reset-password', ['token' => $token]);
 	}
 
 	public function sendResetPasswordLinkToUser(SendResetPasswordLinkRequest $request) {
