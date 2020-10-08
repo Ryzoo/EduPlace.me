@@ -33,7 +33,7 @@ export default function LoginPage() {
       />
       <CheckboxFormInput name="remember">{t['Remember me']}</CheckboxFormInput>
       <SubmitFormInput label={t['Login']}>
-        <a href={routes.auth.passwordReset} className="flex-align-right mt-2">
+        <a href={routes.auth.passwordRequest} className="flex-align-right mt-2">
           {t['I forgot my password.']}
         </a>
         <a href={routes.auth.register} className="flex-align-right mt-2">

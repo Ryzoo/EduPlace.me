@@ -33,7 +33,7 @@ class ResetPasswordRequest extends FormRequest
 	public function attributes()
 	{
 		return [
-			'token' => 'Token',
+			'token' => __('Token'),
 			'email' => __('Email'),
 			'password' => __('Password'),
 		];

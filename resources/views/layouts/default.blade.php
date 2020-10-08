@@ -41,6 +41,7 @@
 
       window.serverData = {
         ...sharedData,
+        additional: {},
         success: "{{ session('status') ?? '' }}",
         error: "{{ session('error') ?? '' }}",
         validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
@@ -55,7 +56,9 @@
             logout: '{{route('pages.auth.logout')}}',
             login: '{{route('login')}}',
             register: '{{route('pages.auth.register')}}',
-            passwordReset: '{{route('password.request')}}',
+            passwordRequest: '{{route('password.request')}}',
+            passwordUpdate: '{{route('password.update')}}',
+            forgotPassword: '{{route('password.email')}}',
           },
           user: {
             notifications: '{{route('pages.user.notifications')}}',

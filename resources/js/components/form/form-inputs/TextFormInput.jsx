@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function TextFormItem(props) {
   return (
-    <FormItem name={props.name} label={props.label} rules={props.rules}>
+    <FormItem hidden={props.hidden} name={props.name} label={props.label} rules={props.rules}>
       <Input
         type={props.type || 'text'}
         size="large"
