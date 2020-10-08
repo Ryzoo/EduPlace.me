@@ -1,7 +1,9 @@
-import * as classnames from 'classnames';
 import React from 'react';
+import StringService from '../../../services/StringService';
 import './Container.scss';
 
 export const Container = (props) => (
-  <div className={classnames('container', props.className)}>{props.children}</div>
+  <div className={StringService.logicConcat({ container: !props.fluid }, props.className)}>
+    {props.children}
+  </div>
 );

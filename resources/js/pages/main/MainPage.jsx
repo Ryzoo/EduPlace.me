@@ -1,9 +1,9 @@
-import * as classnames from 'classnames';
 import { Button, Carousel, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
 import { ServerDataContext } from '../../context';
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 import './MainPage.scss';
 
@@ -32,7 +32,7 @@ export const MainPage = () => {
         <Row>
           <Col md={12} span={24}>
             <Row
-              className={classnames('h-100 direction-column px-10 text-row', {
+              className={StringService.logicConcat('h-100 direction-column px-10 text-row', {
                 'text-center': !screen.md,
                 'py-4': !screen.md,
               })}
@@ -47,7 +47,10 @@ export const MainPage = () => {
               <div className="sub-text">
                 <span>Miejsce gdzie wiedza się porządkuje</span>
               </div>
-              <Row className="pt-3" justify={classnames({ end: screen.md, center: !screen.md })}>
+              <Row
+                className="pt-3"
+                justify={StringService.logicConcat({ end: screen.md, center: !screen.md })}
+              >
                 <Button className="mr-2">Jakaś akcja</Button>
                 <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
                   {t['Join us']}
@@ -55,7 +58,10 @@ export const MainPage = () => {
               </Row>
             </Row>
           </Col>
-          <Col className={classnames('text-center', { 'd-none': !screen.md })} span={12}>
+          <Col
+            className={StringService.logicConcat('text-center', { 'd-none': !screen.md })}
+            span={12}
+          >
             <Image
               preview={false}
               src="../../img/1.svg"
@@ -65,7 +71,7 @@ export const MainPage = () => {
           </Col>
         </Row>
       </Container>
-      <div className="partners-section py-6">
+      <Container fluid className="partners-section py-6">
         <Container>
           <Row>
             <Col span={24}>
@@ -87,17 +93,20 @@ export const MainPage = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </Container>
       <Container className="promo-section py-6">
         <Row align="middle">
           <Col
-            className={classnames('px-10', { 'text-center': !screen.lg, 'pt-4': !screen.lg })}
+            className={StringService.logicConcat('px-10', {
+              'text-center': !screen.lg,
+              'pt-4': !screen.lg,
+            })}
             span={24}
             lg={12}
             order={screen.lg ? 0 : 1}
           >
             <Title level={2}>Edu Place pozwoli Ci</Title>
-            <p className={classnames({ 'mx-a': !screen.lg })}>
+            <p className={StringService.logicConcat({ 'mx-a': !screen.lg })}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
               nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
@@ -108,7 +117,7 @@ export const MainPage = () => {
             </Button>
           </Col>
           <Col
-            className={classnames('px-10', { 'text-center': !screen.lg })}
+            className={StringService.logicConcat('px-10', { 'text-center': !screen.lg })}
             span={24}
             lg={12}
             order={screen.lg ? 1 : 0}
@@ -117,7 +126,7 @@ export const MainPage = () => {
           </Col>
         </Row>
       </Container>
-      <div className="promo-section-columns py-6">
+      <Container fluid className="promo-section-columns py-6">
         <Container>
           <Row>
             <Col span={!screen.lg ? 24 : 8} className="center-flex-x text-center px-4">
@@ -152,19 +161,26 @@ export const MainPage = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </Container>
       <Container className="promo-section py-6">
         <Row align="middle">
-          <Col span={24} lg={12} className={classnames('px-10', { 'text-center': !screen.lg })}>
+          <Col
+            span={24}
+            lg={12}
+            className={StringService.logicConcat('px-10', { 'text-center': !screen.lg })}
+          >
             <Image width="100%" src="https://via.placeholder.com/800x500" />
           </Col>
           <Col
-            className={classnames('px-10', { 'text-center': !screen.lg, 'pt-4': !screen.lg })}
+            className={StringService.logicConcat('px-10', {
+              'text-center': !screen.lg,
+              'pt-4': !screen.lg,
+            })}
             span={24}
             lg={12}
           >
             <Title level={2}>Edu Place pozwoli Ci</Title>
-            <p className={classnames({ 'mx-a': !screen.lg })}>
+            <p className={StringService.logicConcat({ 'mx-a': !screen.lg })}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
               nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
