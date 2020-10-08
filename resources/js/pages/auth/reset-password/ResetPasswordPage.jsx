@@ -1,4 +1,5 @@
 import { ServerDataContext } from '../../../context';
+import { URLMethod } from '../../../services/URLService';
 import Form from '../../../components/form/Form';
 import FormService from '../../../services/FormService';
 import React, { useContext } from 'react';
@@ -12,7 +13,7 @@ export const ResetPasswordPage = () => {
     <Form
       title={t['Change your password']}
       action={routes.auth.passwordUpdate}
-      method="POST"
+      method={URLMethod.POST}
       initialValues={{
         token: additional.resetToken,
         email: FormService.getOldValue('email'),

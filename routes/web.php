@@ -20,9 +20,20 @@ Route::prefix('user')->group(function () {
 	Route::get('/notifications', [NotificationsController::class, 'getNotificationsPage'])->middleware(['auth'])->name('pages.user.notifications');
 
 	Route::prefix('settings')->group(function () {
-		Route::get('/user-data', [SettingsController::class, 'getUserDataPage'])->middleware(['auth'])->name('pages.user.settings.data');
-		Route::get('/password-change', [SettingsController::class, 'getPasswordChangePage'])->middleware(['auth'])->name('pages.user.settings.password');
-		Route::get('/gdpr', [SettingsController::class, 'getGDPRPage'])->middleware(['auth'])->name('pages.user.settings.gdpr');
+		Route::prefix('user-data')->group(function () {
+			Route::get('/', [SettingsController::class, 'getUserDataPage'])->middleware(['auth'])->name('pages.user.settings.data');
+			Route::put('/', [SettingsController::class, 'changeProfileData'])->middleware(['auth'])->name('action.user.settings.data.change');
+		});
+
+		Route::prefix('password-change')->group(function () {
+			Route::get('/', [SettingsController::class, 'getPasswordChangePage'])->middleware(['auth', 'verified'])->name('pages.user.settings.password');
+			Route::put('/', [SettingsController::class, 'changePassword'])->middleware(['auth', 'verified'])->name('action.user.settings.password.change');
+		});
+
+		Route::prefix('gdpr')->group(function () {
+			Route::get('/', [SettingsController::class, 'getGDPRPage'])->middleware(['auth', 'verified'])->name('pages.user.settings.gdpr');
+			Route::delete('/user-delete', [SettingsController::class, 'deleteUserAccount'])->middleware(['auth', 'verified'])->name('action.user.settings.gdpr.user-delete');
+		});
 	});
 });
 
