@@ -94,7 +94,7 @@
   }
 }
 
-@media screen and (max-width: $break-large) {
+@media screen and (max-width: $break-x-large) {
   .start-section {
     .main-text {
       font-size: pxToRem(46px);
@@ -104,19 +104,26 @@
       font-size: pxToRem(16px);
 
       span {
-        color: $primary;
         padding: 0 2px;
       }
     }
   }
 }
 
-@media screen and (max-width: $break-medium) {
+@media screen and (max-width: $break-large) {
   .start-section {
     min-height: unset;
+  }
+}
 
+@media screen and (max-width: $break-medium) {
+  .start-section {
     .main-text {
       font-size: pxToRem(32px);
+    }
+
+    .text-row {
+      width: 100%;
     }
   }
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import OneSideLayout from '../../../layouts/one-side/OneSideLayout';
-import buildApp from '../../../default';
 import { ForgotPasswordPage } from './ForgotPasswordPage';
+import OneSideLayout from '../../../layouts/one-side/OneSideLayout';
+import React from 'react';
 import ResetPasswordPageDescription from './ForgotPasswordPageDescription';
+import buildApp from '../../../default';
 
 buildApp(
   <OneSideLayout description={<ResetPasswordPageDescription />}>

@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { ServerDataContext } from '../../../../context';
 import { Container } from '../../../../components/shared/container/Container';
+import { ServerDataContext } from '../../../../context';
+import { URLMethod } from '../../../../services/URLService';
 import Form from '../../../../components/form/Form';
 import FormService from '../../../../services/FormService';
-import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
+import React, { useContext } from 'react';
 import SubmitFormInput from '../../../../components/form/form-inputs/SubmitFormInput';
-import { URLMethod } from '../../../../services/URLService';
+import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
 
 export default function PasswordChangePage() {
   const { routes, t } = useContext(ServerDataContext);

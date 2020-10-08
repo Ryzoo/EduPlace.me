@@ -1,7 +1,7 @@
-import React from 'react';
 import PasswordChangePage from './PasswordChangePage';
-import buildApp from '../../../../default';
+import React from 'react';
 import SearchLayout from '../../../../layouts/search-layout/SearchLayout';
+import buildApp from '../../../../default';
 
 buildApp(
   <SearchLayout>

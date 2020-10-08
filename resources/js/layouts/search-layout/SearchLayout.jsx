@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
+import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
 import { ServerDataContext } from '../../context';
-import URLService from '../../services/URLService';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import Logo from '../../components/layouts/logo/Logo';
-import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
+import React, { useContext, useState } from 'react';
+import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;

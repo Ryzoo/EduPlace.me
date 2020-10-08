@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import { Container } from '../../../../components/shared/container/Container';
+import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
 import { ServerDataContext } from '../../../../context';
+import { URLMethod } from '../../../../services/URLService';
+import { authUser } from '../../../../store/features/user/user';
+import { useSelector } from 'react-redux';
 import Form from '../../../../components/form/Form';
 import FormService from '../../../../services/FormService';
-import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
+import React, { useContext } from 'react';
 import SubmitFormInput from '../../../../components/form/form-inputs/SubmitFormInput';
-import { Container } from '../../../../components/shared/container/Container';
-import { useSelector } from 'react-redux';
-import { authUser } from '../../../../store/features/user/user';
-import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
-import { URLMethod } from '../../../../services/URLService';
+import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
 
 export default function UserDataPage() {
   const user = useSelector(authUser);

@@ -1,8 +1,8 @@
-import React from 'react';
 import LoginPage from './LoginPage';
-import OneSideLayout from '../../../layouts/one-side/OneSideLayout';
-import buildApp from '../../../default';
 import LoginPageDescription from './LoginPageDescription';
+import OneSideLayout from '../../../layouts/one-side/OneSideLayout';
+import React from 'react';
+import buildApp from '../../../default';
 
 buildApp(
   <OneSideLayout description={<LoginPageDescription />}>

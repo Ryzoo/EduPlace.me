@@ -9,6 +9,7 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "lint:js": "eslint ./resources/js --ext .js,.jsx",
+        "lintfix:js": "eslint ./resources/js --ext .js,.jsx --fix",
         "lint:scss": "stylelint \"resources/**/*.scss\" --fix"
     },
     "devDependencies": {
@@ -16,6 +17,7 @@
         "axios": "^0.19",
         "babel-plugin-import": "^1.13.0",
         "babel-plugin-transform-imports": "^2.0.0",
+        "classnames": "^2.2.6",
         "cross-env": "^7.0",
         "eslint": "^7.10.0",
         "eslint-config-prettier": "^6.12.0",
@@ -24,6 +26,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.21.2",
         "eslint-plugin-react-hooks": "^4.1.2",
+        "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
         "husky": "^4.3.0",
         "laravel-mix": "^5.0.1",
         "less": "^3.12.2",

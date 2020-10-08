@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import Form from '../../../components/form/Form';
-import FormService from '../../../services/FormService';
-import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
-import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import { ServerDataContext } from '../../../context';
 import { URLMethod } from '../../../services/URLService';
+import Form from '../../../components/form/Form';
+import FormService from '../../../services/FormService';
+import React, { useContext } from 'react';
+import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
+import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 
 export const ForgotPasswordPage = () => {
   const { routes, t } = useContext(ServerDataContext);
