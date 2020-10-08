@@ -6,10 +6,7 @@ export default function Form(props) {
   const [isLoading, setLoading] = useState(false);
 
   return (
-    <Card
-      title={props.title}
-      style={{ margin: 'auto', maxWidth: props.width || 450, width: '100%' }}
-    >
+    <Card title={props.title} className="mx-a w-100" style={{ maxWidth: props.width || 450 }}>
       {isLoading ? (
         <Spin className="d-block" />
       ) : (

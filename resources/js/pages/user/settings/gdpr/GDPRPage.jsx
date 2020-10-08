@@ -13,7 +13,7 @@ export default function GDPRPage() {
 
   return (
     <Container className="my-10">
-      <Card title={t['Rodo options']} style={{ margin: 'auto', maxWidth: 450, width: '100%' }}>
+      <Card title={t['Rodo options']} className="mx-a w-100" style={{ maxWidth: 450 }}>
         <Popconfirm
           onConfirm={handleConfirmDeleteAccount}
           title={t['Are you sure?']}
