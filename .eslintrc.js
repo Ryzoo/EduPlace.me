@@ -17,7 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'jsx-a11y'],
+  plugins: ['react', 'prettier', 'jsx-a11y', 'sort-imports-es6-autofix'],
   rules: {
     'no-nested-ternary': 0,
     'linebreak-style': 0,
@@ -67,5 +67,13 @@ module.exports = {
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'no-unused-expressions': 0,
     'prettier/prettier': 'error',
+    'sort-imports-es6-autofix/sort-imports-es6': [
+      2,
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
   },
 };

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
 import { ServerDataContext } from '../../../context';
-import Form from '../../../components/form/Form';
-import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 import CheckboxFormInput from '../../../components/form/form-inputs/CheckboxFormInput';
-import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
+import Form from '../../../components/form/Form';
 import FormService, { OldValueType } from '../../../services/FormService';
+import React, { useContext } from 'react';
+import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
+import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 
 export default function LoginPage() {
   const { routes, t } = useContext(ServerDataContext);

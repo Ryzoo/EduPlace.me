@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import buildStore from './store/index';
 import { ConfigProvider, message } from 'antd';
+import { Provider } from 'react-redux';
+import { ServerDataContext } from './context';
+import { render } from 'react-dom';
+import React, { useContext } from 'react';
+import buildStore from './store/index';
+import dayjs from 'dayjs';
 import enLanguageData from 'antd/es/locale/en_US';
 import plLanguageData from 'antd/es/locale/pl_PL';
-import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { ServerDataContext } from './context';
 
 export default function buildApp(renderLayout) {
   render(

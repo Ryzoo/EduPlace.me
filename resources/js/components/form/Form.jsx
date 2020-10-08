@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Form as FormAntd, Card, Spin } from 'antd';
+import { Card, Form as FormAntd, Spin } from 'antd';
 import FormService from '../../services/FormService';
+import React, { useState } from 'react';
 
 export default function Form(props) {
   const [isLoading, setLoading] = useState(false);

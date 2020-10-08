@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { ServerDataContext } from '../../../context';
 import Form from '../../../components/form/Form';
 import FormService from '../../../services/FormService';
-import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
+import React, { useContext } from 'react';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
-import { ServerDataContext } from '../../../context';
+import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 
 export const ResetPasswordPage = () => {
   const { routes, t, additional } = useContext(ServerDataContext);
