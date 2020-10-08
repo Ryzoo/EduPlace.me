@@ -1,9 +1,12 @@
+import { URLMethod } from './URLService';
+
 export default class FormService {
-  static submit(path, method, data) {
+  static submit(path, method, data = {}) {
     const form = document.createElement('form');
-    form.method = method;
+    form.method = method === URLMethod.GET || method === URLMethod.POST ? method : URLMethod.POST;
     form.action = path;
     form.insertAdjacentHTML('beforeend', window.serverData.csrfToken);
+    form.insertAdjacentHTML('beforeend', `<input hidden name="_method" value="${method}" />`);
 
     for (const key in data) {
       // eslint-disable-next-line no-prototype-builtins

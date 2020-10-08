@@ -4,6 +4,7 @@ import FormService from '../../../services/FormService';
 import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import { ServerDataContext } from '../../../context';
+import { URLMethod } from '../../../services/URLService';
 
 export const ForgotPasswordPage = () => {
   const { routes, t } = useContext(ServerDataContext);
@@ -12,7 +13,7 @@ export const ForgotPasswordPage = () => {
     <Form
       title={t['Reset your password']}
       action={routes.auth.forgotPassword}
-      method="POST"
+      method={URLMethod.POST}
       initialValues={{
         email: FormService.getOldValue('email'),
       }}
