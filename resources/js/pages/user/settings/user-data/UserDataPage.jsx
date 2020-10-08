@@ -1,6 +1,46 @@
-import React from 'react';
-import { Card } from 'antd';
+import React, { useContext } from 'react';
+import { ServerDataContext } from '../../../../context';
+import Form from '../../../../components/form/Form';
+import FormService from '../../../../services/FormService';
+import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
+import SubmitFormInput from '../../../../components/form/form-inputs/SubmitFormInput';
+import { Container } from '../../../../components/shared/container/Container';
+import { useSelector } from 'react-redux';
+import { authUser } from '../../../../store/features/user/user';
+import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
+import { URLMethod } from '../../../../services/URLService';
 
 export default function UserDataPage() {
-  return <Card>UserDataPage</Card>;
+  const user = useSelector(authUser);
+  const { routes, t } = useContext(ServerDataContext);
+
+  return (
+    <Container className="my-10">
+      <Form
+        title={t['Change profile data']}
+        action={routes.action.dataChange}
+        method={URLMethod.PUT}
+        initialValues={{
+          name: FormService.getOldValue('name') || user.name,
+          email: FormService.getOldValue('email') || user.email,
+        }}
+      >
+        <TextFormInput name="name" label={t['Name']} prefix={<i className="far fa-user" />} />
+        <TextFormInput
+          name="email"
+          label={t['Email']}
+          prefix={<i className="far fa-envelope-open" />}
+        />
+        <EmailNotVerifiedBanner onlyInformation />
+        <SubmitFormInput label={t['Save changes']}>
+          <a href={routes.user.settings.password} className="flex-align-right mt-2">
+            {t['Change my password']}
+          </a>
+          <a href={routes.user.settings.gdpr} className="flex-align-right mt-2">
+            {t['Go to GDPR options']}
+          </a>
+        </SubmitFormInput>
+      </Form>
+    </Container>
+  );
 }

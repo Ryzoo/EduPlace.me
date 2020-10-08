@@ -10,14 +10,15 @@ class EmailVerificationController extends Controller
 {
 	public function getNotificationPage()
 	{
-		return redirect()->route('pages.auth.email-verification');
+		return view('pages.auth.email-verification');
 	}
 
     public function getVerificationPage(EmailVerificationRequest $request) {
 		$request->fulfill();
 
 		return redirect()
-			->route('pages.search');
+			->route('pages.search')
+			->with('status', __('Your email are verified now!'));
 	}
 
 	public function resendVerificationEmail (Request $request) {

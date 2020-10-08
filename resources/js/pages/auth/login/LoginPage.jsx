@@ -5,6 +5,7 @@ import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 import CheckboxFormInput from '../../../components/form/form-inputs/CheckboxFormInput';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import FormService, { OldValueType } from '../../../services/FormService';
+import { URLMethod } from '../../../services/URLService';
 
 export default function LoginPage() {
   const { routes, t } = useContext(ServerDataContext);
@@ -13,7 +14,7 @@ export default function LoginPage() {
     <Form
       title={t['Login to system']}
       action={routes.action.login}
-      method="POST"
+      method={URLMethod.POST}
       initialValues={{
         email: FormService.getOldValue('email'),
         password: FormService.getOldValue('password'),

@@ -9,6 +9,10 @@ mix
   .react('resources/js/pages/auth/login/builder.jsx', 'public/js/authLoginPage.js')
   .react('resources/js/pages/auth/reset-password/builder.jsx', 'public/js/authResetPasswordPage.js')
   .react(
+    'resources/js/pages/auth/email-verification/builder.jsx',
+    'public/js/emailNotVerifiedPage.js'
+  )
+  .react(
     'resources/js/pages/auth/forgot-password/builder.jsx',
     'public/js/authForgotPasswordPage.js'
   )

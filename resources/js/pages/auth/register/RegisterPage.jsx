@@ -5,6 +5,7 @@ import TextFormInput from '../../../components/form/form-inputs/TextFormInput';
 import CheckboxFormInput from '../../../components/form/form-inputs/CheckboxFormInput';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import FormService, { OldValueType } from '../../../services/FormService';
+import { URLMethod } from '../../../services/URLService';
 
 export default function RegisterPage() {
   const { routes, t } = useContext(ServerDataContext);
@@ -13,7 +14,7 @@ export default function RegisterPage() {
     <Form
       title={t['Create new account']}
       action={routes.action.register}
-      method="POST"
+      method={URLMethod.POST}
       initialValues={{
         name: FormService.getOldValue('name'),
         email: FormService.getOldValue('email'),
