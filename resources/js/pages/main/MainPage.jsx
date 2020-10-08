@@ -1,12 +1,11 @@
+import * as classnames from 'classnames';
 import { Button, Carousel, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
 import { ServerDataContext } from '../../context';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import URLService from '../../services/URLService';
-
 import './MainPage.scss';
-import * as classnames from 'classnames';
 
 export const MainPage = () => {
   const refCarousel = useRef(null);

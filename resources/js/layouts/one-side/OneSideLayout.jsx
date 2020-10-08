@@ -1,9 +1,9 @@
-import './OneSideLayout.scss';
 import { Layout, Menu } from 'antd';
 import { ServerDataContext } from '../../context';
 import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext } from 'react';
 import URLService from '../../services/URLService';
+import './OneSideLayout.scss';
 
 const { Content, Header } = Layout;
 const { SubMenu } = Menu;

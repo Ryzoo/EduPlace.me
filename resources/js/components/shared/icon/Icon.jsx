@@ -1,6 +1,5 @@
 import * as classnames from 'classnames';
 import React from 'react';
-
 import './Icon.scss';
 
 export const Icon = (props) => (
