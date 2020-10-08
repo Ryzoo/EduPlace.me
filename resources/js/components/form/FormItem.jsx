@@ -5,6 +5,7 @@ import { Form } from 'antd';
 export default function FormItem(props) {
   return (
     <Form.Item
+      hidden={props.hidden}
       name={props.name || ''}
       label={props.label || ''}
       rules={props.rules || []}

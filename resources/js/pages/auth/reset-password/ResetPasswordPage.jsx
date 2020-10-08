@@ -6,7 +6,7 @@ import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInpu
 import { ServerDataContext } from '../../../context';
 
 export const ResetPasswordPage = () => {
-  const { routes, t } = useContext(ServerDataContext);
+  const { routes, t, additional } = useContext(ServerDataContext);
 
   return (
     <Form
@@ -14,11 +14,13 @@ export const ResetPasswordPage = () => {
       action={routes.auth.passwordUpdate}
       method="POST"
       initialValues={{
+        token: additional.resetToken,
         email: FormService.getOldValue('email'),
         password: FormService.getOldValue('password'),
         password_confirmation: FormService.getOldValue('password_confirmation'),
       }}
     >
+      <TextFormInput hidden name="token" label={t['Token']} />
       <TextFormInput
         name="email"
         label={t['Email']}

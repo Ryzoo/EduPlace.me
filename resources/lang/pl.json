@@ -45,5 +45,6 @@
   "Your email are not verified. Please use button in email that was sent to you.": "Twój email nie został zweryfikowany. Użyj proszę przycisku w wiadomości, którą do Ciebie wysłaliśmy.",
   "Change your password": "Zmień swoje hasło",
   "Reset your password": "Zresetuj swoje hasło",
-  "Reset password": "Reset hasła"
+  "Reset password": "Reset hasła",
+  "Token": "Klucz"
 }

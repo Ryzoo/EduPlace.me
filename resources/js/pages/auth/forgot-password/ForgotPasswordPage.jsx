@@ -11,7 +11,7 @@ export const ForgotPasswordPage = () => {
   return (
     <Form
       title={t['Reset your password']}
-      action={routes.auth.passwordRequest}
+      action={routes.auth.forgotPassword}
       method="POST"
       initialValues={{
         email: FormService.getOldValue('email'),

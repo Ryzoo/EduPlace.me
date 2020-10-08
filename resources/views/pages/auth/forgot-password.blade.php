@@ -8,12 +8,6 @@
     <script>
       window.serverData = {
         ...window.serverData,
-        routes: {
-          ...window.serverData.routes,
-          action: {
-            passwordRequest: '{{route('password.request')}}'
-          }
-        },
         t: {
           ...window.serverData.t,
           ['Email']: '{{__('Email')}}',

@@ -41,6 +41,7 @@
 
       window.serverData = {
         ...sharedData,
+        additional: {},
         success: "{{ session('status') ?? '' }}",
         error: "{{ session('error') ?? '' }}",
         validationErrors: JSON.parse('{!! $errors ?? '' !!}'),

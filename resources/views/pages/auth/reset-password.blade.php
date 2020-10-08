@@ -8,11 +8,9 @@
     <script>
       window.serverData = {
         ...window.serverData,
-        routes: {
-          ...window.serverData.routes,
-          action: {
-            passwordUpdate: '{{route('password.update')}}',
-          }
+        additional: {
+          ...window.serverData.additional,
+          resetToken: '{{$token}}'
         },
         t: {
           ...window.serverData.t,
