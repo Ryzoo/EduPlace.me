@@ -28,7 +28,7 @@ export const MainPage = () => {
 
   return (
     <>
-      <Container className="start-section">
+      <Container className="start-section b-white">
         <Row>
           <Col md={12} span={24}>
             <Row
@@ -94,7 +94,7 @@ export const MainPage = () => {
           </Row>
         </Container>
       </Container>
-      <Container className="promo-section py-6">
+      <Container className="promo-section py-6 b-white">
         <Row align="middle">
           <Col
             className={StringService.logicConcat('px-10', {
@@ -162,7 +162,7 @@ export const MainPage = () => {
           </Row>
         </Container>
       </Container>
-      <Container className="promo-section py-6">
+      <Container className="promo-section py-6 b-white">
         <Row align="middle">
           <Col
             span={24}
