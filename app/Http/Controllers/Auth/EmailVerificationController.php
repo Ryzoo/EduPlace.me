@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\Auth\EmailVerificationNotification;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class EmailVerificationController extends Controller
 {
@@ -22,7 +24,7 @@ class EmailVerificationController extends Controller
 	}
 
 	public function resendVerificationEmail (Request $request) {
-		$request->user()->sendEmailVerificationNotification();
+		$request->user()->notify((new EmailVerificationNotification())->locale(App::getLocale()));
 
 		return back()
 			->with('status', __('Verification link send to your email!'));

@@ -8,6 +8,7 @@ use App\Models\Auth\PasswordReset;
 use App\Models\User;
 use App\Notifications\Auth\EmailVerificationNotification;
 use App\Notifications\Auth\PasswordResetNotification;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +33,7 @@ class AuthService
 
 		Auth::login($user);
 
-		if(!$isVerified) $user->notify(new EmailVerificationNotification());
+		if(!$isVerified) $user->notify((new EmailVerificationNotification())->locale(App::getLocale()));
 		else $user->forceFill([
 				'email_verified_at' => Date::now()
 			])->save();
@@ -49,7 +50,7 @@ class AuthService
 			'token' => $token,
 		]);
 
-		$user->notify(new PasswordResetNotification($token));
+		$user->notify((new PasswordResetNotification($token))->locale(App::getLocale()));
 	}
 
 	public function resetUserPassword(string $email, string $password, string $token)
