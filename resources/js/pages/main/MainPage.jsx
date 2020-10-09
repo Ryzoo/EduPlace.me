@@ -64,14 +64,14 @@ export const MainPage = () => {
           >
             <Image
               preview={false}
-              src="../../img/1.svg"
+              src="/images/1.svg"
               alt="Header image"
               width={!screen.md ? '50%' : '100%'}
             />
           </Col>
         </Row>
       </Container>
-      <Container fluid className="partners-section py-6">
+      <Container fluid className="partners-section">
         <Container>
           <Row>
             <Col span={24}>
@@ -81,12 +81,11 @@ export const MainPage = () => {
               <div className="carousel-container">
                 <Icon className="carousel-arrow arrow-left" name="fa-angle-left" onClick={prev} />
                 <Carousel slidesToShow={slidesToShow} ref={refCarousel} dots={false}>
-                  <Image width={250} src="https://via.placeholder.com/250x100" />
-                  <Image src="https://via.placeholder.com/250x100" />
-                  <Image src="https://via.placeholder.com/250x100" />
-                  <Image src="https://via.placeholder.com/250x100" />
-                  <Image src="https://via.placeholder.com/250x100" />
-                  <Image src="https://via.placeholder.com/250x100" />
+                  <Image height={150} src="/images/Chorwacja.jpg" />
+                  <Image height={150} src="/images/CzechRepublic.jpg" />
+                  <Image height={150} src="/images/Macedonia.jpg" />
+                  <Image height={150} src="/images/TurcjaAmasya.jpg" />
+                  <Image height={150} src="/images/US.jpg" />
                 </Carousel>
                 <Icon className="carousel-arrow arrow-right" name="fa-angle-right" onClick={next} />
               </div>
@@ -94,10 +93,11 @@ export const MainPage = () => {
           </Row>
         </Container>
       </Container>
-      <Container className="promo-section py-6 b-white">
+      <Container className="promo-section b-white">
         <Row align="middle">
           <Col
-            className={StringService.logicConcat('px-10', {
+            className={StringService.logicConcat({
+              'px-10': screen.lg,
               'text-center': !screen.lg,
               'pt-4': !screen.lg,
             })}
@@ -126,7 +126,7 @@ export const MainPage = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid className="promo-section-columns py-6">
+      <Container fluid className="promo-section-columns">
         <Container>
           <Row>
             <Col span={!screen.lg ? 24 : 8} className="center-flex-x text-center px-4">
@@ -162,7 +162,7 @@ export const MainPage = () => {
           </Row>
         </Container>
       </Container>
-      <Container className="promo-section py-6 b-white">
+      <Container className="promo-section b-white">
         <Row align="middle">
           <Col
             span={24}
@@ -172,7 +172,8 @@ export const MainPage = () => {
             <Image width="100%" src="https://via.placeholder.com/800x500" />
           </Col>
           <Col
-            className={StringService.logicConcat('px-10', {
+            className={StringService.logicConcat({
+              'px-10': screen.lg,
               'text-center': !screen.lg,
               'pt-4': !screen.lg,
             })}
