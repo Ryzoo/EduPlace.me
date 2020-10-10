@@ -8,16 +8,21 @@ use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\User\NotificationsController;
+use App\Http\Controllers\User\QuestionnaireController;
 use App\Http\Controllers\User\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
-Route::get('/search', function () { return view('pages.search'); })->middleware(['auth'])->name('pages.search');
+Route::get('/search', function () { return view('pages.search'); })->middleware(['auth', 'reviewed'])->name('pages.search');
 Route::get('/language/{code}', [LanguageController::class, 'setLanguage'])->name('language');
 
 Route::prefix('user')->group(function () {
-
 	Route::get('/notifications', [NotificationsController::class, 'getNotificationsPage'])->middleware(['auth'])->name('pages.user.notifications');
+
+	Route::prefix('questionnaire')->group(function () {
+		Route::get('/', [QuestionnaireController::class, 'getQuestionnairePage'])->middleware(['auth'])->name('pages.user.questionnaire');
+		Route::put('/', [QuestionnaireController::class, 'processQuestionnaire'])->middleware(['auth'])->name('action.user.questionnaire');
+	});
 
 	Route::prefix('settings')->group(function () {
 		Route::prefix('user-data')->group(function () {
@@ -47,15 +52,18 @@ Route::prefix('auth')->group(function () {
 			Route::post('{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])->middleware(['throttle:6,1']);
 		});
 	});
+
 	Route::prefix('register')->group(function () {
 		Route::get('/', [RegisterController::class, 'getRegisterPage'])->middleware(['guest'])->name('pages.auth.register');
 		Route::post('/', [RegisterController::class, 'registerNewUser'])->middleware(['throttle:6,1']);
 	});
+
 	Route::prefix('email')->group(function () {
 		Route::get('/verify', [EmailVerificationController::class, 'getNotificationPage'])->middleware(['auth'])->name('verification.notice');
 		Route::get('/verify/{id}/{hash}', [EmailVerificationController::class, 'getVerificationPage'])->middleware(['auth', 'signed'])->name('verification.verify');
 		Route::get('/send-link', [EmailVerificationController::class, 'resendVerificationEmail'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 	});
+
 	Route::prefix('password')->group(function () {
 		Route::get('/forgot', [PasswordResetController::class, 'getForgotPasswordPage'])->middleware(['guest'])->name('password.request');
 		Route::get('/reset/{token}', [PasswordResetController::class, 'getResetPasswordPage'])->middleware(['guest'])->name('password.reset');

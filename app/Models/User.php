@@ -69,4 +69,10 @@ class User extends Authenticatable implements MustVerifyEmail
 				->send();
 		}
 	}
+
+	public function isReviewed():bool
+	{
+		return $this->reviewed_at !== null;
+	}
+
 }

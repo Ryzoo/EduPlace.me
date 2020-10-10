@@ -28,6 +28,7 @@ mix
     'resources/js/pages/user/settings/password-change/builder.jsx',
     'public/js/userSettingsPasswordChangePage.js'
   )
+  .react('resources/js/pages/user/questionnaire/builder.jsx', 'public/js/userQuestionnairePage.js')
   .react('resources/js/pages/user/settings/gdpr/builder.jsx', 'public/js/userSettingsGdprPage.js')
   .version();
 

@@ -37,10 +37,10 @@ export default function OneSideLayout(props) {
       </Header>
       <Layout className="one-side-layout">
         <Content className={props.blackOnLeft ? 'black-side' : 'light-side'}>
-          {props.children}
+          {props.blackOnLeft ? props.description : props.children}
         </Content>
         <Content className={props.blackOnLeft ? 'light-side' : 'black-side'}>
-          {props.description}
+          {props.blackOnLeft ? props.children : props.description}
         </Content>
       </Layout>
     </>
