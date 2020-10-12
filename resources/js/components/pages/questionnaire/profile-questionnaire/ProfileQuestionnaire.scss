@@ -1,34 +1,33 @@
-.profile-item{
+.profile-item {
   padding: 15px;
-  border: 1px solid #b7b7b7;
-  background: #f0f2f5;
-  border-radius: 2px;
   cursor: pointer;
+  background: #f0f2f5;
+  border: 1px solid #b7b7b7;
+  border-radius: 2px;
   transition: all .2s;
 
-  &:hover{
-    border-color: #D61889;
+  &:hover {
+    border-color: #d61889;
     transition: all .2s;
   }
 }
 
-.profile-active{
-  transition: all .2s;
-  background: #D61889;
+.profile-active {
   color: white;
+  background: #d61889;
+  transition: all .2s;
 }
 
-.ant-tag-checkable{
+.ant-tag-checkable {
   margin: 2px;
 }
 
-.ant-tag-checkable:not(.ant-tag-checkable-checked){
-  border: 1px solid #b7b7b7;
+.ant-tag-checkable:not(.ant-tag-checkable-checked) {
+  margin: 2px;
   background: #f0f2f5;
-  margin: 2px;
+  border: 1px solid #b7b7b7;
 }
 
-.ant-tag-checkable:not(.ant-tag-checkable-checked):hover{
+.ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
   border-color: #d618891f;
 }
-
