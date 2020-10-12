@@ -2,29 +2,33 @@
 
 namespace App\Http\Requests\User;
 
+use App\Enums\User\ProfileEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Spatie\Enum\Laravel\Http\Requests\TransformsEnums;
 
 class QuestionnaireRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+	use TransformsEnums;
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
+		$profileEnum = ProfileEnum::class;
+
         return [
-            //
+			'profile' => "required|enum:{$profileEnum}",
+			'interests' => 'required|array|min:1',
         ];
     }
+
+	public function enums(): array
+	{
+		return [
+			'profile' => ProfileEnum::class,
+		];
+	}
 }

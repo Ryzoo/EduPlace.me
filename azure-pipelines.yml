@@ -37,13 +37,18 @@ steps:
     npm run prod
   displayName: 'Generating build assets'
 
+- script:
+    npm run lint:js && npm run lint:scss
+  displayName: 'Running linters'
+
+- script:
+    php artisan insights --no-interaction --min-quality=90 --min-complexity=90 --min-architecture=90 --min-style=90
+  displayName: 'Running code analyze'
+
 - script: |
     php artisan test --log-junit tests/Results/TEST-phpunit-junit.xml
   displayName: 'Running Tests'
 
-- script: 
-    npm run lint:js && npm run lint:scss
-  displayName: 'Running linters'
 
 - task: PublishTestResults@2
   inputs:

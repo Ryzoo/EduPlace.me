@@ -11,9 +11,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
-    protected $dontReport = [
-        //
-    ];
+    protected $dontReport = [];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
@@ -32,6 +30,14 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+		$this->renderable(function (System $exception) {
+			return back()
+				->with('error', $exception->getMessage());
+		});
+
+		$this->renderable(function (BusinessValidation $exception) {
+			return back()
+				->with('error', $exception->getMessage());
+		});
     }
 }

@@ -1,5 +1,5 @@
+import { Alert, Steps } from 'antd';
 import { ServerDataContext } from '../../../context';
-import { Steps } from 'antd';
 import { URLMethod } from '../../../services/URLService';
 import FormService from '../../../services/FormService';
 import InterestsQuestionnaire from '../../../components/pages/questionnaire/interests-questionnaire/InterestsQuestionnaire';
@@ -18,23 +18,31 @@ export default function QuestionnairePage() {
   const [isLoading, setLoading] = useState(false);
   const [current, setCurrent] = useState(QuestionnaireSteps.PROFILE);
   const [profile, setProfile] = useState();
+  const [interests, setInterests] = useState([]);
 
-  const handleEndQuestionnaire = (interests) => {
+  const handleEndQuestionnaire = (values) => {
     setLoading(true);
     FormService.submit(routes.action.processQuestionnaire, URLMethod.POST, {
-      profile,
-      interests,
+      profile: profile.id,
+      interests: values,
     });
   };
 
-  const handleGoBack = () => {
+  const handleGoBack = (values) => {
+    setInterests(values);
     setCurrent(QuestionnaireSteps.PROFILE);
   };
 
   const handleGoNext = (selectedProfile) => {
-    setProfile(selectedProfile);
+    if (profile !== selectedProfile) {
+      setProfile(selectedProfile);
+      setInterests([]);
+    }
     setCurrent(QuestionnaireSteps.INTERESTS);
   };
+
+  const errorMessage =
+    FormService.getValidateError('profile') || FormService.getValidateError('interests') || null;
 
   return (
     <section className="w-100 w-max-md">
@@ -42,9 +50,13 @@ export default function QuestionnairePage() {
         <Step key={QuestionnaireSteps.PROFILE} title={t['Profile']} />
         <Step key={QuestionnaireSteps.INTERESTS} title={t['Interests']} />
       </Steps>
-      {current === QuestionnaireSteps.PROFILE && <ProfileQuestionnaire onGoNext={handleGoNext} />}
+      {errorMessage && errorMessage.length && <Alert message={errorMessage} type="error" />}
+      {current === QuestionnaireSteps.PROFILE && (
+        <ProfileQuestionnaire default={profile} onGoNext={handleGoNext} />
+      )}
       {current === QuestionnaireSteps.INTERESTS && (
         <InterestsQuestionnaire
+          default={interests}
           profile={profile}
           isLoading={isLoading}
           onGoBack={handleGoBack}

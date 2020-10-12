@@ -5,10 +5,17 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\ChangePasswordRequest;
 use App\Http\Requests\User\ChangeProfileDataRequest;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
+	private UserService $userService;
+
+	public function __construct(UserService $userService){
+		$this->userService = $userService;
+	}
+
 	public function getGDPRPage()
 	{
 		return view('pages.user.settings.gdpr');
@@ -30,10 +37,8 @@ class SettingsController extends Controller
 		$newName = $request->get('name');
 		$newEmail = $request->get('email');
 
-		if($user->name !== $newName)
-			$user->changeName($newName);
-		if($user->email !== $newEmail)
-			$user->changeEmail($newEmail);
+		$this->userService->changeName($user, $newName);
+		$this->userService->changeEmail($user, $newEmail);
 
 		return back()
 			->with('success', __('Your profile data changed successfully!'));
@@ -41,10 +46,10 @@ class SettingsController extends Controller
 
 	public function changePassword(ChangePasswordRequest $request)
 	{
-		$oldPassword = $request->get('old_password');
+		$user = Auth::user();
 		$newPassword = $request->get('new_password');
 
-		Auth::user()->changePassword($oldPassword, $newPassword);
+		$this->userService->changePassword($user, $newPassword);
 
 		return redirect()
 			->route('login')
@@ -53,7 +58,8 @@ class SettingsController extends Controller
 
 	public function deleteUserAccount()
 	{
-		Auth::user()->deleteAccount();
+		$user = Auth::user();
+		$this->userService->deleteAccount($user);
 
 		return redirect()
 			->route('pages.main')

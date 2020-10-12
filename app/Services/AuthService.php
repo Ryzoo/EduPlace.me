@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Models\Auth\PasswordReset;
 use App\Models\User;
@@ -20,8 +18,12 @@ class AuthService
 	{
 		$user = User::where('email', $email)->first();
 
-		if(isset($user)) Auth::login($user);
-		else $this->registerUser($name, $email, Str::random(16), true);
+		if(isset($user)) {
+			Auth::login($user);
+		}
+		else {
+			$this->registerUser($name, $email, Str::random(16), true);
+		}
 	}
 
 	public function registerUser(string $name, string $email, string $password, bool $isVerified = false){
@@ -33,10 +35,14 @@ class AuthService
 
 		Auth::login($user);
 
-		if(!$isVerified) $user->notify((new EmailVerificationNotification())->locale(App::getLocale()));
-		else $user->forceFill([
-				'email_verified_at' => Date::now()
+		if(! $isVerified) {
+			$user->notify((new EmailVerificationNotification())->locale(App::getLocale()));
+		}
+		else {
+			$user->forceFill([
+				'email_verified_at' => Date::now(),
 			])->save();
+		}
 	}
 
 	public function sendResetLink(string $email)
@@ -57,7 +63,7 @@ class AuthService
 	{
 		$pwdPrompt = PasswordReset::where('email', $email)->first();
 
-		if(!isset($pwdPrompt) || $pwdPrompt->token !== $token){
+		if(! isset($pwdPrompt) || $pwdPrompt->token !== $token){
 			redirect()
 				->route('password.request')
 				->with('error', __('Email and token not match! Try reset password again.'))
@@ -66,8 +72,8 @@ class AuthService
 
 		$user = User::where('email', $email)->first();
 		$user->forceFill([
-				'password' => Hash::make($password)
-			])
+			'password' => Hash::make($password),
+		])
 			->save();
 
 		$user->setRememberToken(Str::random(60));

@@ -10,6 +10,10 @@ export default class URLService {
         FormService.submit(address, URLMethod.DELETE);
     }
   }
+
+  static asset(assetUrl) {
+    return `/${assetUrl}`;
+  }
 }
 
 export const URLMethod = {

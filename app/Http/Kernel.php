@@ -39,7 +39,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 			LanguageMiddleware::class,
-			ShareDataMiddleware::class
+			ShareDataMiddleware::class,
 		],
         'api' => [
             'throttle:api',

@@ -4,17 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Services\AuthService;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-	private AuthService $authService;
-
-	public function __construct(AuthService $authService){
-		$this->authService = $authService;
-	}
-
 	public function getLoginPage()
 	{
 		return view('pages.auth.login');
