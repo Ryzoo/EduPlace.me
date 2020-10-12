@@ -3,7 +3,7 @@
 .profile-item {
   padding: 15px;
   cursor: pointer;
-  background: $background-light;
+  background: $gray;
   border: 1px solid $border-light;
   border-radius: 2px;
   transition: all .2s;
@@ -27,7 +27,7 @@
 .ant-tag-checkable:not(.ant-tag-checkable-checked) {
   transition: all .2s;
   margin: 2px;
-  background: $background-light;
+  background: $gray;
   border: 1px solid $border-light;
 }
 
