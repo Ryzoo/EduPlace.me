@@ -81,11 +81,11 @@ export const MainPage = () => {
               <div className="carousel-container">
                 <Icon className="carousel-arrow arrow-left" name="fa-angle-left" onClick={prev} />
                 <Carousel slidesToShow={slidesToShow} ref={refCarousel} dots={false}>
-                  <Image height={150} src="/images/Chorwacja.jpg" />
-                  <Image height={150} src="/images/CzechRepublic.jpg" />
-                  <Image height={150} src="/images/Macedonia.jpg" />
-                  <Image height={150} src="/images/TurcjaAmasya.jpg" />
-                  <Image height={150} src="/images/US.jpg" />
+                  <Image height={150} src="/images/Chorwacja.webp" />
+                  <Image height={150} src="/images/CzechRepublic.webp" />
+                  <Image height={150} src="/images/Macedonia.webp" />
+                  <Image height={150} src="/images/TurcjaAmasya.webp" />
+                  <Image height={150} src="/images/US.webp" />
                 </Carousel>
                 <Icon className="carousel-arrow arrow-right" name="fa-angle-right" onClick={next} />
               </div>
