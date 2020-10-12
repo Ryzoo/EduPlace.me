@@ -25,13 +25,13 @@
 }
 
 .ant-tag-checkable:not(.ant-tag-checkable-checked) {
-  transition: all .2s;
   margin: 2px;
   background: $gray;
   border: 1px solid $border-light;
+  transition: all .2s;
 }
 
 .ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
-  transition: all .2s;
   border-color: $hovered-primary;
+  transition: all .2s;
 }
