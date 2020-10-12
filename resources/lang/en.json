@@ -67,5 +67,15 @@
   "Your profile data changed successfully!": "Your profile data changed successfully!",
   "Your password changed successfully!": "Your password changed successfully!",
   "Your account deleted successfully!": "Your account deleted successfully!",
-  "Back to main page.": "Back to main page."
+  "Back to main page.": "Back to main page.",
+  "Profile": "Profile",
+  "Interests": "Interests",
+  "Next": "Next",
+  "Previous": "Previous",
+  "Finish": "Finish",
+  "Profile Student": "Student",
+  "Profile Creator": "Creator",
+  "Mark the interests you are interested in.": "Mark the interests you are interested in.",
+  "Select profile that can represent you.": "Select profile that can represent you.",
+  "Questionnaire processed successfully!": "Questionnaire processed successfully!"
 }

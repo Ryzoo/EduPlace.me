@@ -7,7 +7,7 @@ export default function Form(props) {
 
   return (
     <Card title={props.title} className="mx-a w-100" style={{ maxWidth: props.width || 450 }}>
-      {isLoading ? (
+      {props.isLoading || isLoading ? (
         <Spin className="d-block" />
       ) : (
         <FormAntd

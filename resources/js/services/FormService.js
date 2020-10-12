@@ -11,12 +11,21 @@ export default class FormService {
     for (const key in data) {
       // eslint-disable-next-line no-prototype-builtins
       if (data.hasOwnProperty(key)) {
-        const hiddenField = document.createElement('input');
-        hiddenField.type = 'hidden';
-        hiddenField.name = key;
-        hiddenField.value = data[key];
-
-        form.appendChild(hiddenField);
+        if (Array.isArray(data[key])) {
+          data[key].forEach((x) => {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = `${key}[]`;
+            hiddenField.value = x;
+            form.appendChild(hiddenField);
+          });
+        } else {
+          const hiddenField = document.createElement('input');
+          hiddenField.type = 'hidden';
+          hiddenField.name = key;
+          hiddenField.value = data[key];
+          form.appendChild(hiddenField);
+        }
       }
     }
 

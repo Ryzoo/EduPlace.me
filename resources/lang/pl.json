@@ -67,5 +67,15 @@
   "Your profile data changed successfully!": "Twoje dane profilowe zostały zmienione!",
   "Your password changed successfully!": "Twoje hasło zostało zmienione!",
   "Your account deleted successfully!": "Twoje konto zostało usunięte!",
-  "Back to main page.": "Powrót do strony głównej."
+  "Back to main page.": "Powrót do strony głównej.",
+  "Profile": "Profil",
+  "Interests": "Zainteresowania",
+  "Next": "Dalej",
+  "Previous": "Powrót",
+  "Finish": "Zakończ",
+  "Profile Student": "Student",
+  "Profile Creator": "Twórca",
+  "Mark the interests you are interested in.": "Zaznacz zainteresowania, które Cie interesują.",
+  "Select profile that can represent you.": "Wybierz profil, który może Cię reprezentować.",
+  "Questionnaire processed successfully!": "kwestionariusz został pomyślnie przetworzony!"
 }

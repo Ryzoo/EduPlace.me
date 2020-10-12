@@ -147,4 +147,9 @@ return [
 	*/
 
 	'attributes' => [],
+	'enum' => ':attribute nie jest poprawnym polem od :enum.',
+	'enum_index' => ':attribute nie jest poprawnym indeksem od :enum.',
+	'enum_name' => ':attribute nie jest poprawną nazwą od :enum.',
+	'enum_value' => ':attribute nie jest poprawną wartością od :enum.',
+	'enums' => [],
 ];

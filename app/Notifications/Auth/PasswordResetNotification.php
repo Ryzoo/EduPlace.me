@@ -21,6 +21,11 @@ class PasswordResetNotification extends Notification implements ShouldQueue
 		$this->token = $token;
 	}
 
+	public function toArray()
+	{
+		return [];
+	}
+
     public function via()
     {
         return ['mail'];
@@ -30,10 +35,10 @@ class PasswordResetNotification extends Notification implements ShouldQueue
     {
     	$resetPasswordUrl = $this->getResetPasswordUrl();
 
-        return (new MailMessage)
-                    ->line(__("You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below."))
-                    ->action(__('Go to reset password'), $resetPasswordUrl)
-                    ->line(__('Thank you for using our application!'));
+        return (new MailMessage())
+			->line(__("You prompted for reset password. If it's not you, then ignore this email. Otherwise, click on button below."))
+			->action(__('Go to reset password'), $resetPasswordUrl)
+			->line(__('Thank you for using our application!'));
     }
 
     protected function getResetPasswordUrl(){
@@ -43,11 +48,4 @@ class PasswordResetNotification extends Notification implements ShouldQueue
 			['token' => $this->token]
 		);
 	}
-
-    public function toArray()
-    {
-        return [
-            //
-        ];
-    }
 }

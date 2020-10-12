@@ -14,45 +14,28 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+	public function toArray()
+	{
+		return [];
+	}
 
     public function via()
     {
         return ['mail'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
 		$userName = $notifiable->name;
 		$verificationUrl = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)
-					->greeting(__('Hi :userName', ['userName' => $userName]))
-                    ->line(__('Thank you for register! To finish registration, click on button below.'))
-                    ->action(__('Verify this email'), $verificationUrl)
-                    ->line(__('Thank you for using our application!'));
+        return (new MailMessage())
+			->greeting(__('Hi :userName', ['userName' => $userName]))
+			->line(__('Thank you for register! To finish registration, click on button below.'))
+			->action(__('Verify this email'), $verificationUrl)
+			->line(__('Thank you for using our application!'));
     }
 
-	/**
-	 * Get the verification URL for the given notifiable.
-	 *
-	 * @param  mixed  $notifiable
-	 * @return string
-	 */
 	public function verificationUrl($notifiable)
 	{
 		return URL::temporarySignedRoute(
@@ -64,11 +47,4 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 			]
 		);
 	}
-
-    public function toArray()
-    {
-        return [
-            //
-        ];
-    }
 }

@@ -1,0 +1,37 @@
+@import '../../../../../../css/framework/variables';
+
+.profile-item {
+  padding: 15px;
+  cursor: pointer;
+  background: $gray;
+  border: 1px solid $border-light;
+  border-radius: 2px;
+  transition: all .2s;
+
+  &:hover {
+    border-color: $primary;
+    transition: all .2s;
+  }
+}
+
+.profile-active {
+  color: white;
+  background: $primary;
+  transition: all .2s;
+}
+
+.ant-tag-checkable {
+  margin: 2px;
+}
+
+.ant-tag-checkable:not(.ant-tag-checkable-checked) {
+  margin: 2px;
+  background: $gray;
+  border: 1px solid $border-light;
+  transition: all .2s;
+}
+
+.ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+  border-color: $hovered-primary;
+  transition: all .2s;
+}
