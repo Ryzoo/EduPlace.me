@@ -1,13 +1,13 @@
 import { Button, Row, Tag, Typography } from 'antd';
-import { ServerDataContext } from '../../../../context';
-import Form from '../../../form/Form';
-import FormItem from '../../../form/FormItem';
+import { ServerDataContext } from '../../../../../context';
+import Form from '../../../../form/Form';
+import FormItem from '../../../../form/FormItem';
 import React, { useContext, useState } from 'react';
 
 const { Paragraph } = Typography;
 const { CheckableTag } = Tag;
 
-export default function InterestsQuestionnaire(props) {
+export const InterestsQuestionnaire = (props) => {
   const { t } = useContext(ServerDataContext);
   const [interests, setInterests] = useState(props.default);
 
@@ -54,4 +54,4 @@ export default function InterestsQuestionnaire(props) {
       </FormItem>
     </Form>
   );
-}
+};

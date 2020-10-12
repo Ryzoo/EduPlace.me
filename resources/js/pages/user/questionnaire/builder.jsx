@@ -1,5 +1,5 @@
+import { QuestionnairePage } from './QuestionnairePage';
 import OneSideLayout from '../../../layouts/one-side/OneSideLayout';
-import QuestionnairePage from './QuestionnairePage';
 import React from 'react';
 import buildApp from '../../../default';
 

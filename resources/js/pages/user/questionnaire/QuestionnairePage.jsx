@@ -1,14 +1,14 @@
 import { Alert, Steps } from 'antd';
+import { InterestsQuestionnaire } from '../../../components/pages/user/questionnaire/interests-questionnaire/InterestsQuestionnaire';
+import { ProfileQuestionnaire } from '../../../components/pages/user/questionnaire/profile-questionnaire/ProfileQuestionnaire';
 import { ServerDataContext } from '../../../context';
 import { URLMethod } from '../../../services/URLService';
 import FormService from '../../../services/FormService';
-import InterestsQuestionnaire from '../../../components/pages/questionnaire/interests-questionnaire/InterestsQuestionnaire';
-import ProfileQuestionnaire from '../../../components/pages/questionnaire/profile-questionnaire/ProfileQuestionnaire';
 import React, { useContext, useState } from 'react';
 
 const { Step } = Steps;
 
-export default function QuestionnairePage() {
+export const QuestionnairePage = () => {
   const { routes, t } = useContext(ServerDataContext);
   const QuestionnaireSteps = {
     PROFILE: 0,
@@ -65,4 +65,4 @@ export default function QuestionnairePage() {
       )}
     </section>
   );
-}
+};

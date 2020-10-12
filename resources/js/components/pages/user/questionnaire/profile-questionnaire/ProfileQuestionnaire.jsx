@@ -1,14 +1,14 @@
 import { Button, Col, Row, Typography } from 'antd';
-import { ServerDataContext } from '../../../../context';
-import Form from '../../../form/Form';
-import FormItem from '../../../form/FormItem';
+import { ServerDataContext } from '../../../../../context';
+import Form from '../../../../form/Form';
+import FormItem from '../../../../form/FormItem';
 import React, { useContext, useState } from 'react';
-import StringService from '../../../../services/StringService';
+import StringService from '../../../../../services/StringService';
 import './ProfileQuestionnaire.scss';
 
 const { Paragraph } = Typography;
 
-export default function ProfileQuestionnaire(props) {
+export const ProfileQuestionnaire = (props) => {
   const [profile, setProfile] = useState(props.default);
   const { t, additional } = useContext(ServerDataContext);
   const { profiles } = additional;
@@ -51,4 +51,4 @@ export default function ProfileQuestionnaire(props) {
       </FormItem>
     </Form>
   );
-}
+};
