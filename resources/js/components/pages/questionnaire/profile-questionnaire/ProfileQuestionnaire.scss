@@ -1,20 +1,22 @@
+@import '../../../../../css/framework/variables';
+
 .profile-item {
   padding: 15px;
   cursor: pointer;
-  background: #f0f2f5;
-  border: 1px solid #b7b7b7;
+  background: $background-light;
+  border: 1px solid $border-light;
   border-radius: 2px;
   transition: all .2s;
 
   &:hover {
-    border-color: #d61889;
+    border-color: $primary;
     transition: all .2s;
   }
 }
 
 .profile-active {
   color: white;
-  background: #d61889;
+  background: $primary;
   transition: all .2s;
 }
 
@@ -23,11 +25,13 @@
 }
 
 .ant-tag-checkable:not(.ant-tag-checkable-checked) {
+  transition: all .2s;
   margin: 2px;
-  background: #f0f2f5;
-  border: 1px solid #b7b7b7;
+  background: $background-light;
+  border: 1px solid $border-light;
 }
 
 .ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
-  border-color: #d618891f;
+  transition: all .2s;
+  border-color: $hovered-primary;
 }
