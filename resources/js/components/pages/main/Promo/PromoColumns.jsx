@@ -1,11 +1,12 @@
-import { Col, Row, Typography } from 'antd';
+import { Col, Grid, Row, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
 import { Icon } from '../../../shared/icon/Icon';
 import React from 'react';
 
-// eslint-disable-next-line no-unused-vars
-export const PromoColumns = ({ routes, t, screen }) => {
+export const PromoColumns = () => {
   const { Title } = Typography;
+  const { useBreakpoint } = Grid;
+  const screen = useBreakpoint();
 
   return (
     <Container fluid className="promo-section-columns">

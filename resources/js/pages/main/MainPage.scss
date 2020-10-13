@@ -1,5 +1,17 @@
 @import './../../../css/default';
 
+.ant-carousel .slick-dots {
+  bottom: -55px;
+
+  li button {
+    background-color: $primary;
+  }
+
+  li.slick-active button {
+    background-color: rgba($primary, .5);
+  }
+}
+
 .start-section {
   min-height: 500px;
 

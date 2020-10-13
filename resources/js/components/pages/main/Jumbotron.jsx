@@ -1,10 +1,15 @@
-import { Button, Col, Image, Row } from 'antd';
+import { Button, Col, Grid, Image, Row } from 'antd';
 import { Container } from '../../shared/container/Container';
-import React from 'react';
+import { ServerDataContext } from '../../../context';
+import React, { useContext } from 'react';
 import StringService from '../../../services/StringService';
 import URLService from '../../../services/URLService';
 
-export const Jumbotron = ({ routes, t, screen }) => {
+export const Jumbotron = () => {
+  const { routes, t } = useContext(ServerDataContext);
+  const { useBreakpoint } = Grid;
+  const screen = useBreakpoint();
+
   return (
     <Container className="start-section b-white">
       <Row>
