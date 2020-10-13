@@ -5,11 +5,12 @@ import { ServerDataContext } from '../../../context';
 import { useContext, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
+const { Title } = Typography;
+const { useBreakpoint } = Grid;
+
 export const Partners = () => {
   const { t } = useContext(ServerDataContext);
-  const { useBreakpoint } = Grid;
   const screen = useBreakpoint();
-  const { Title } = Typography;
   const refCarousel = useRef(null);
   const next = () => refCarousel.current.next();
   const prev = () => refCarousel.current.prev();

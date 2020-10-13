@@ -5,10 +5,11 @@ import React, { useContext } from 'react';
 import StringService from '../../../services/StringService';
 import URLService from '../../../services/URLService';
 
+const { useBreakpoint } = Grid;
+
 export const Jumbotron = () => {
-  const { routes, t } = useContext(ServerDataContext);
-  const { useBreakpoint } = Grid;
   const screen = useBreakpoint();
+  const { routes, t } = useContext(ServerDataContext);
 
   return (
     <Container className="start-section b-white">
