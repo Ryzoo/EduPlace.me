@@ -20,11 +20,7 @@ export default function OneSideLayout(props) {
         }}
       >
         <Logo dark={!props.blackOnLeft} />
-        <Menu
-          theme={props.blackOnLeft ? 'dark' : 'light'}
-          className="float-right"
-          mode="horizontal"
-        >
+        <Menu className="float-right" mode="horizontal">
           <SubMenu key="language" title={language.toUpperCase()}>
             <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
               PL

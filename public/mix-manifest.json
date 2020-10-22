@@ -1,15 +1,15 @@
 {
-    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js",
-    "/js/authLoginPage.js": "/js/authLoginPage.js",
-    "/js/authRegisterPage.js": "/js/authRegisterPage.js",
-    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js",
-    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js",
-    "/js/mainPage.js": "/js/mainPage.js",
-    "/css/app.css": "/css/app.css",
-    "/js/searchPage.js": "/js/searchPage.js",
-    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js",
-    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js",
-    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js",
-    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js",
-    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js"
+    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js?id=d6812e76aebc4eb9e754",
+    "/js/authLoginPage.js": "/js/authLoginPage.js?id=3317a39476e455502a2b",
+    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=6ae9b2753e292ebc9405",
+    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js?id=a5c76d2c1c425d8fcc51",
+    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js?id=538ae6f82c8ae6abd66f",
+    "/js/mainPage.js": "/js/mainPage.js?id=2c357b9a4f93d14518be",
+    "/css/app.css": "/css/app.css?id=474bbb39877b8d928a3f",
+    "/js/searchPage.js": "/js/searchPage.js?id=4b69afd1365b014ce842",
+    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js?id=e7425e9c9e7b18a7dcf3",
+    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=4b2ce11f06b4e596c22e",
+    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=d678a3e509d5dd0434d7",
+    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=223c9b9785b6b00b2fcb",
+    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=5816d4b566af62a72db8"
 }

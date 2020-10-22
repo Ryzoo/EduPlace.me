@@ -20,7 +20,7 @@
   }
 
   .main-text {
-    font-size: pxToRem(72px);
+    font-size: pxToRem(72);
     font-weight: 700;
     line-height: .75;
 
@@ -42,7 +42,7 @@
   }
 
   .sub-text {
-    font-size: pxToRem(18px);
+    font-size: pxToRem(18);
 
     span {
       color: $primary;
@@ -98,7 +98,7 @@
       align-items: center;
 
       span {
-        font-size: pxToRem(30px);
+        font-size: pxToRem(30);
         margin-right: 10px;
         margin-bottom: .5em;
       }
@@ -109,11 +109,11 @@
 @media screen and (max-width: $break-x-large) {
   .start-section {
     .main-text {
-      font-size: pxToRem(46px);
+      font-size: pxToRem(46);
     }
 
     .sub-text {
-      font-size: pxToRem(16px);
+      font-size: pxToRem(16);
 
       span {
         padding: 0 2px;
@@ -131,7 +131,7 @@
 @media screen and (max-width: $break-medium) {
   .start-section {
     .main-text {
-      font-size: pxToRem(32px);
+      font-size: pxToRem(32);
     }
 
     .text-row {

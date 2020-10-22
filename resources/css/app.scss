@@ -2,8 +2,6 @@
 @import 'framework/spaces';
 @import 'framework/display';
 
-body,
-.ant-layout-footer,
-.ant-layout {
-  background-color: #f0f2f5 !important;
+.ant-layout-header {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }

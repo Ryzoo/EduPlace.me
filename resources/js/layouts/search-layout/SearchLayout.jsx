@@ -65,7 +65,6 @@ export default function SearchLayout(props) {
           <span className={inDrawer ? '' : 'text-light'} />
         </div>
         <Menu
-          theme={inDrawer ? 'light' : 'dark'}
           mode={inDrawer ? 'inline' : 'horizontal'}
           className={inDrawer ? '' : 'float-right show-lg'}
           defaultSelectedKeys={[routes.current]}
@@ -113,7 +112,7 @@ export default function SearchLayout(props) {
             <i className="fas fa-bars" />
           </Button>
           <Logo />
-          <Menu theme="dark" mode="horizontal" className="float-right">
+          <Menu mode="horizontal" className="float-right">
             <SubMenu key="language" title={language.toUpperCase()}>
               <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
                 PL

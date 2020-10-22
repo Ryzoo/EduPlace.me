@@ -1,4 +1,12 @@
-/* Paddings, Margins */
+// Framework
+
+$primary-color: #d61889;
+$font-size-base: 16;
+$layout-body-background: #f0f2f5;
+$layout-header-background: #fff;
+//$layout-header-height: 70px;
+
+// Paddings, Margins
 
 $space-basic: 5px;
 
@@ -12,11 +20,11 @@ $space-s-large: 50px;
 $space-large: 75px;
 $space-x-large: 100px;
 
-/* Font */
+// Font
 
-$font-size: 16px;
+$font-size: $font-size-base;
 
-/* Screen displays */
+// Screen displays
 
 $break-small: 576px;
 $break-medium: 768px;
@@ -24,13 +32,13 @@ $break-large: 992px;
 $break-x-large: 1200px;
 $break-xx-large: 1600px;
 
-/* Colors */
+// Colors
 
-$primary: #d61889;
+$primary: $primary-color;
 $secondary: #f89020;
 $primary-1: #641467;
 $primary-2: #49135f;
 $gray: #f0f2f5;
 
 $border-light: #b7b7b7;
-$hovered-primary: #d618891f
+$hovered-primary: #d618891f;
