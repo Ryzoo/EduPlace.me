@@ -1,7 +1,7 @@
 import { Carousel, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../shared/container/Container';
 import { Icon } from '../../shared/icon/Icon';
-import { ServerDataContext } from '../../../context';
+import { ServerDataContext } from '../../../context/context';
 import { useContext, useEffect, useRef, useState } from 'react';
 import React from 'react';
 

@@ -1,6 +1,6 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
-import { ServerDataContext } from '../../context';
+import { ServerDataContext } from '../../context/context';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import Logo from '../../components/layouts/logo/Logo';

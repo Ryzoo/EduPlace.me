@@ -4,4 +4,13 @@
 
 .ant-layout-header {
   box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
+  z-index: 1;
+
+  & > * {
+    margin-top: -1px !important;
+  }
+
+  .ant-menu-horizontal {
+    border: none;
+  }
 }

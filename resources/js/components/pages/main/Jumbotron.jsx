@@ -1,6 +1,6 @@
 import { Button, Col, Grid, Image, Row } from 'antd';
 import { Container } from '../../shared/container/Container';
-import { ServerDataContext } from '../../../context';
+import { ServerDataContext } from '../../../context/context';
 import React, { useContext } from 'react';
 import StringService from '../../../services/StringService';
 import URLService from '../../../services/URLService';

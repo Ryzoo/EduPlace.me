@@ -1,6 +1,6 @@
 import { Container } from '../../../../components/shared/container/Container';
 import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
-import { ServerDataContext } from '../../../../context';
+import { ServerDataContext } from '../../../../context/context';
 import { URLMethod } from '../../../../services/URLService';
 import { authUser } from '../../../../store/features/user/user';
 import { useSelector } from 'react-redux';

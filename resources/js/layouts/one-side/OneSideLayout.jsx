@@ -1,5 +1,5 @@
 import { Layout, Menu } from 'antd';
-import { ServerDataContext } from '../../context';
+import { ServerDataContext } from '../../context/context';
 import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext } from 'react';
 import URLService from '../../services/URLService';

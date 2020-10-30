@@ -1,6 +1,7 @@
 import { ConfigProvider, message } from 'antd';
 import { Provider } from 'react-redux';
-import { ServerDataContext } from './context';
+import { ServerDataContext } from './context/context';
+import { ThemeContextProvider } from './context/ThemeContextProvider';
 import { render } from 'react-dom';
 import React, { useContext } from 'react';
 import buildStore from './store/index';
@@ -13,9 +14,11 @@ export default function buildApp(renderLayout) {
   render(
     <Provider store={buildStore(window.serverData)}>
       <ServerDataContext.Provider value={window.serverData}>
-        <PageStatusPropagator>
-          <LanguagePropagator>{renderLayout}</LanguagePropagator>
-        </PageStatusPropagator>
+        <ThemeContextProvider>
+          <PageStatusPropagator>
+            <LanguagePropagator>{renderLayout}</LanguagePropagator>
+          </PageStatusPropagator>
+        </ThemeContextProvider>
       </ServerDataContext.Provider>
     </Provider>,
     document.getElementById('app')

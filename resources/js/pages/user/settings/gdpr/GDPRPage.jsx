@@ -1,6 +1,6 @@
 import { Button, Card, Popconfirm } from 'antd';
 import { Container } from '../../../../components/shared/container/Container';
-import { ServerDataContext } from '../../../../context';
+import { ServerDataContext } from '../../../../context/context';
 import React, { useContext } from 'react';
 import URLService, { URLMethod } from '../../../../services/URLService';
 

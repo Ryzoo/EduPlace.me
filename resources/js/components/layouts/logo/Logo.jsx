@@ -1,5 +1,5 @@
 import { Image } from 'antd';
-import { ServerDataContext } from '../../../context';
+import { ServerDataContext } from '../../../context/context';
 import React, { useContext } from 'react';
 import './Logo.scss';
 

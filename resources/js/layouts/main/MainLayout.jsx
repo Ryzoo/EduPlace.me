@@ -1,7 +1,8 @@
-import { Button, Drawer, Layout, Menu } from 'antd';
-import { ServerDataContext } from '../../context';
+import { Button, Drawer, Layout, Menu, Switch } from 'antd';
+import { ServerDataContext, ThemeContext } from '../../context/context';
 import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext, useState } from 'react';
+import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
@@ -10,6 +11,7 @@ const { SubMenu } = Menu;
 export default function MainLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
   const { routes, language, t, auth } = useContext(ServerDataContext);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   const getNavigationLink = () => [
     { label: 'EduPlace', url: routes.main },
@@ -21,15 +23,27 @@ export default function MainLayout(props) {
     return (
       <>
         {!auth.isLogged ? (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
+          <div
+            className={StringService.logicConcat({
+              'float-right mx-5 show-lg': !inDrawer,
+              'center-flex-a mb-1': inDrawer,
+            })}
+          >
             <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
             <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
               {t['Join us']}
             </Button>
           </div>
         ) : (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
-            <span className={inDrawer ? '' : 'text-light'}>{auth.user.name}</span>
+          <div
+            className={StringService.logicConcat({
+              'float-right mx-5 show-lg': !inDrawer,
+              'center-flex-a mb-1': inDrawer,
+            })}
+          >
+            <span className={StringService.logicConcat({ 'text-light': !inDrawer })}>
+              {auth.user.name}
+            </span>
             <Button className="ml-2" onClick={() => URLService.goTo(routes.auth.logout)}>
               {t['Logout']}
             </Button>
@@ -37,7 +51,7 @@ export default function MainLayout(props) {
         )}
         <Menu
           mode={inDrawer ? 'inline' : 'horizontal'}
-          className={inDrawer ? '' : 'float-right show-lg'}
+          className={StringService.logicConcat({ 'float-right show-lg': !inDrawer })}
           defaultSelectedKeys={[routes.current]}
         >
           {getNavigationLink().map((nav) => {
@@ -62,7 +76,11 @@ export default function MainLayout(props) {
   };
 
   return (
-    <Layout className="main-layout">
+    <Layout
+      className={StringService.logicConcat('main-layout', {
+        dark: isDarkTheme,
+      })}
+    >
       <Drawer
         width={300}
         title="EduPlace.me"

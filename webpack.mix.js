@@ -41,6 +41,11 @@ mix.webpackConfig({
         use: [
           AntdScssThemePlugin.themify({
             loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
           }),
         ],
       },
