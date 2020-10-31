@@ -14,3 +14,101 @@
     border: none;
   }
 }
+
+.ant-layout.dark {
+  background: #262626;
+  color: rgba(191, 191, 191, 0.85);
+
+  .ant-menu,
+  .ant-layout-header {
+    background: #262626;
+    color: rgba(191, 191, 191, 0.85);
+  }
+
+  .ant-btn-primary {
+    background: $primary-light;
+    color: #000;
+    border-color: $primary-light;
+  }
+
+  .ant-card {
+    background: #1f1f1f;
+  }
+
+  .ant-card-head,
+  .ant-card-bordered {
+    border-color: #1f1f1f;
+  }
+
+  .ant-input-affix-wrapper {
+    background-color: rgb(28, 28, 33);
+    border: 1px solid rgb(64, 64, 64);
+    color: rgba(191, 191, 191, 0.85);
+  }
+
+  input {
+    background-color: rgb(28, 28, 33);
+    color: rgba(191, 191, 191, 0.85);
+  }
+
+  .ant-form,
+  .ant-form-item-label > label,
+  .ant-form-item,
+  .ant-card-head {
+    color: rgba(191, 191, 191, 0.85);
+  }
+
+  .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ant-menu-submenu-active,
+  .ant-menu-submenu-title:hover,
+  a {
+    color: $primary-light;
+  }
+
+  a:hover {
+    color: lighten($primary-light, 10%);
+  }
+
+  .ant-menu-horizontal > .ant-menu-item:hover,
+  .ant-menu-horizontal > .ant-menu-submenu:hover,
+  .ant-menu-horizontal > .ant-menu-item-active,
+  .ant-menu-horizontal > .ant-menu-submenu-active,
+  .ant-menu-horizontal > .ant-menu-item-open,
+  .ant-menu-horizontal > .ant-menu-submenu-open,
+  .ant-menu-horizontal > .ant-menu-item-selected,
+  .ant-menu-horizontal > .ant-menu-submenu-selected {
+    color: $primary-light;
+    border-bottom: 2px solid $primary-light;
+  }
+
+  .ant-switch-checked {
+    background-color: $primary-light;
+  }
+
+  .ant-input-affix-wrapper:focus,
+  .ant-input-affix-wrapper-focused {
+    -webkit-box-shadow: 0 0 0 2px rgba($primary-light, 0.2);
+    box-shadow: 0 0 0 2px rgba($primary-light, 0.2);
+  }
+}
+
+.ant-menu-submenu-popup.dark {
+  background: #262626;
+  color: rgba(191, 191, 191, 0.85);
+
+  & > .ant-menu {
+    background: #262626;
+    color: rgba(191, 191, 191, 0.85);
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-item-active,
+  .ant-menu-submenu-title:hover {
+    color: $primary-light;
+  }
+}
+
+.ant-layout-footer.dark {
+  background: #262626;
+  color: rgba(191, 191, 191, 0.85);
+}

@@ -1,5 +1,6 @@
-import { Button, Drawer, Layout, Menu, Switch } from 'antd';
-import { ServerDataContext, ThemeContext } from '../../context/context';
+import { Button, Drawer, Layout, Menu } from 'antd';
+import { ServerDataContext } from '../../context/context';
+import { ThemeContext } from '../../context/ThemeContextProvider';
 import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext, useState } from 'react';
 import StringService from '../../services/StringService';
@@ -105,7 +106,13 @@ export default function MainLayout(props) {
         </Button>
         <Logo />
         <Menu mode="horizontal" className="float-right">
-          <SubMenu key="language" title={language.toUpperCase()}>
+          <SubMenu
+            popupClassName={StringService.logicConcat({
+              dark: isDarkTheme,
+            })}
+            key="language"
+            title={language.toUpperCase()}
+          >
             <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
               PL
             </Menu.Item>
@@ -117,7 +124,13 @@ export default function MainLayout(props) {
         {getMenuList(false)}
       </Header>
       <Content>{props.children}</Content>
-      <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
+      <Footer
+        className={StringService.logicConcat('text-center', {
+          dark: isDarkTheme,
+        })}
+      >
+        {`EduPlace ©2020 ${t['Created by Educated team']}`}
+      </Footer>
     </Layout>
   );
 }

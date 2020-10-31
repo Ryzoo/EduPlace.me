@@ -1,9 +1,21 @@
+import { Container } from '../container/Container';
+import { ServerDataContext } from '../../../context/context';
 import { Switch } from 'antd';
-import { ThemeContextProvider } from '../../../context/ThemeContextProvider';
+import { ThemeContext } from '../../../context/ThemeContextProvider';
 import React, { useContext } from 'react';
 
-export const ToggleTheme = () => {
-  const { toggleTheme } = useContext(ThemeContextProvider);
+import './ToggleTheme.scss';
 
-  return <Switch defaultChecked onChange={toggleTheme} />;
+export const ToggleTheme = () => {
+  const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
+  const { t } = useContext(ServerDataContext);
+
+  return (
+    <Container className="direction-column d-flex" fluid>
+      <label className="pb-2" htmlFor="darkMode">
+        {t['Dark mode']}
+      </label>
+      <Switch checked={isDarkTheme} onChange={toggleTheme} />
+    </Container>
+  );
 };
