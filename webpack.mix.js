@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const AntdScssThemePlugin = require('@igor-lemon/antd-scss-theme-plugin');
 
 mix
   .sass('resources/css/app.scss', 'public/css', [])
@@ -38,22 +39,20 @@ mix.webpackConfig({
       {
         test: /\.less$/,
         use: [
-          {
+          AntdScssThemePlugin.themify({
             loader: 'less-loader',
             options: {
               lessOptions: {
-                modifyVars: {
-                  'primary-color': '#D61889',
-                  'layout-body-background': '#fff',
-                  'font-size-base': '16px',
-                },
                 javascriptEnabled: true,
               },
             },
-          },
+          }),
         ],
       },
     ],
   },
-  plugins: [new AntdDayjsWebpackPlugin()],
+  plugins: [
+    new AntdDayjsWebpackPlugin(),
+    new AntdScssThemePlugin('resources/css/framework/variables.scss'),
+  ],
 });

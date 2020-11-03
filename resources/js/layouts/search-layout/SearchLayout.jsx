@@ -1,10 +1,11 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
-import { ServerDataContext } from '../../context';
+import { Logo } from '../../components/layouts/logo/Logo';
+import { ServerDataContext, ThemeContext } from '../../context/index';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
-import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext, useState } from 'react';
+import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
@@ -14,11 +15,15 @@ export default function SearchLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
   const { routes, language, t } = useContext(ServerDataContext);
   const user = useSelector(authUser);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   const getNavigationLink = () => [{ label: t['Search'], url: routes.search }];
 
   const getUserMenu = () => (
     <SubMenu
+      popupClassName={StringService.logicConcat({
+        dark: isDarkTheme,
+      })}
       icon={<i className="far fa-user mr-2" />}
       title={
         <Badge count={user.notifications.count}>
@@ -34,7 +39,12 @@ export default function SearchLayout(props) {
           <span className="pr-3">{t['Notifications']}</span>
         </Badge>
       </Menu.Item>
-      <SubMenu title={t['Settings']}>
+      <SubMenu
+        popupClassName={StringService.logicConcat({
+          dark: isDarkTheme,
+        })}
+        title={t['Settings']}
+      >
         <Menu.Item
           key={routes.user.settings.data}
           onClick={() => URLService.goTo(routes.user.settings.data)}
@@ -65,7 +75,6 @@ export default function SearchLayout(props) {
           <span className={inDrawer ? '' : 'text-light'} />
         </div>
         <Menu
-          theme={inDrawer ? 'light' : 'dark'}
           mode={inDrawer ? 'inline' : 'horizontal'}
           className={inDrawer ? '' : 'float-right show-lg'}
           defaultSelectedKeys={[routes.current]}
@@ -89,8 +98,15 @@ export default function SearchLayout(props) {
   return (
     <>
       <EmailNotVerifiedBanner onlyInfo />
-      <Layout className="main-layout">
+      <Layout
+        className={StringService.logicConcat('main-layout', {
+          dark: isDarkTheme,
+        })}
+      >
         <Drawer
+          className={StringService.logicConcat({
+            dark: isDarkTheme,
+          })}
           width={300}
           title="EduPlace.me"
           placement="left"
@@ -104,8 +120,7 @@ export default function SearchLayout(props) {
         <Header>
           <Button
             type="primary"
-            className="float-left hide-lg"
-            style={{ marginTop: '17px' }}
+            className="float-left hide-lg hamburger"
             onClick={() => {
               setDrawerVisibility(true);
             }}
@@ -113,8 +128,14 @@ export default function SearchLayout(props) {
             <i className="fas fa-bars" />
           </Button>
           <Logo />
-          <Menu theme="dark" mode="horizontal" className="float-right">
-            <SubMenu key="language" title={language.toUpperCase()}>
+          <Menu mode="horizontal" className="float-right">
+            <SubMenu
+              popupClassName={StringService.logicConcat({
+                dark: isDarkTheme,
+              })}
+              key="language"
+              title={language.toUpperCase()}
+            >
               <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
                 PL
               </Menu.Item>
@@ -126,7 +147,13 @@ export default function SearchLayout(props) {
           {getMenuList(false)}
         </Header>
         <Content>{props.children}</Content>
-        <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
+        <Footer
+          className={StringService.logicConcat('text-center', {
+            dark: isDarkTheme,
+          })}
+        >
+          {`EduPlace ©2020 ${t['Created by Educated team']}`}
+        </Footer>
       </Layout>
     </>
   );

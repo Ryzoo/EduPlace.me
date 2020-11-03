@@ -1,7 +1,8 @@
 import { Button, Drawer, Layout, Menu } from 'antd';
-import { ServerDataContext } from '../../context';
-import Logo from '../../components/layouts/logo/Logo';
+import { Logo } from '../../components/layouts/logo/Logo';
+import { ServerDataContext, ThemeContext } from '../../context/index';
 import React, { useContext, useState } from 'react';
+import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
@@ -10,6 +11,7 @@ const { SubMenu } = Menu;
 export default function MainLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
   const { routes, language, t, auth } = useContext(ServerDataContext);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   const getNavigationLink = () => [
     { label: 'EduPlace', url: routes.main },
@@ -21,24 +23,35 @@ export default function MainLayout(props) {
     return (
       <>
         {!auth.isLogged ? (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
+          <div
+            className={StringService.logicConcat({
+              'float-right mx-5 show-lg': !inDrawer,
+              'center-flex-a mb-1': inDrawer,
+            })}
+          >
             <Button onClick={() => URLService.goTo(routes.auth.login)}>{t['Login']}</Button>
             <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
               {t['Join us']}
             </Button>
           </div>
         ) : (
-          <div className={inDrawer ? 'center-flex-a mb-1' : 'float-right mx-5 show-lg'}>
-            <span className={inDrawer ? '' : 'text-light'}>{auth.user.name}</span>
+          <div
+            className={StringService.logicConcat({
+              'float-right mx-5 show-lg': !inDrawer,
+              'center-flex-a mb-1': inDrawer,
+            })}
+          >
+            <span className={StringService.logicConcat({ 'text-light': !inDrawer })}>
+              {auth.user.name}
+            </span>
             <Button className="ml-2" onClick={() => URLService.goTo(routes.auth.logout)}>
               {t['Logout']}
             </Button>
           </div>
         )}
         <Menu
-          theme={inDrawer ? 'light' : 'dark'}
           mode={inDrawer ? 'inline' : 'horizontal'}
-          className={inDrawer ? '' : 'float-right show-lg'}
+          className={StringService.logicConcat({ 'float-right show-lg': !inDrawer })}
           defaultSelectedKeys={[routes.current]}
         >
           {getNavigationLink().map((nav) => {
@@ -63,8 +76,15 @@ export default function MainLayout(props) {
   };
 
   return (
-    <Layout className="main-layout">
+    <Layout
+      className={StringService.logicConcat('main-layout', {
+        dark: isDarkTheme,
+      })}
+    >
       <Drawer
+        className={StringService.logicConcat({
+          dark: isDarkTheme,
+        })}
         width={300}
         title="EduPlace.me"
         placement="left"
@@ -78,8 +98,7 @@ export default function MainLayout(props) {
       <Header>
         <Button
           type="primary"
-          className="float-left hide-lg"
-          style={{ marginTop: '17px' }}
+          className="float-left hide-lg hamburger"
           onClick={() => {
             setDrawerVisibility(true);
           }}
@@ -87,8 +106,14 @@ export default function MainLayout(props) {
           <i className="fas fa-bars" />
         </Button>
         <Logo />
-        <Menu theme="dark" mode="horizontal" className="float-right">
-          <SubMenu key="language" title={language.toUpperCase()}>
+        <Menu mode="horizontal" className="float-right">
+          <SubMenu
+            popupClassName={StringService.logicConcat({
+              dark: isDarkTheme,
+            })}
+            key="language"
+            title={language.toUpperCase()}
+          >
             <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
               PL
             </Menu.Item>
@@ -100,7 +125,13 @@ export default function MainLayout(props) {
         {getMenuList(false)}
       </Header>
       <Content>{props.children}</Content>
-      <Footer className="text-center">{`EduPlace ©2020 ${t['Created by Educated team']}`}</Footer>
+      <Footer
+        className={StringService.logicConcat('text-center', {
+          dark: isDarkTheme,
+        })}
+      >
+        {`EduPlace ©2020 ${t['Created by Educated team']}`}
+      </Footer>
     </Layout>
   );
 }

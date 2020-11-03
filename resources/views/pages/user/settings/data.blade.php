@@ -22,6 +22,7 @@
           ['Save changes']: '{{__('Save changes')}}',
           ['Change my password']: '{{__('Change my password')}}',
           ['Go to GDPR options']: '{{__('Go to GDPR options')}}',
+          ['Dark mode']: '{{__('Dark mode')}}',
         }
       }
     </script>

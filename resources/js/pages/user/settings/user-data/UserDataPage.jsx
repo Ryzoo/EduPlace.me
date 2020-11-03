@@ -1,6 +1,7 @@
 import { Container } from '../../../../components/shared/container/Container';
 import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
-import { ServerDataContext } from '../../../../context';
+import { ServerDataContext } from '../../../../context/index';
+import { ToggleTheme } from '../../../../components/shared/toggleTheme/ToggleTheme';
 import { URLMethod } from '../../../../services/URLService';
 import { authUser } from '../../../../store/features/user/user';
 import { useSelector } from 'react-redux';
@@ -10,7 +11,7 @@ import React, { useContext } from 'react';
 import SubmitFormInput from '../../../../components/form/form-inputs/SubmitFormInput';
 import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
 
-export default function UserDataPage() {
+const UserDataPage = () => {
   const user = useSelector(authUser);
   const { routes, t } = useContext(ServerDataContext);
 
@@ -31,6 +32,7 @@ export default function UserDataPage() {
           label={t['Email']}
           prefix={<i className="far fa-envelope-open" />}
         />
+        <ToggleTheme />
         <EmailNotVerifiedBanner onlyInformation />
         <SubmitFormInput label={t['Save changes']}>
           <a href={routes.user.settings.password} className="flex-align-right mt-2">
@@ -43,4 +45,6 @@ export default function UserDataPage() {
       </Form>
     </Container>
   );
-}
+};
+
+export default UserDataPage;

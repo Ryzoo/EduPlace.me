@@ -1,18 +1,19 @@
 import { Image } from 'antd';
-import { ServerDataContext } from '../../../context';
+import { ServerDataContext, ThemeContext } from '../../../context/index';
 import React, { useContext } from 'react';
 import './Logo.scss';
 
-export default function Logo(props) {
+export const Logo = (props) => {
   const { routes } = useContext(ServerDataContext);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   return (
     <a href={routes.main} className="main-logo">
       <Image
         preview={false}
-        src={props.dark ? '/images/logo.svg' : '/images/logo_white.svg'}
+        src={props.dark || isDarkTheme ? '/images/logo_white.svg' : '/images/logo.svg'}
         alt="Logo EduPlace.me"
       />
     </a>
   );
-}
+};

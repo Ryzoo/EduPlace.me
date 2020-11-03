@@ -1,6 +1,6 @@
 import { Button, Col, Grid, Image, Row } from 'antd';
 import { Container } from '../../shared/container/Container';
-import { ServerDataContext } from '../../../context';
+import { ServerDataContext } from '../../../context/index';
 import React, { useContext } from 'react';
 import StringService from '../../../services/StringService';
 import URLService from '../../../services/URLService';
@@ -12,7 +12,7 @@ export const Jumbotron = () => {
   const { routes, t } = useContext(ServerDataContext);
 
   return (
-    <Container className="start-section b-white">
+    <Container block className="start-section b-white">
       <Row>
         <Col md={12} span={24}>
           <Row
