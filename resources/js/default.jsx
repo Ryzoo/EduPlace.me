@@ -1,7 +1,6 @@
 import { ConfigProvider, message } from 'antd';
 import { Provider } from 'react-redux';
-import { ServerDataContext } from './context/context';
-import { ThemeContextProvider } from './context/ThemeContextProvider';
+import { ServerDataContext, ThemeContextProvider } from './context/index';
 import { render } from 'react-dom';
 import React, { useContext } from 'react';
 import buildStore from './store/index';

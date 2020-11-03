@@ -1,7 +1,6 @@
 import { Button, Drawer, Layout, Menu } from 'antd';
-import { ServerDataContext } from '../../context/context';
-import { ThemeContext } from '../../context/ThemeContextProvider';
-import Logo from '../../components/layouts/logo/Logo';
+import { Logo } from '../../components/layouts/logo/Logo';
+import { ServerDataContext, ThemeContext } from '../../context/index';
 import React, { useContext, useState } from 'react';
 import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
@@ -83,6 +82,9 @@ export default function MainLayout(props) {
       })}
     >
       <Drawer
+        className={StringService.logicConcat({
+          dark: isDarkTheme,
+        })}
         width={300}
         title="EduPlace.me"
         placement="left"
@@ -96,8 +98,7 @@ export default function MainLayout(props) {
       <Header>
         <Button
           type="primary"
-          className="float-left hide-lg"
-          style={{ marginTop: '17px' }}
+          className="float-left hide-lg hamburger"
           onClick={() => {
             setDrawerVisibility(true);
           }}

@@ -85,6 +85,17 @@
   }
 }
 
+.dark {
+  .partners-section .carousel-container .carousel-arrow {
+    color: $primary-light;
+  }
+
+  .partners-section,
+  .promo-section-columns {
+    background-color: $tundora;
+  }
+}
+
 .promo-section {
   p {
     max-width: 400px;

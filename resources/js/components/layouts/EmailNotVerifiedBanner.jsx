@@ -1,5 +1,5 @@
 import { Alert } from 'antd';
-import { ServerDataContext } from '../../context/context';
+import { ServerDataContext } from '../../context/index';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import React, { useContext } from 'react';

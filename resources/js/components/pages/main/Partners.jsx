@@ -1,7 +1,7 @@
 import { Carousel, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../shared/container/Container';
 import { Icon } from '../../shared/icon/Icon';
-import { ServerDataContext } from '../../../context/context';
+import { ServerDataContext } from '../../../context/index';
 import { useContext, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
@@ -27,8 +27,8 @@ export const Partners = () => {
   }, [screen]);
 
   return (
-    <Container fluid className="partners-section">
-      <Container>
+    <Container block fluid className="partners-section">
+      <Container block>
         <Row>
           <Col span={24}>
             <Row align="center">

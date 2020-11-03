@@ -3,11 +3,11 @@
 @import 'framework/display';
 
 .ant-layout-header {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
   z-index: 1;
+  box-shadow: 0 4px 4px colorOpacity($black, .15);
 
-  & > * {
-    margin-top: -1px !important;
+  & > .ant-menu {
+    height: calc(100% - 1px);
   }
 
   .ant-menu-horizontal {
@@ -15,47 +15,54 @@
   }
 }
 
+.ant-layout-header.dark,
 .ant-layout.dark {
-  background: #262626;
-  color: rgba(191, 191, 191, 0.85);
+  color: colorOpacity($gray, .85);
+  background: $mineShaft-light;
 
   .ant-menu,
   .ant-layout-header {
-    background: #262626;
-    color: rgba(191, 191, 191, 0.85);
+    color: colorOpacity($gray, .85);
+    background: $mineShaft-light;
   }
 
   .ant-btn-primary {
+    color: $black;
     background: $primary-light;
-    color: #000;
     border-color: $primary-light;
   }
 
+  .ant-btn-primary:hover,
+  .ant-btn-primary:focus {
+    background: lighten($primary-light, 10%);
+    border-color: lighten($primary-light, 10%);
+  }
+
   .ant-card {
-    background: #1f1f1f;
+    background: $mineShaft;
   }
 
   .ant-card-head,
   .ant-card-bordered {
-    border-color: #1f1f1f;
+    border-color: $mineShaft;
   }
 
   .ant-input-affix-wrapper {
-    background-color: rgb(28, 28, 33);
-    border: 1px solid rgb(64, 64, 64);
-    color: rgba(191, 191, 191, 0.85);
+    color: colorOpacity($gray, .85);
+    background-color: $mineShaft;
+    border: 1px solid $tundora;
   }
 
   input {
-    background-color: rgb(28, 28, 33);
-    color: rgba(191, 191, 191, 0.85);
+    color: colorOpacity($gray, .85);
+    background-color: colorOpacity($mineShaft, .85);
   }
 
   .ant-form,
   .ant-form-item-label > label,
   .ant-form-item,
   .ant-card-head {
-    color: rgba(191, 191, 191, 0.85);
+    color: colorOpacity($gray, .85);
   }
 
   .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
@@ -87,18 +94,17 @@
 
   .ant-input-affix-wrapper:focus,
   .ant-input-affix-wrapper-focused {
-    -webkit-box-shadow: 0 0 0 2px rgba($primary-light, 0.2);
-    box-shadow: 0 0 0 2px rgba($primary-light, 0.2);
+    box-shadow: 0 0 0 2px rgba($primary-light, .2);
   }
 }
 
 .ant-menu-submenu-popup.dark {
-  background: #262626;
-  color: rgba(191, 191, 191, 0.85);
+  color: colorOpacity($gray, .85);
+  background: $mineShaft-light;
 
   & > .ant-menu {
-    background: #262626;
-    color: rgba(191, 191, 191, 0.85);
+    color: colorOpacity($gray, .85);
+    background: $mineShaft-light;
   }
 
   .ant-menu-item:hover,
@@ -108,7 +114,119 @@
   }
 }
 
+.dark .ant-drawer-content,
 .ant-layout-footer.dark {
-  background: #262626;
-  color: rgba(191, 191, 191, 0.85);
+  color: colorOpacity($gray, .85);
+  background: $mineShaft-light;
+}
+
+.dark {
+  .ant-drawer-header {
+    color: colorOpacity($gray, .85);
+    background: $mineShaft-light;
+    border-bottom: 1px solid $tundora;
+
+    .ant-drawer-close {
+      color: inherit;
+    }
+  }
+
+  .ant-drawer-title {
+    color: colorOpacity($gray, .85);
+  }
+
+  .ant-drawer-content {
+    .ant-menu {
+      color: colorOpacity($gray, .85);
+      background-color: $mineShaft;
+
+      .ant-menu-item-selected,
+      .ant-menu-submenu-selected,
+      .ant-menu-item:hover,
+      .ant-menu-item-active,
+      .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+      .ant-menu-submenu-active,
+      .ant-menu-submenu-title:hover {
+        color: $primary-light;
+      }
+
+      .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected,
+      .ant-menu-item:active,
+      .ant-menu-submenu-title:active {
+        background: $primary-1-light;
+      }
+    }
+
+    .ant-menu-vertical .ant-menu-item::after,
+    .ant-menu-vertical-left .ant-menu-item::after,
+    .ant-menu-vertical-right .ant-menu-item::after,
+    .ant-menu-inline .ant-menu-item::after {
+      border-right: 1px solid $primary-light;
+    }
+
+    .ant-menu-inline {
+      border-right: 1px solid $tundora;
+    }
+  }
+
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+    background-image: linear-gradient(
+      to right,
+      colorOpacity($gray, .85),
+      colorOpacity($gray, .85)
+    );
+  }
+
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from($primary-light),
+      to($primary-light)
+    );
+    background: linear-gradient(to right, $primary-light, $primary-light);
+  }
+
+  .ant-typography,
+  h2.ant-typography,
+  .ant-typography h2 {
+    color: colorOpacity($gray, .85);
+  }
+
+  .ant-carousel .slick-dots li.slick-active button {
+    background-color: colorOpacity($primary-light, .5);
+  }
+
+  .ant-carousel .slick-dots li button {
+    background-color: $primary-light;
+  }
+
+  .b-white {
+    background-color: $mineShaft-light;
+  }
+
+  .ant-checkbox-wrapper {
+    color: colorOpacity($gray, .85);
+  }
+}
+
+@media screen and (max-width: $break-large) {
+  .ant-layout-header > .hamburger {
+    margin-top: 17px;
+  }
 }

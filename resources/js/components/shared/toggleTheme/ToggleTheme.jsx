@@ -1,7 +1,6 @@
 import { Container } from '../container/Container';
-import { ServerDataContext } from '../../../context/context';
+import { ServerDataContext, ThemeContext } from '../../../context/index';
 import { Switch } from 'antd';
-import { ThemeContext } from '../../../context/ThemeContextProvider';
 import React, { useContext } from 'react';
 
 import './ToggleTheme.scss';

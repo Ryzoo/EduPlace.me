@@ -1,7 +1,7 @@
 import { Alert, Steps } from 'antd';
 import { InterestsQuestionnaire } from '../../../components/pages/user/questionnaire/interests-questionnaire/InterestsQuestionnaire';
 import { ProfileQuestionnaire } from '../../../components/pages/user/questionnaire/profile-questionnaire/ProfileQuestionnaire';
-import { ServerDataContext } from '../../../context/context';
+import { ServerDataContext } from '../../../context/index';
 import { URLMethod } from '../../../services/URLService';
 import FormService from '../../../services/FormService';
 import React, { useContext, useState } from 'react';

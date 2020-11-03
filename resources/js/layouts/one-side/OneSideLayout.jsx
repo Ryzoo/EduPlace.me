@@ -1,7 +1,8 @@
 import { Layout, Menu } from 'antd';
-import { ServerDataContext } from '../../context/context';
-import Logo from '../../components/layouts/logo/Logo';
+import { Logo } from '../../components/layouts/logo/Logo';
+import { ServerDataContext, ThemeContext } from '../../context/index';
 import React, { useContext } from 'react';
+import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 import './OneSideLayout.scss';
 
@@ -9,6 +10,7 @@ const { Content, Header } = Layout;
 const { SubMenu } = Menu;
 export default function OneSideLayout(props) {
   const { routes, language } = useContext(ServerDataContext);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   return (
     <>
@@ -18,10 +20,19 @@ export default function OneSideLayout(props) {
           position: 'fixed',
           width: '100%',
         }}
+        className={StringService.logicConcat({
+          dark: isDarkTheme,
+        })}
       >
         <Logo dark={!props.blackOnLeft} />
         <Menu className="float-right" mode="horizontal">
-          <SubMenu key="language" title={language.toUpperCase()}>
+          <SubMenu
+            popupClassName={StringService.logicConcat({
+              dark: isDarkTheme,
+            })}
+            key="language"
+            title={language.toUpperCase()}
+          >
             <Menu.Item key="language:pl" onClick={() => URLService.goTo(routes.language.pl)}>
               PL
             </Menu.Item>
@@ -31,7 +42,11 @@ export default function OneSideLayout(props) {
           </SubMenu>
         </Menu>
       </Header>
-      <Layout className="one-side-layout">
+      <Layout
+        className={StringService.logicConcat('one-side-layout', {
+          dark: isDarkTheme,
+        })}
+      >
         <Content className={props.blackOnLeft ? 'black-side' : 'light-side'}>
           {props.blackOnLeft ? props.description : props.children}
         </Content>

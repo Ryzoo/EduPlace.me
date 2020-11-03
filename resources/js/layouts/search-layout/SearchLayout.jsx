@@ -1,10 +1,9 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
-import { ServerDataContext } from '../../context/context';
-import { ThemeContext } from '../../context/ThemeContextProvider';
+import { Logo } from '../../components/layouts/logo/Logo';
+import { ServerDataContext, ThemeContext } from '../../context/index';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
-import Logo from '../../components/layouts/logo/Logo';
 import React, { useContext, useState } from 'react';
 import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
@@ -105,6 +104,9 @@ export default function SearchLayout(props) {
         })}
       >
         <Drawer
+          className={StringService.logicConcat({
+            dark: isDarkTheme,
+          })}
           width={300}
           title="EduPlace.me"
           placement="left"
@@ -118,8 +120,7 @@ export default function SearchLayout(props) {
         <Header>
           <Button
             type="primary"
-            className="float-left hide-lg"
-            style={{ marginTop: '17px' }}
+            className="float-left hide-lg hamburger"
             onClick={() => {
               setDrawerVisibility(true);
             }}

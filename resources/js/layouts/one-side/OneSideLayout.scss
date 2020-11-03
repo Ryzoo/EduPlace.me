@@ -1,3 +1,5 @@
+@import './../../../css/default';
+
 .one-side-layout {
   display: flex !important;
   flex-direction: row !important;
@@ -11,25 +13,31 @@
   }
 
   main.black-side {
-    color: #f0f2f5;
+    color: $gray;
     text-align: center;
     width: 40%;
     padding: 35px;
     background: #001529;
 
     h1 {
-      color: #d61889;
+      color: $primary;
     }
 
     span {
       font-size: 30px;
-      color: #f0f2f5;
+      color: $gray;
     }
   }
 
   main.light-side {
     width: 60%;
-    background: #f0f2f5;
+    background: $gray;
+  }
+}
+
+.dark {
+  main.light-side {
+    background: $mineShaft-light;
   }
 }
 
