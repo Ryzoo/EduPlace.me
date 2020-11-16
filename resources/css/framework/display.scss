@@ -1,3 +1,5 @@
+@import 'variables';
+
 .d-flex {
   display: flex !important;
   flex-wrap: wrap;
@@ -52,6 +54,12 @@
   @extend .d-flex;
 
   align-items: center;
+}
+
+.between-flex {
+  @extend .d-flex;
+
+  justify-content: space-between;
 }
 
 .flex-align-left {
@@ -114,4 +122,18 @@
 
 .b-white {
   background-color: white;
+}
+
+.b-gray {
+  background-color: $gray;
+}
+
+.hide-hover-effects {
+  border-bottom: none !important;
+}
+
+.hide-hover-effects:hover {
+  color: unset !important;
+  background-color: unset !important;
+  border-bottom: none !important;
 }

@@ -1,0 +1,21 @@
+@import 'resources/css/default';
+
+.edu-tag {
+  font-size: pxToRem(14);
+  padding: 4px 10px;
+  background: white;
+  border-radius: 5px;
+
+  a {
+    color: $shuttleGray;
+  }
+
+  &:hover {
+    border: 1px solid $primary-color;
+    box-shadow: 0 2px 4px colorOpacity(black, .2);
+
+    a {
+      color: colorOpacity(black, .87);
+    }
+  }
+}

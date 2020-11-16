@@ -1,0 +1,41 @@
+@import '/resources/css/default';
+
+.search-page {
+  .b-gray {
+    border-top: 1px solid $alto;
+    border-bottom: 1px solid $alto;
+  }
+
+  .ant-input-affix-wrapper-focused,
+  .ant-input-search:hover {
+    box-shadow: 0 2px 4px colorOpacity(black, .2);
+  }
+
+  .ant-input-clear-icon {
+    font-size: pxToRem(18);
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .ant-input-search-icon:hover {
+    color: $primary-color;
+  }
+
+  .fixed-button {
+    position: absolute;
+    right: 20px;
+    width: min-content;
+
+    svg {
+      font-size: pxToRem(30);
+    }
+
+    button {
+      width: 80px;
+      height: 80px;
+      opacity: .6;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
+import { Icon } from '../../components/shared/icon/Icon';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
 import { authUser } from '../../store/features/user/user';
@@ -7,6 +8,8 @@ import { useSelector } from 'react-redux';
 import React, { useContext, useState } from 'react';
 import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
+
+import './SearchLayout.scss';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -17,7 +20,27 @@ export default function SearchLayout(props) {
   const user = useSelector(authUser);
   const { isDarkTheme } = useContext(ThemeContext);
 
-  const getNavigationLink = () => [{ label: t['Search'], url: routes.search }];
+  const getNavigationLink = () => [
+    {
+      label: (
+        <Button shape="round" type="primary" onClick={() => URLService.goTo('#')}>
+          {t['+ Add content']}
+        </Button>
+      ),
+      url: '#',
+      class: 'hide-hover-effects',
+    },
+    { label: t['Search'], url: routes.search, class: '' },
+    {
+      label: (
+        <Badge count={user.notifications.count}>
+          <Icon className="notifications" regular name="fa-bell" />
+        </Badge>
+      ),
+      url: routes.user.notifications,
+      class: '',
+    },
+  ];
 
   const getUserMenu = () => (
     <SubMenu
@@ -25,11 +48,7 @@ export default function SearchLayout(props) {
         dark: isDarkTheme,
       })}
       icon={<i className="far fa-user mr-2" />}
-      title={
-        <Badge count={user.notifications.count}>
-          <span className="pr-3">{user.name}</span>
-        </Badge>
-      }
+      title={<span className="pr-3">{user.name}</span>}
     >
       <Menu.Item
         key={routes.user.notifications}
@@ -81,6 +100,7 @@ export default function SearchLayout(props) {
         >
           {getNavigationLink().map((nav) => (
             <Menu.Item
+              className={nav.class}
               key={nav.url}
               onClick={() => {
                 URLService.goTo(nav.url);

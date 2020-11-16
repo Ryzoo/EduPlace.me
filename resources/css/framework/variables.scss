@@ -4,6 +4,7 @@ $primary-color: #7d3e80;
 $font-size-base: 16;
 $layout-body-background: #f0f2f5;
 $layout-header-background: #fff;
+$border-color-base: #dedede;
 
 // Paddings, Margins
 
@@ -35,7 +36,7 @@ $break-xx-large: 1600px;
 
 $primary: $primary-color;
 $primary-light: #c398c2;
-$secondary: #49135f;
+$primary-darker: #49135f;
 $primary-1: #6d3776;
 $primary-1-light: #985897;
 $primary-2: #5f326c;
@@ -44,6 +45,8 @@ $black: #000;
 $mineShaft: #1f1f1f;
 $mineShaft-light: #262626;
 $tundora: #404040;
+$shuttleGray: #5c646c;
+$alto: #dedede;
 
 $border-light: #b7b7b7;
 $hovered-primary: #d618891f;
