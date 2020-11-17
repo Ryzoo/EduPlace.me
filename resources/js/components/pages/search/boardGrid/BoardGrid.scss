@@ -1,0 +1,22 @@
+@import '../../../../../css/default';
+
+.boards {
+  .board-info {
+    font-size: pxToRem(14);
+    font-weight: 600;
+    color: $shuttleGray;
+
+    &.likes:hover {
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+
+  .reacted {
+    color: $primary-color;
+  }
+
+  .recent-content {
+    color: $shuttleGray;
+  }
+}

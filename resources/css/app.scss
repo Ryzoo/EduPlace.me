@@ -2,6 +2,37 @@
 @import 'framework/spaces';
 @import 'framework/display';
 
+#app {
+  .connected-pill-buttons {
+    button:nth-child(1) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    button:nth-child(2) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  .ant-btn-primary:hover,
+  .ant-btn-primary:focus {
+    background: $primary-darker;
+    border-color: $primary-darker;
+  }
+
+  .ant-btn.btn-white:hover,
+  .ant-btn.btn-white:focus {
+    color: white;
+    background: $primary-1-light;
+    border-color: $primary-1-light;
+  }
+}
+
+.ant-menu-submenu-title:active + .ant-menu-submenu-title:hover {
+  color: white;
+}
+
 .ant-layout-header {
   z-index: 1;
   box-shadow: 0 4px 4px colorOpacity($black, .15);

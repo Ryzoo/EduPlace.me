@@ -25,7 +25,7 @@
     line-height: .75;
 
     span:nth-child(1) {
-      color: $primary-1;
+      color: $primary;
     }
 
     span:nth-child(2) {
@@ -33,7 +33,7 @@
     }
 
     span:nth-child(3) {
-      color: $secondary;
+      color: $primary-darker;
     }
 
     span:nth-child(4) {

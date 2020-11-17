@@ -8,6 +8,8 @@ export const Icon = (props) => (
     className={StringService.logicConcat({ interactive: props.onClick }, props.className)}
     onClick={props.onClick}
   >
-    <i className={`fas ${props.name}`} />
+    <i
+      className={StringService.logicConcat({ fas: !props.regular, far: props.regular }, props.name)}
+    />
   </span>
 );
