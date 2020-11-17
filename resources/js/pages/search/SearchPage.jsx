@@ -1,5 +1,5 @@
 import { Affix, Button, Col, Grid, Input, Row } from 'antd';
-import { BoardGrid } from '../../components/shared/boardGrid/BoardGrid';
+import { BoardGrid } from '../../components/pages/search/boardGrid/BoardGrid';
 import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
 import { ServerDataContext } from '../../context';
