@@ -24,7 +24,7 @@ export default function OneSideLayout(props) {
           dark: isDarkTheme,
         })}
       >
-        <Logo dark={!props.blackOnLeft} />
+        <Logo dark={props.blackOnLeft} />
         <Menu className="float-right" mode="horizontal">
           <SubMenu
             popupClassName={StringService.logicConcat({
