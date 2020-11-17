@@ -1,15 +1,15 @@
 {
-    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js?id=98e1bac9421bdff06a6d",
-    "/js/authLoginPage.js": "/js/authLoginPage.js?id=6488bb5ba27cbb9ae3f9",
-    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=227fe826d107f3e68dd7",
-    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js?id=24875eaa8fc17a632cb2",
-    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js?id=ea043ac1dbc718033dfa",
-    "/js/mainPage.js": "/js/mainPage.js?id=49302582cb5bb9ae1cb6",
-    "/css/app.css": "/css/app.css?id=6085b9b92507aaeae0a4",
-    "/js/searchPage.js": "/js/searchPage.js?id=eacd09c73deacced9ab0",
-    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js?id=172d9fb074f0f4332dc9",
-    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=132f87f21a25ba1aed47",
-    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=40dd692b92b35d62e7b2",
-    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=934bca02f64934ae4762",
-    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=9b81baab2d992640a571"
+    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js?id=983852a9ed859b530f52",
+    "/js/authLoginPage.js": "/js/authLoginPage.js?id=a544df71c01d68a54d44",
+    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=9e47154dfd96b583ff3f",
+    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js?id=3d66c511010c185758ec",
+    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js?id=4c91659203baa27a6b72",
+    "/js/mainPage.js": "/js/mainPage.js?id=533db34d0185cf42e7d9",
+    "/css/app.css": "/css/app.css?id=1998ffc8ccf682ea6f2b",
+    "/js/searchPage.js": "/js/searchPage.js?id=6a6f46ed6be263affa5c",
+    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js?id=6f8578033ad4d3c54eaf",
+    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=874feb673f05665a492c",
+    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=9a4a202055f1a09f3c46",
+    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=0c02d647f455cc45d5a4",
+    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=250da49fe7913aa3eaf9"
 }
