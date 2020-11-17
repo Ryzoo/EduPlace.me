@@ -1,8 +1,8 @@
 import { Col } from 'antd';
-import { Icon } from '../icon/Icon';
-import { ImageWithOverlay } from '../imageWithOverlay/ImageWithOverlay';
+import { Icon } from '../../../shared/icon/Icon';
+import { ImageWithOverlay } from '../../../shared/imageWithOverlay/ImageWithOverlay';
 import React from 'react';
-import StringService from '../../../services/StringService';
+import StringService from '../../../../services/StringService';
 
 export const Board = ({ board }) => {
   return (

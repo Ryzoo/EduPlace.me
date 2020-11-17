@@ -1,9 +1,9 @@
 import { Board } from './Board';
 import { Button, Grid, Row, Typography } from 'antd';
-import { Container } from '../container/Container';
-import { ServerDataContext } from '../../../context';
+import { Container } from '../../../shared/container/Container';
+import { ServerDataContext } from '../../../../context';
 import React, { useContext } from 'react';
-import StringService from '../../../services/StringService';
+import StringService from '../../../../services/StringService';
 
 import './BoardGrid.scss';
 
