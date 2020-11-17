@@ -1,9 +1,10 @@
 import { Affix, Button, Col, Grid, Input, Row } from 'antd';
-import { BoardItems } from '../../components/shared/boardItems/BoardItems';
+import { BoardGrid } from '../../components/shared/boardGrid/BoardGrid';
 import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
+import { ServerDataContext } from '../../context';
 import { Tag } from '../../components/shared/tag/Tag';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import URLService from '../../services/URLService';
 
 import StringService from '../../services/StringService';
@@ -12,102 +13,14 @@ import './SearchPage.scss';
 const { Search } = Input;
 const { useBreakpoint } = Grid;
 
-const tags = [
-  {
-    name: 'LED strip',
-  },
-  {
-    name: 'RGB lights',
-  },
-  {
-    name: 'Arduino RGB stripe',
-  },
-  {
-    name: 'LED lamp',
-  },
-  {
-    name: 'led zeppelin',
-  },
-  {
-    name: 'LED strip',
-  },
-  {
-    name: 'RGB lights',
-  },
-  {
-    name: 'Arduino RGB stripe',
-  },
-  {
-    name: 'LED lamp',
-  },
-  {
-    name: 'led zeppelin',
-  },
-];
-const boards = [
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: false,
-    viewed: false,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: true,
-    viewed: false,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: false,
-    viewed: false,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: false,
-    viewed: false,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: false,
-    viewed: true,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: false,
-    viewed: false,
-  },
-  {
-    img: 'https://via.placeholder.com/400x235?text=Jakis+random+tekst',
-    name: 'Random nazwa',
-    views: '9451',
-    likes: '568',
-    liked: true,
-    viewed: true,
-  },
-];
-
 export const SearchPage = () => {
   const [searchedText, setSearchedText] = useState('');
+  const [isUserBoards, setUserBoards] = useState(false);
   const screen = useBreakpoint();
+  const { t, boards, tags } = useContext(ServerDataContext);
+  const { userBoards, recommended, recentlyOpened, searchResults } = boards;
 
-  const onSearching = (e) => {
+  const onChangeSearchText = (e) => {
     setSearchedText(e.target.value);
   };
 
@@ -118,8 +31,8 @@ export const SearchPage = () => {
           <Search
             size="large"
             allowClear
-            placeholder="Type to find knowledge"
-            onChange={onSearching}
+            placeholder={t['Type to find knowledge']}
+            onChange={onChangeSearchText}
           />
         </Col>
       </Row>
@@ -136,11 +49,29 @@ export const SearchPage = () => {
               ))
             ) : (
               <div className="connected-pill-buttons">
-                <Button type="primary" shape="round" onClick={() => URLService.goTo('#')}>
-                  All boards
+                <Button
+                  className={StringService.logicConcat({
+                    'btn-white': isUserBoards,
+                  })}
+                  type={StringService.logicConcat({
+                    primary: !isUserBoards,
+                  })}
+                  shape="round"
+                  onClick={() => setUserBoards(false)}
+                >
+                  {t['All boards']}
                 </Button>
-                <Button className="btn-white" shape="round" onClick={() => URLService.goTo('#')}>
-                  My boards
+                <Button
+                  className={StringService.logicConcat({
+                    'btn-white': !isUserBoards,
+                  })}
+                  type={StringService.logicConcat({
+                    primary: isUserBoards,
+                  })}
+                  shape="round"
+                  onClick={() => setUserBoards(true)}
+                >
+                  {t['My boards']}
                 </Button>
               </div>
             )}
@@ -148,22 +79,34 @@ export const SearchPage = () => {
         </Col>
       </Row>
       {searchedText.length > 0 ? (
-        <BoardItems className="b-gray pt-6" boards={boards} />
+        <BoardGrid className="b-gray pt-6" boards={searchResults} />
       ) : (
         <>
-          <BoardItems
-            className="b-gray"
-            boards={boards}
-            showItems={6}
-            heading="Recently opened boards"
-            moreUrl={() => URLService.goTo('#')}
-          />
-          <BoardItems
-            boards={boards}
-            showItems={6}
-            heading="Recommended boards"
-            moreUrl={() => URLService.goTo('#')}
-          />
+          {isUserBoards ? (
+            <BoardGrid
+              className="b-gray"
+              boards={userBoards}
+              showItems={6}
+              heading={t['My boards']}
+              moreUrl={() => URLService.goTo('#')}
+            />
+          ) : (
+            <>
+              <BoardGrid
+                className="b-gray"
+                boards={recentlyOpened}
+                showItems={6}
+                heading={t['Recently opened boards']}
+                moreUrl={() => URLService.goTo('#')}
+              />
+              <BoardGrid
+                boards={recommended}
+                showItems={6}
+                heading={t['Recommended boards']}
+                moreUrl={() => URLService.goTo('#')}
+              />
+            </>
+          )}
         </>
       )}
       <Affix
