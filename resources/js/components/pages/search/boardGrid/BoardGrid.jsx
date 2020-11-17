@@ -34,7 +34,7 @@ export const BoardGrid = ({ boards, showItems, heading, moreUrl, className }) =>
           className={StringService.logicConcat('w-100', { 'pr-4': screen.md })}
           justify={StringService.logicConcat({ end: screen.md, center: !screen.md })}
         >
-          <Button type="primary" shape="round" onClick={moreUrl}>
+          <Button type="primary" onClick={moreUrl}>
             {`${t['more']} >>`}
           </Button>
         </Row>

@@ -1,7 +1,7 @@
 // Framework
 
 $primary-color: #7d3e80;
-$font-size-base: 16;
+$font-size-base: 16px;
 $layout-body-background: #f0f2f5;
 $layout-header-background: #fff;
 $border-color-base: #dedede;
@@ -22,7 +22,7 @@ $space-x-large: 100px;
 
 // Font
 
-$font-size: $font-size-base;
+$font-size: $font-size-base / 1px;
 
 // Screen displays
 
@@ -37,7 +37,6 @@ $break-xx-large: 1600px;
 $primary: $primary-color;
 $primary-light: #c398c2;
 $primary-darker: #49135f;
-$primary-1: #6d3776;
 $primary-1-light: #985897;
 $primary-2: #5f326c;
 $gray: #f0f2f5;

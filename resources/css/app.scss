@@ -3,10 +3,6 @@
 @import 'framework/display';
 
 #app {
-  .ant-btn-round {
-    border-radius: 10px;
-  }
-
   .connected-pill-buttons {
     button:nth-child(1) {
       border-top-right-radius: 0;
@@ -31,6 +27,10 @@
     background: $primary-1-light;
     border-color: $primary-1-light;
   }
+}
+
+.ant-menu-submenu-title:active + .ant-menu-submenu-title:hover {
+  color: white;
 }
 
 .ant-layout-header {

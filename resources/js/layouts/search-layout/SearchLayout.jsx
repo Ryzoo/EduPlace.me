@@ -23,7 +23,7 @@ export default function SearchLayout(props) {
   const getNavigationLink = () => [
     {
       label: (
-        <Button shape="round" type="primary" onClick={() => URLService.goTo('#')}>
+        <Button type="primary" onClick={() => URLService.goTo('#')}>
           {t['+ Add content']}
         </Button>
       ),
