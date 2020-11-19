@@ -21,14 +21,16 @@ class PasswordResetNotification extends Notification implements ShouldQueue
 		$this->token = $token;
 	}
 
-	public function toArray()
-	{
-		return [];
-	}
+    public function toArray($notifiable)
+    {
+        return [
+            'message' => __('You prompted for reset password. Look for email from site.'),
+        ];
+    }
 
     public function via()
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     public function toMail()

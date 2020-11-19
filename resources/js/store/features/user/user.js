@@ -6,16 +6,11 @@ export const userSlice = createSlice({
     name: '',
     notifications: {
       count: 0,
+      list: [],
     },
-  },
-  reducers: {
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload;
-    // },
   },
 });
 
-// export const { incrementByAmount } = userSlice.actions;
 export const authUser = (state) => state.user;
 export const userDefaultValueProvider = (serverData) =>
   serverData.auth && serverData.auth.user
@@ -25,7 +20,8 @@ export const userDefaultValueProvider = (serverData) =>
         isVerified: serverData.auth.isVerified,
         name: serverData.auth.user.name,
         notifications: {
-          count: 2,
+          count: serverData.notifications.unreadCount,
+          list: serverData.notifications.list,
         },
       }
     : {};

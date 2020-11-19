@@ -1,7 +1,11 @@
 import { ConfigProvider, message } from 'antd';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { ServerDataContext, ThemeContextProvider } from './context/index';
+import { UserWebSocketEvents } from './events/index';
+import { authUser } from './store/features/user/user';
 import { render } from 'react-dom';
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
 import React, { useContext } from 'react';
 import buildStore from './store/index';
 import dayjs from 'dayjs';
@@ -15,13 +19,31 @@ export default function buildApp(renderLayout) {
       <ServerDataContext.Provider value={window.serverData}>
         <ThemeContextProvider>
           <PageStatusPropagator>
-            <LanguagePropagator>{renderLayout}</LanguagePropagator>
+            <LanguagePropagator>
+              <WebSocketEventInitializer>{renderLayout}</WebSocketEventInitializer>
+            </LanguagePropagator>
           </PageStatusPropagator>
         </ThemeContextProvider>
       </ServerDataContext.Provider>
     </Provider>,
     document.getElementById('app')
   );
+}
+
+function WebSocketEventInitializer(props) {
+  const user = useSelector(authUser);
+
+  Pusher.logToConsole = true;
+
+  const echoInstance = new Echo({
+    broadcaster: 'pusher',
+    key: 'c5baa09791c9d560d06d',
+    cluster: 'eu',
+  });
+
+  UserWebSocketEvents.initialize(echoInstance, user);
+
+  return <section>{props.children}</section>;
 }
 
 function LanguagePropagator(props) {

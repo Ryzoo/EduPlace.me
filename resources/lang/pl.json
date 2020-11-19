@@ -85,5 +85,8 @@
   "All boards": "Wszystkie tablice",
   "My boards": "Moje tablice",
   "Recently opened boards": "Ostatnio otwierane tablice",
-  "Recommended boards": "Proponowane tablice"
+  "Recommended boards": "Proponowane tablice",
+  "Your account is verified now!": "Twoje konto zostało potwierdzone!",
+  "Thank you for register! To finish registration, click on button that was sent to you.": "Dziękujemy za rejestracje. Aby zweryfikować swoje konto, kliknij w link wysłany na Twój adres email.",
+  "You prompted for reset password. Look for email from site.": "Poprosiłeś o zresetowanie hasła. Sprawdź swoją skrzynkę pocztową."
 }

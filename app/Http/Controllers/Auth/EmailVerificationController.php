@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Notifications\Auth\EmailVerificationNotification;
+use App\Notifications\Auth\EmailVerifiedNotification;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -17,6 +18,7 @@ class EmailVerificationController extends Controller
 
     public function getVerificationPage(EmailVerificationRequest $request) {
 		$request->fulfill();
+        $request->user()->notify((new EmailVerifiedNotification())->locale(App::getLocale()));
 
 		return redirect()
 			->route('pages.search')
