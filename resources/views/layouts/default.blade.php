@@ -9,6 +9,7 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="icon" type="image/svg" href="/images/favicon.svg">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @stack('css')
     </head>
     <body>
