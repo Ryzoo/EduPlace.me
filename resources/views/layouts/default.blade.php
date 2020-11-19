@@ -20,7 +20,7 @@
     {{--Data from server for store--}}
     <script>
       (function() {
-        var cssMain = document.createElement('link');
+        const cssMain = document.createElement('link');
         cssMain.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css';
         cssMain.rel = 'stylesheet';
         cssMain.type = 'text/css';
@@ -29,7 +29,7 @@
     </script>
     <script>
       (function() {
-        var cssMain = document.createElement('link');
+        const cssMain = document.createElement('link');
         cssMain.href = '{{mix('css/app.css')}}';
         cssMain.rel = 'stylesheet';
         cssMain.type = 'text/css';
@@ -38,8 +38,10 @@
     </script>
     <script>
       const sharedData = @json($sharedData ?? '{}');
+      const viewData = @json($viewData ?? '{}');
 
       window.serverData = {
+        viewData: viewData,
         ...sharedData,
         additional: {},
         success: "{{ session('status') ?? '' }}",

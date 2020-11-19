@@ -24,12 +24,14 @@ class SearchController extends Controller
         $additionallySearchText = $request->get('text', '');
 
         return view('pages.search', [
-            "recentlyOpened" => $this->boardService->getRecentlyOpenedBoards($user),
-            "recommended" => $this->boardService->getRecommendedBoards($user),
-            "userBoards" => $this->boardService->getBoardsOfUser($user),
-            "searchResult" => [
-                "boards" => $this->searchService->findBoardsByText($additionallySearchText),
-                "tags" => $this->searchService->findTagsByText($additionallySearchText),
+            "viewData" => [
+                "recentlyOpened" => $this->boardService->getRecentlyOpenedBoards($user),
+                "recommended" => $this->boardService->getRecommendedBoards($user),
+                "userBoards" => $this->boardService->getBoardsOfUser($user),
+                "searchResult" => [
+                    "boards" => $this->searchService->findBoardsByText($additionallySearchText),
+                    "tags" => $this->searchService->findTagsByText($additionallySearchText),
+                ]
             ]
         ]);
     }
