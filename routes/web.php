@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\User\NotificationsController;
 use App\Http\Controllers\User\QuestionnaireController;
 use App\Http\Controllers\User\SettingsController;
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
 
-Route::get('/search', function () {
-	return view('pages.search');
-})
-	->middleware(['auth', 'reviewed'])->name('pages.search');
+Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
+
+Route::prefix('search')->group(function () {
+    Route::get('/', [SearchController::class, 'getSearchPage'])
+        ->middleware(['auth', 'reviewed'])->name('pages.search');
+});
 
 Route::get('/language/{code}', [LanguageController::class, 'prepareLanguage'])
 	->name('language');
