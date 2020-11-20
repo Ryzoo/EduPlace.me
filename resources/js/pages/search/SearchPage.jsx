@@ -4,9 +4,10 @@ import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
 import { ServerDataContext } from '../../context';
 import { Tag } from '../../components/shared/tag/Tag';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import URLService from '../../services/URLService';
 
+import { getSearchResults } from '../../services/APIService';
 import StringService from '../../services/StringService';
 import './SearchPage.scss';
 
@@ -16,12 +17,27 @@ const { useBreakpoint } = Grid;
 export const SearchPage = () => {
   const [searchedText, setSearchedText] = useState('');
   const [isUserBoards, setUserBoards] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const screen = useBreakpoint();
-  const { t, boards, tags } = useContext(ServerDataContext);
-  const { userBoards, recommended, recentlyOpened, searchResults } = boards;
+  const { t, viewData } = useContext(ServerDataContext);
+  const { userBoards, recommended, recentlyOpened, searchResult } = viewData;
+  const [searchedBoards, setSearchedBoards] = useState(searchResult);
+  console.log(searchedBoards);
+
+  useEffect(() => {
+    if (searchedText.length) {
+      getSearchResults(searchedText).then((data) => {
+        console.log(data);
+        setSearchedBoards(data);
+      });
+    }
+  }, [searchedText]);
 
   const onChangeSearchText = (e) => {
-    setSearchedText(e.target.value);
+    if (e.target.value.length > 0) {
+      setLoading(true);
+      setSearchedText(e.target.value);
+    }
   };
 
   return (
@@ -40,7 +56,7 @@ export const SearchPage = () => {
         <Col md={12}>
           <Row justify="center">
             {searchedText.length > 0 ? (
-              tags.map((tag) => (
+              searchResult.tags.map((tag) => (
                 <Col key={tag.name}>
                   <Tag>
                     <a href="#">{tag.name}</a>
@@ -79,7 +95,7 @@ export const SearchPage = () => {
         </Col>
       </Row>
       {searchedText.length > 0 ? (
-        <BoardGrid className="b-gray pt-6" boards={searchResults} />
+        <BoardGrid loading={isLoading} className="b-gray pt-6" boards={searchedBoards.boards} />
       ) : (
         <>
           {isUserBoards ? (

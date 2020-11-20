@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const defaultSettings = {
-  baseURL: 'https://eduplace.me/',
+  baseURL: 'http://localhost:8000/api/',
   responseType: 'json',
 };
 
@@ -20,6 +20,8 @@ const resolve = async (promise) => {
   return resolved;
 };
 
-export const test = async (data) => {
-  return await resolve(axios.post(defaultSettings.baseURL, { data }).then((res) => res.data));
+export const getSearchResults = async (data) => {
+  return await resolve(
+    axios.get(`${defaultSettings.baseURL}search/${data}`).then((res) => res.data)
+  );
 };

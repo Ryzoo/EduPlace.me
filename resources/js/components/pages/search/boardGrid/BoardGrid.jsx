@@ -10,14 +10,15 @@ import './BoardGrid.scss';
 const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
-export const BoardGrid = ({ boards, showItems, heading, moreUrl, className }) => {
+export const BoardGrid = ({ boards, showItems, heading, moreUrl, className, loading = false }) => {
+  console.log(boards, heading);
   const items = showItems > 0 ? boards.slice(0, showItems) : boards;
   const screen = useBreakpoint();
   const { t } = useContext(ServerDataContext);
 
   return (
     <Container className={StringService.logicConcat('pt-0 boards', className)}>
-      <Skeleton loading={false} active={true}>
+      <Skeleton loading={loading} active={true}>
         {heading ? (
           <Row className="w-100" justify={StringService.logicConcat({ center: !screen.md })}>
             <Title className="recent-content py-4" level={4}>
