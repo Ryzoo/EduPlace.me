@@ -1,9 +1,9 @@
 import { Button, Col, Row, Typography } from 'antd';
 import { ServerDataContext } from '../../../../../context/index';
+import { StringService } from '../../../../../services';
 import Form from '../../../../form/Form';
 import FormItem from '../../../../form/FormItem';
 import React, { useContext, useState } from 'react';
-import StringService from '../../../../../services/StringService';
 import './ProfileQuestionnaire.scss';
 
 const { Paragraph } = Typography;

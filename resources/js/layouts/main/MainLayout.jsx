@@ -1,9 +1,8 @@
 import { Button, Drawer, Layout, Menu } from 'antd';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
+import { StringService, URLService } from '../../services';
 import React, { useContext, useState } from 'react';
-import StringService from '../../services/StringService';
-import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;

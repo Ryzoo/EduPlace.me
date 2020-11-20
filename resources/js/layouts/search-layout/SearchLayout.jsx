@@ -1,15 +1,13 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
+import { CurrentUserNotificationsList } from '../../components/layouts/CurrentUserNotificationsList';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
 import { Icon } from '../../components/shared/icon/Icon';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
+import { StringService, URLService } from '../../services';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import React, { useContext, useState } from 'react';
-import StringService from '../../services/StringService';
-import URLService from '../../services/URLService';
-
-import { CurrentUserNotificationsList } from '../../components/layouts/CurrentUserNotificationsList';
 import './SearchLayout.scss';
 
 const { Header, Content, Footer } = Layout;

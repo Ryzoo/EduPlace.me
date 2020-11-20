@@ -1,15 +1,15 @@
 {
-    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js?id=54282a3e7bd8b6cdae01",
-    "/js/authLoginPage.js": "/js/authLoginPage.js?id=15505ab717e8bf5d6638",
-    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=e13dd96c3619bc9fd8b9",
-    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js?id=707ea96d52d8005ada85",
-    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js?id=ed34b00a60871596a9f8",
-    "/js/mainPage.js": "/js/mainPage.js?id=3f00c65346b23a2d7aa1",
+    "/js/authForgotPasswordPage.js": "/js/authForgotPasswordPage.js?id=4fe7d26ca920e6eebe9e",
+    "/js/authLoginPage.js": "/js/authLoginPage.js?id=03daf516526c7b977f05",
+    "/js/authRegisterPage.js": "/js/authRegisterPage.js?id=01b1a6c59549c9f9a146",
+    "/js/authResetPasswordPage.js": "/js/authResetPasswordPage.js?id=8c76a4dfff7bc0ac6750",
+    "/js/emailNotVerifiedPage.js": "/js/emailNotVerifiedPage.js?id=77068c8835857ff40bd3",
+    "/js/mainPage.js": "/js/mainPage.js?id=41732613e3269043ad2c",
     "/css/app.css": "/css/app.css?id=09d3cd0711a44ae99b6c",
-    "/js/searchPage.js": "/js/searchPage.js?id=903bddecaae98dbafcc1",
-    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js?id=ed67945c215fa8cb8972",
-    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=57c7bb5245eb9d6aa906",
-    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=7c8d4eef35c5f47f122d",
-    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=1ed75fcd814655024150",
-    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=239e96212c634d3a8cd8"
+    "/js/searchPage.js": "/js/searchPage.js?id=dc183d5b78e146a035e9",
+    "/js/userQuestionnairePage.js": "/js/userQuestionnairePage.js?id=ba133427bc23b5ccdba0",
+    "/js/userSettingsGdprPage.js": "/js/userSettingsGdprPage.js?id=3434819f443e24a58cbc",
+    "/js/userSettingsNotificationsPage.js": "/js/userSettingsNotificationsPage.js?id=7053d194b30668e806e9",
+    "/js/userSettingsPasswordChangePage.js": "/js/userSettingsPasswordChangePage.js?id=ac0fba640fb2a7977388",
+    "/js/userSettingsUserDataPage.js": "/js/userSettingsUserDataPage.js?id=b32c5e48b52397687f3a"
 }

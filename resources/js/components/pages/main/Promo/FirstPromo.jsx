@@ -1,7 +1,7 @@
 import { Button, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
+import { StringService } from '../../../../services';
 import React from 'react';
-import StringService from '../../../../services/StringService';
 
 const { Title, Paragraph } = Typography;
 const { useBreakpoint } = Grid;

@@ -1,9 +1,9 @@
 import { Alert } from 'antd';
 import { ServerDataContext } from '../../context/index';
+import { URLService } from '../../services';
 import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
 import React, { useContext } from 'react';
-import URLService from '../../services/URLService';
 
 export const EmailNotVerifiedBanner = (props) => {
   const user = useSelector(authUser);

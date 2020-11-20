@@ -1,6 +1,6 @@
 import { URLMethod } from './URLService';
 
-export default class FormService {
+export class FormService {
   static submit(path, method, data = {}) {
     const form = document.createElement('form');
     form.method = method === URLMethod.GET || method === URLMethod.POST ? method : URLMethod.POST;

@@ -3,8 +3,8 @@ import { Button, Grid, Row, Skeleton, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
 import { ServerDataContext } from '../../../../context';
 import React, { useContext } from 'react';
-import StringService from '../../../../services/StringService';
 
+import { StringService } from '../../../../services';
 import './BoardGrid.scss';
 
 const { Title } = Typography;

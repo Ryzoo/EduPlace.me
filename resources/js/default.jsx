@@ -7,11 +7,16 @@ import { render } from 'react-dom';
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 import React, { useContext } from 'react';
+import axios from 'axios';
 import buildStore from './store/index';
 import dayjs from 'dayjs';
 import enLanguageData from 'antd/es/locale/en_US';
 import plLanguageData from 'antd/es/locale/pl_PL';
 import relativeTime from 'dayjs/plugin/relativeTime';
+
+window.axios = axios;
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.baseURL = '/api/';
 
 export default function buildApp(renderLayout) {
   render(

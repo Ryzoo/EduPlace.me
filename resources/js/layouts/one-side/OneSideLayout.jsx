@@ -1,13 +1,13 @@
 import { Layout, Menu } from 'antd';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
+import { StringService, URLService } from '../../services';
 import React, { useContext } from 'react';
-import StringService from '../../services/StringService';
-import URLService from '../../services/URLService';
 import './OneSideLayout.scss';
 
 const { Content, Header } = Layout;
 const { SubMenu } = Menu;
+
 export default function OneSideLayout(props) {
   const { routes, language } = useContext(ServerDataContext);
   const { isDarkTheme } = useContext(ThemeContext);

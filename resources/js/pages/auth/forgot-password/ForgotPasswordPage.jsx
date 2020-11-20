@@ -1,7 +1,6 @@
+import { FormService, URLMethod } from '../../../services';
 import { ServerDataContext } from '../../../context/index';
-import { URLMethod } from '../../../services/URLService';
 import Form from '../../../components/form/Form';
-import FormService from '../../../services/FormService';
 import React, { useContext } from 'react';
 import SubmitFormInput from '../../../components/form/form-inputs/SubmitFormInput';
 import TextFormInput from '../../../components/form/form-inputs/TextFormInput';

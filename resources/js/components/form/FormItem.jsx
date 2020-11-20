@@ -1,5 +1,5 @@
 import { Form } from 'antd';
-import FormService from '../../services/FormService';
+import { FormService } from '../../services';
 import React from 'react';
 
 export default function FormItem(props) {

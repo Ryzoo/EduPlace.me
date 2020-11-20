@@ -1,8 +1,8 @@
 import { Button, Card, Popconfirm } from 'antd';
 import { Container } from '../../../../components/shared/container/Container';
 import { ServerDataContext } from '../../../../context/index';
+import { URLMethod, URLService } from '../../../../services';
 import React, { useContext } from 'react';
-import URLService, { URLMethod } from '../../../../services/URLService';
 
 export default function GDPRPage() {
   const { routes, t } = useContext(ServerDataContext);

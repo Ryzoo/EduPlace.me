@@ -2,13 +2,11 @@ import { Affix, Button, Col, Grid, Input, Row } from 'antd';
 import { BoardGrid } from '../../components/pages/search/boardGrid/BoardGrid';
 import { Container } from '../../components/shared/container/Container';
 import { Icon } from '../../components/shared/icon/Icon';
+import { SearchAPI } from '../../api';
 import { ServerDataContext } from '../../context';
+import { StringService, URLService } from '../../services';
 import { Tag } from '../../components/shared/tag/Tag';
 import React, { useContext, useEffect, useState } from 'react';
-import URLService from '../../services/URLService';
-
-import { getSearchResults } from '../../services/APIService';
-import StringService from '../../services/StringService';
 import './SearchPage.scss';
 
 const { Search } = Input;
@@ -26,9 +24,9 @@ export const SearchPage = () => {
 
   useEffect(() => {
     if (searchedText.length) {
-      getSearchResults(searchedText).then((data) => {
-        console.log(data);
-        setSearchedBoards(data);
+      SearchAPI.getSearchResults(searchedText).then((response) => {
+        console.log(response);
+        setSearchedBoards(response.data);
       });
     }
   }, [searchedText]);

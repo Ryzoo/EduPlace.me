@@ -1,7 +1,7 @@
 import { Image } from 'antd';
 import React from 'react';
-import StringService from '../../../services/StringService';
 
+import { StringService } from '../../../services';
 import './ImageWithOverlay.scss';
 
 // TODO: Create responsive image

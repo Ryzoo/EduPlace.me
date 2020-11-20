@@ -1,5 +1,5 @@
+import { StringService } from '../../../services';
 import React from 'react';
-import StringService from '../../../services/StringService';
 import './Icon.scss';
 
 export const Icon = (props) => (
