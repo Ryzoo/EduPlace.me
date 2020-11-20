@@ -5,8 +5,8 @@ import { Icon } from '../../components/shared/icon/Icon';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
 import { StringService, URLService } from '../../services';
-import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
+import { userSelectors } from '../../store/features/selectors';
 import React, { useContext, useState } from 'react';
 import './SearchLayout.scss';
 
@@ -17,7 +17,7 @@ export default function SearchLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
   const [notificationDrawerVisibility, setNotificationDrawerVisibility] = useState(false);
   const { routes, language, t } = useContext(ServerDataContext);
-  const user = useSelector(authUser);
+  const user = useSelector(userSelectors.authUser);
   const { isDarkTheme } = useContext(ThemeContext);
 
   const getNavigationLink = () => [

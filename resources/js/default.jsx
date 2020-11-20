@@ -2,8 +2,8 @@ import { ConfigProvider, message } from 'antd';
 import { Provider, useSelector } from 'react-redux';
 import { ServerDataContext, ThemeContextProvider } from './context/index';
 import { UserWebSocketEvents } from './events/index';
-import { authUser } from './store/features/user/user';
 import { render } from 'react-dom';
+import { userSelectors } from './store/features/selectors';
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 import React, { useContext } from 'react';
@@ -16,7 +16,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-axios.defaults.baseURL = '/api/';
+window.axios.defaults.baseURL = '/api/';
 
 export default function buildApp(renderLayout) {
   render(
@@ -37,7 +37,7 @@ export default function buildApp(renderLayout) {
 
 function WebSocketEventInitializer(props) {
   const { t } = useContext(ServerDataContext);
-  const user = useSelector(authUser);
+  const user = useSelector(userSelectors.authUser);
 
   Pusher.logToConsole = true;
 

@@ -1,17 +1,24 @@
+import { asyncActions } from './asyncActions';
 import { createSlice } from '@reduxjs/toolkit';
+import { extraReducers, reducers } from './reducers';
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState: {
+    id: null,
+    email: null,
+    isVerified: false,
     name: '',
     notifications: {
       count: 0,
       list: [],
     },
   },
+  reducers: reducers,
+  extraReducers: extraReducers,
 });
 
-export const authUser = (state) => state.user;
+// definiujemy jak ma sie zmieniac poczatkowy stan przy wczytaniu danych z servera
 export const userDefaultValueProvider = (serverData) =>
   serverData.auth && serverData.auth.user
     ? {
@@ -26,4 +33,7 @@ export const userDefaultValueProvider = (serverData) =>
       }
     : {};
 
-export default userSlice.reducer;
+export const userActions = userSlice.actions;
+export const userAsyncActions = asyncActions;
+
+export const userReducer = userSlice.reducer;

@@ -1,17 +1,17 @@
 import { Badge, Empty, List } from 'antd';
 import { ServerDataContext } from '../../context';
-import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
+import { userSelectors } from '../../store/features/selectors';
 import React, { useContext } from 'react';
 
 export const CurrentUserNotificationsList = () => {
-  const { notifications } = useSelector(authUser);
+  const { isAnyNotifications, notifications } = useSelector(userSelectors.userNotifications);
   const { t } = useContext(ServerDataContext);
 
-  return notifications.list.length ? (
+  return isAnyNotifications ? (
     <List
       itemLayout="horizontal"
-      dataSource={notifications.list}
+      dataSource={notifications}
       renderItem={(notification) =>
         !notification.isNew ? (
           <List.Item key={notification.id}>

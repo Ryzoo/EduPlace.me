@@ -1,12 +1,12 @@
 import { Alert } from 'antd';
 import { ServerDataContext } from '../../context/index';
 import { URLService } from '../../services';
-import { authUser } from '../../store/features/user/user';
 import { useSelector } from 'react-redux';
+import { userSelectors } from '../../store/features/selectors';
 import React, { useContext } from 'react';
 
 export const EmailNotVerifiedBanner = (props) => {
-  const user = useSelector(authUser);
+  const user = useSelector(userSelectors.authUser);
   const { routes, t } = useContext(ServerDataContext);
 
   const handleBannerClose = () => {
