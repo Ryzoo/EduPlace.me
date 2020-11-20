@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\UserNotificationProjection;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -20,7 +21,7 @@ class ShareDataMiddleware
 				'user' => Auth::user(),
 			],
             'notifications' => [
-                'list' => Auth::check() ? Auth::user()->notifications->take(10) : [],
+                'list' => Auth::check() ? UserNotificationProjection::collection(Auth::user()->unreadNotifications) : [],
                 'unreadCount' => Auth::check() ? Auth::user()->unreadNotifications->count() : 0,
             ]
 		]);

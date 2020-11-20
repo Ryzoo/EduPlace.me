@@ -9,6 +9,7 @@ import React, { useContext, useState } from 'react';
 import StringService from '../../services/StringService';
 import URLService from '../../services/URLService';
 
+import { CurrentUserNotificationsList } from '../../components/layouts/CurrentUserNotificationsList';
 import './SearchLayout.scss';
 
 const { Header, Content, Footer } = Layout;
@@ -16,6 +17,7 @@ const { SubMenu } = Menu;
 
 export default function SearchLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
+  const [notificationDrawerVisibility, setNotificationDrawerVisibility] = useState(false);
   const { routes, language, t } = useContext(ServerDataContext);
   const user = useSelector(authUser);
   const { isDarkTheme } = useContext(ThemeContext);
@@ -31,15 +33,6 @@ export default function SearchLayout(props) {
       class: 'hide-hover-effects',
     },
     { label: t['Search'], url: routes.search, class: '' },
-    {
-      label: (
-        <Badge count={user.notifications.count}>
-          <Icon className="notifications" regular name="fa-bell" />
-        </Badge>
-      ),
-      url: routes.user.notifications,
-      class: '',
-    },
   ];
 
   const getUserMenu = () => (
@@ -50,14 +43,6 @@ export default function SearchLayout(props) {
       icon={<i className="far fa-user mr-2" />}
       title={<span className="pr-3">{user.name}</span>}
     >
-      <Menu.Item
-        key={routes.user.notifications}
-        onClick={() => URLService.goTo(routes.user.notifications)}
-      >
-        <Badge count={user.notifications.count}>
-          <span className="pr-3">{t['Notifications']}</span>
-        </Badge>
-      </Menu.Item>
       <SubMenu
         popupClassName={StringService.logicConcat({
           dark: isDarkTheme,
@@ -103,7 +88,7 @@ export default function SearchLayout(props) {
               className={nav.class}
               key={nav.url}
               onClick={() => {
-                URLService.goTo(nav.url);
+                if (nav.url) URLService.goTo(nav.url);
               }}
             >
               {nav.label}
@@ -137,6 +122,23 @@ export default function SearchLayout(props) {
         >
           {getMenuList(true)}
         </Drawer>
+        <Drawer
+          className={StringService.logicConcat({
+            dark: isDarkTheme,
+          })}
+          title={t['Notifications']}
+          width={300}
+          placement="right"
+          closable={false}
+          visible={notificationDrawerVisibility}
+          onClose={() => {
+            setNotificationDrawerVisibility(false);
+            // Todo:
+            // tutaj chcialbym wyslac cos do API i ustawic notyfikacje u nas na przeczytane
+          }}
+        >
+          <CurrentUserNotificationsList />
+        </Drawer>
         <Header>
           <Button
             type="primary"
@@ -149,6 +151,16 @@ export default function SearchLayout(props) {
           </Button>
           <Logo />
           <Menu mode="horizontal" className="float-right">
+            <Menu.Item key="notifcations">
+              <Badge
+                count={user.notifications.count}
+                onClick={() => {
+                  setNotificationDrawerVisibility(true);
+                }}
+              >
+                <Icon className="notifications" regular name="fa-bell" />
+              </Badge>
+            </Menu.Item>
             <SubMenu
               popupClassName={StringService.logicConcat({
                 dark: isDarkTheme,

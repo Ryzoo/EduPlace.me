@@ -31,6 +31,7 @@ export default function buildApp(renderLayout) {
 }
 
 function WebSocketEventInitializer(props) {
+  const { t } = useContext(ServerDataContext);
   const user = useSelector(authUser);
 
   Pusher.logToConsole = true;
@@ -41,7 +42,7 @@ function WebSocketEventInitializer(props) {
     cluster: 'eu',
   });
 
-  UserWebSocketEvents.initialize(echoInstance, user);
+  UserWebSocketEvents.initialize(echoInstance, user, t);
 
   return <section>{props.children}</section>;
 }
