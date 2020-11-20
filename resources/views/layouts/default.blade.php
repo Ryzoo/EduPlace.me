@@ -9,6 +9,7 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="icon" type="image/svg" href="/images/favicon.svg">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @stack('css')
     </head>
     <body>
@@ -82,6 +83,7 @@
           ['Search']: '{{__('Search')}}',
           ['Logout']: '{{__('Logout')}}',
           ['Next']: '{{__('Next')}}',
+          ['New']: '{{__('New')}}',
           ['Previous']: '{{__('Previous')}}',
           ['Finish']: '{{__('Finish')}}',
           ['Login']: '{{__('Login')}}',
@@ -100,6 +102,7 @@
           ['Cancel']: '{{__('Cancel')}}',
           ['Resend verification email.']: '{{__('Resend verification email.')}}',
           ['Your email are not verified. Please use button in email that was sent to you.']: '{{__('Your email are not verified. Please use button in email that was sent to you.')}}',
+          ['New notification!']: '{{__('New notification!')}}',
         },
       }
     </script>

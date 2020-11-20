@@ -14,14 +14,16 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
-	public function toArray()
-	{
-		return [];
-	}
+    public function toArray($notifiable)
+    {
+        return [
+            'message' => __('Thank you for register! To finish registration, click on button that was sent to you.'),
+        ];
+    }
 
     public function via()
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     public function toMail($notifiable)
