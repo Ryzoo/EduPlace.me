@@ -1,5 +1,5 @@
 import { Board } from './Board';
-import { Button, Grid, Row, Skeleton, Typography } from 'antd';
+import { Button, Empty, Grid, Row, Skeleton, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
 import { ServerDataContext } from '../../../../context';
 import React, { useContext } from 'react';
@@ -11,7 +11,6 @@ const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
 export const BoardGrid = ({ boards, showItems, heading, moreUrl, className, loading = false }) => {
-  console.log(boards, heading);
   const items = showItems > 0 ? boards.slice(0, showItems) : boards;
   const screen = useBreakpoint();
   const { t } = useContext(ServerDataContext);
@@ -26,10 +25,12 @@ export const BoardGrid = ({ boards, showItems, heading, moreUrl, className, load
             </Title>
           </Row>
         ) : null}
-        <Row>
-          {items.map((board) => (
-            <Board key={board.name} {...{ board }} />
-          ))}
+        <Row className="w-100">
+          {items.length ? (
+            items.map((board) => <Board key={board.name} {...{ board }} />)
+          ) : (
+            <Empty className="mx-a" description="no data" />
+          )}
         </Row>
         {moreUrl ? (
           <Row

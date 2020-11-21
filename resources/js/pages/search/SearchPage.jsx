@@ -20,22 +20,19 @@ export const SearchPage = () => {
   const { t, viewData } = useContext(ServerDataContext);
   const { userBoards, recommended, recentlyOpened, searchResult } = viewData;
   const [searchedBoards, setSearchedBoards] = useState(searchResult);
-  console.log(searchedBoards);
 
   useEffect(() => {
     if (searchedText.length) {
       SearchAPI.getSearchResults(searchedText).then((response) => {
-        console.log(response);
         setSearchedBoards(response.data);
+        setLoading(false);
       });
     }
   }, [searchedText]);
 
   const onChangeSearchText = (e) => {
-    if (e.target.value.length > 0) {
-      setLoading(true);
-      setSearchedText(e.target.value);
-    }
+    e.target.value.length > 0 ? setLoading(true) : setLoading(false);
+    setSearchedText(e.target.value);
   };
 
   return (
