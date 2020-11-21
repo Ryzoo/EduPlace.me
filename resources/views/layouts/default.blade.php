@@ -66,7 +66,6 @@
           },
           user: {
             notifications: '{{route('pages.user.notifications')}}',
-            notificationsRead: '{{route('action.notifications.read')}}',
             settings: {
               data: '{{route('pages.user.settings.data')}}',
               password: '{{route('pages.user.settings.password')}}',
@@ -79,6 +78,9 @@
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
           current: '{{Request::url()}}',
+        },
+        apiRoutes: {
+          notificationsRead: '{{route('action.notifications.read')}}',
         },
         t: {
           ['Warning']: '{{__('Warning')}}',
