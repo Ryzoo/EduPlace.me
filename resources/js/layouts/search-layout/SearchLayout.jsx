@@ -5,7 +5,8 @@ import { Icon } from '../../components/shared/icon/Icon';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
 import { StringService, URLService } from '../../services';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAsyncActions } from '../../store/features/user';
 import { userSelectors } from '../../store/features/selectors';
 import React, { useContext, useState } from 'react';
 import './SearchLayout.scss';
@@ -19,6 +20,7 @@ export default function SearchLayout(props) {
   const { routes, language, t } = useContext(ServerDataContext);
   const user = useSelector(userSelectors.authUser);
   const { isDarkTheme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const getNavigationLink = () => [
     {
@@ -131,8 +133,6 @@ export default function SearchLayout(props) {
           visible={notificationDrawerVisibility}
           onClose={() => {
             setNotificationDrawerVisibility(false);
-            // Todo:
-            // tutaj chcialbym wyslac cos do API i ustawic notyfikacje u nas na przeczytane
           }}
         >
           <CurrentUserNotificationsList />
@@ -149,13 +149,15 @@ export default function SearchLayout(props) {
           </Button>
           <Logo />
           <Menu mode="horizontal" className="float-right">
-            <Menu.Item key="notifcations">
-              <Badge
-                count={user.notifications.count}
-                onClick={() => {
-                  setNotificationDrawerVisibility(true);
-                }}
-              >
+            <Menu.Item
+              key="notifcations"
+              onClick={() => {
+                setNotificationDrawerVisibility(true);
+                if (user.notifications.count > 0)
+                  dispatch(userAsyncActions.makeNotificationsAsRead());
+              }}
+            >
+              <Badge count={user.notifications.count}>
                 <Icon className="notifications" regular name="fa-bell" />
               </Badge>
             </Menu.Item>

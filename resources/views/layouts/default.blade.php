@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="app">
-            @yield('content')
+            @yield('content')u
         </div>
     </body>
 
@@ -49,6 +49,7 @@
         error: "{{ session('error') ?? '' }}",
         validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
         csrfToken: '{{csrf_field()}}',
+        jwt: '{{ session('jwt') ?? '' }}',
         old: @json(Session::getOldInput()),
         routes: {
           language: {
@@ -61,10 +62,11 @@
             register: '{{route('pages.auth.register')}}',
             passwordRequest: '{{route('password.request')}}',
             passwordUpdate: '{{route('password.update')}}',
-            forgotPassword: '{{route('password.email')}}',
+            forgotPassword: '{{route('password.email')}}'
           },
           user: {
             notifications: '{{route('pages.user.notifications')}}',
+            notificationsRead: '{{route('action.notifications.read')}}',
             settings: {
               data: '{{route('pages.user.settings.data')}}',
               password: '{{route('pages.user.settings.password')}}',

@@ -21,7 +21,8 @@ export default class HttpClient {
 
   static makeRequest(method, url, formData = {}, config = {}) {
     return new Promise((resolve, rejected) => {
-      window.axios.defaults.headers.common.Authorization = `Bearer tu cos kiedys`;
+      window.axios.defaults.headers.common.Authorization = `Bearer ${window.serverData.jwt}`;
+
       switch (method) {
         case HttpMethod.POST:
           return resolve(window.axios.post(url, formData, config));

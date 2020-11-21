@@ -13,16 +13,25 @@ class ShareDataMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+        $user = null;
+        $token = null;
+        $isAuth = Auth::check();
+
+        if($isAuth){
+            $user = Auth::user();
+        }
+
 		View::share('sharedData', [
 			'language' => App::getLocale(),
 			'auth' => [
 				'isLogged' => Auth::check(),
-				'isVerified' => Auth::user() ? Auth::user()->hasVerifiedEmail() : false,
-				'user' => Auth::user(),
+				'isVerified' => $isAuth ? $user->hasVerifiedEmail() : false,
+				'user' => $user,
+                'jwt' => $token,
 			],
             'notifications' => [
-                'list' => Auth::check() ? UserNotificationProjection::collection(Auth::user()->unreadNotifications) : [],
-                'unreadCount' => Auth::check() ? Auth::user()->unreadNotifications->count() : 0,
+                'list' => $isAuth ? UserNotificationProjection::collection($user->unreadNotifications) : [],
+                'unreadCount' => $isAuth ? $user->unreadNotifications->count() : 0,
             ]
 		]);
 

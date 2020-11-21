@@ -15,7 +15,9 @@ class LoginController extends Controller
 
 	public function logoutUser()
 	{
-		Auth::logout();
+        Auth::user()->tokens()->delete();
+        Auth::logout();
+        session(['jwt' => null]);
 
 		return redirect()
 			->route('pages.main')
@@ -28,6 +30,9 @@ class LoginController extends Controller
 		$isRemember = $request->has('remember') && boolval($request->get('remember'));
 
 		if (Auth::attempt($credentials, $isRemember)) {
+            $token = Auth::user()->createToken(Auth::user()->email);
+            session(['jwt' => $token->plainTextToken]);
+
 			return redirect()
 				->route('pages.search')
 				->with('status', __('You are logged successfully!'));

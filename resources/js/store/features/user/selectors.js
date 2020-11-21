@@ -1,5 +1,3 @@
-// Definicja "wybieraków" do danych
-
 export const authUser = (state) => state.user;
 export const userNotifications = (state) => ({
   isAnyNotifications: !!state.user.notifications.list.length,

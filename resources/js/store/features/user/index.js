@@ -18,7 +18,6 @@ const userSlice = createSlice({
   extraReducers: extraReducers,
 });
 
-// definiujemy jak ma sie zmieniac poczatkowy stan przy wczytaniu danych z servera
 export const userDefaultValueProvider = (serverData) =>
   serverData.auth && serverData.auth.user
     ? {

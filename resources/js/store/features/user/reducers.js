@@ -1,31 +1,13 @@
-// import { asyncActions } from './asyncActions';
-
-// Definiujemy synchroniczną obsługę akcji
 import { asyncActions } from './asyncActions';
 
-export const reducers = {
-  todoAdded(state, action) {
-    // ✅ This "mutating" code is okay inside of createSlice!
-    state.push(action.payload);
-  },
-  // todoToggled(state, action) {
-  //   const todo = state.find((t) => t.id === action.payload);
-  //   todo.completed = !todo.completed;
-  // },
-  // todosLoading(state) {
-  //   return {
-  //     ...state,
-  //     status: 'loading',
-  //   };
-  // },
-};
+export const reducers = {};
 
-// Definiujemy asynchroniczną obsługę akcji
 export const extraReducers = (builder) => {
-  builder.addCase(asyncActions.saveNewTodo.pending, (state) => {
-    state.status = 'loading';
+  builder.addCase(asyncActions.makeNotificationsAsRead.fulfilled, (state) => {
+    state.notifications.count = 0;
+    state.notifications.list = state.notifications.list.map((x) => ({
+      ...x,
+      isNew: false,
+    }));
   });
-  // .addCase(asyncActions.saveNewTodo.fulfilled, (state, action) => {
-  //   state.status = 'idle';
-  // });
 };
