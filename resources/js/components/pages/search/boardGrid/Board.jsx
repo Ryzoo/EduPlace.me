@@ -40,7 +40,7 @@ export const Board = ({ board }) => {
         )}
         {board.isLikeLoad && (
           <div className="board-info">
-            <Icon regular className="mr-1" name="fa-spin fas fa-spinner" />
+            <Icon className="mr-1" spin name="fa-spinner" />
           </div>
         )}
       </div>
