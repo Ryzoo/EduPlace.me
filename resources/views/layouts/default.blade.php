@@ -78,6 +78,14 @@
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
           current: '{{Request::url()}}',
+          action: {
+            login: '{{route('login')}}',
+            register: '{{route('pages.auth.register')}}',
+            dataChange: '{{route('action.user.settings.data.change')}}',
+            deleteUser: '{{route('action.user.settings.gdpr.user-delete')}}',
+            changePassword: '{{route('action.user.settings.password.change')}}',
+            processQuestionnaire: '{{route('action.user.questionnaire')}}'
+          },
         },
         apiRoutes: {
           notificationsRead: '{{route('action.notifications.read')}}',

@@ -11,12 +11,6 @@
         additional: {
           ...window.serverData.additional,
           profiles: @json($profiles)
-        },
-        routes: {
-          ...window.serverData.routes,
-          action: {
-            processQuestionnaire: '{{route('action.user.questionnaire')}}'
-          }
         }
       }
     </script>
