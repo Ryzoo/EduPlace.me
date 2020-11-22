@@ -14,16 +14,6 @@
             dataChange: '{{route('action.user.settings.data.change')}}'
           }
         },
-        t: {
-          ...window.serverData.t,
-          ['Change profile data']: '{{__('Change profile data')}}',
-          ['Email']: '{{__('Email')}}',
-          ['Name']: '{{__('Name')}}',
-          ['Save changes']: '{{__('Save changes')}}',
-          ['Change my password']: '{{__('Change my password')}}',
-          ['Go to GDPR options']: '{{__('Go to GDPR options')}}',
-          ['Dark mode']: '{{__('Dark mode')}}',
-        }
       }
     </script>
     <script src="{{mix('js/userSettingsUserDataPage.js')}}"></script>

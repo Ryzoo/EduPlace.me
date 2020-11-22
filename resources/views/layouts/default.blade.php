@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="app">
-            @yield('content')u
+            @yield('content')
         </div>
     </body>
 
@@ -81,32 +81,6 @@
         },
         apiRoutes: {
           notificationsRead: '{{route('action.notifications.read')}}',
-        },
-        t: {
-          ['Warning']: '{{__('Warning')}}',
-          ['Search']: '{{__('Search')}}',
-          ['Logout']: '{{__('Logout')}}',
-          ['Next']: '{{__('Next')}}',
-          ['New']: '{{__('New')}}',
-          ['Previous']: '{{__('Previous')}}',
-          ['Finish']: '{{__('Finish')}}',
-          ['Login']: '{{__('Login')}}',
-          ['Join us']: '{{__('Join us')}}',
-          ['For Company']: '{{__('For Company')}}',
-          ['For Education']: '{{__('For Education')}}',
-          ['Created by Educated team']: '{{__('Created by Educated team')}}',
-          ['Notifications']: '{{__('Notifications')}}',
-          ['Settings']: '{{__('Settings')}}',
-          ['Already with us:']: '{{__('Already with us:')}}',
-          ['RODO']: '{{__('RODO')}}',
-          ['Are you sure?']: '{{__('Are you sure?')}}',
-          ['User data']: '{{__('User data')}}',
-          ['Change password']: '{{__('Change password')}}',
-          ['Delete']: '{{__('Delete')}}',
-          ['Cancel']: '{{__('Cancel')}}',
-          ['Resend verification email.']: '{{__('Resend verification email.')}}',
-          ['Your email are not verified. Please use button in email that was sent to you.']: '{{__('Your email are not verified. Please use button in email that was sent to you.')}}',
-          ['New notification!']: '{{__('New notification!')}}',
         },
       }
     </script>

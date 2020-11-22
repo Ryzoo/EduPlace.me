@@ -14,11 +14,6 @@
             deleteUser: '{{route('action.user.settings.gdpr.user-delete')}}'
           }
         },
-        t: {
-          ...window.serverData.t,
-          ['Rodo options']: '{{__('Rodo options')}}',
-          ['Delete my account']: '{{__('Delete my account')}}',
-        }
       }
     </script>
     <script src="{{mix('js/userSettingsGdprPage.js')}}"></script>

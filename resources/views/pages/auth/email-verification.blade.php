@@ -8,10 +8,6 @@
     <script>
       window.serverData = {
         ...window.serverData,
-        t: {
-          ...window.serverData.t,
-          ['Back to main page.']: '{{__('Back to main page.')}}',
-        }
       }
     </script>
     <script src="{{mix('js/emailNotVerifiedPage.js')}}"></script>
