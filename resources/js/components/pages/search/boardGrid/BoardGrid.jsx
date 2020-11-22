@@ -2,9 +2,8 @@ import { Board } from './Board';
 import { Button, Empty, Grid, Row, Skeleton, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
 import { ServerDataContext } from '../../../../context';
-import React, { useContext } from 'react';
-
 import { StringService } from '../../../../services';
+import React, { useContext } from 'react';
 import './BoardGrid.scss';
 
 const { Title } = Typography;
