@@ -71,7 +71,7 @@ Route::prefix('auth')->group(function () {
 		Route::prefix('social')->group(function () {
 			Route::get('{provider}', [SocialLoginController::class, 'redirectToProvider'])
 				->middleware(['guest'])->name('pages.auth.social');
-			Route::post('{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])
+			Route::get('{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])
 				->middleware(['throttle:6,1']);
 		});
 	});

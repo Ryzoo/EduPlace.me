@@ -90,5 +90,7 @@
   "Thank you for register! To finish registration, click on button that was sent to you.": "Dziękujemy za rejestracje. Aby zweryfikować swoje konto, kliknij w link wysłany na Twój adres email.",
   "You prompted for reset password. Look for email from site.": "Poprosiłeś o zresetowanie hasła. Sprawdź swoją skrzynkę pocztową.",
   "New notification!": "Nowe powiadomienie!",
-  "New": "Nowy"
+  "New": "Nowy",
+  "Login by google": "Zaloguj się przez google",
+  "Login by facebook": "Zaloguj się przez facebook"
 }

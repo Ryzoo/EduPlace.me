@@ -62,7 +62,11 @@
             register: '{{route('pages.auth.register')}}',
             passwordRequest: '{{route('password.request')}}',
             passwordUpdate: '{{route('password.update')}}',
-            forgotPassword: '{{route('password.email')}}'
+            forgotPassword: '{{route('password.email')}}',
+            social: {
+              google: '{{route('pages.auth.social', ["provider" => 'google'])}}',
+              facebook: '{{route('pages.auth.social', ["provider" => 'facebook'])}}'
+            }
           },
           user: {
             notifications: '{{route('pages.user.notifications')}}',
@@ -86,7 +90,7 @@
             dataChange: '{{route('action.user.settings.data.change')}}',
             deleteUser: '{{route('action.user.settings.gdpr.user-delete')}}',
             changePassword: '{{route('action.user.settings.password.change')}}',
-            processQuestionnaire: '{{route('action.user.questionnaire')}}'
+            processQuestionnaire: '{{route('action.user.questionnaire')}}',
           },
         },
         apiRoutes: {
