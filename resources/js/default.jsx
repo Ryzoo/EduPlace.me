@@ -1,5 +1,5 @@
 import { ConfigProvider, message } from 'antd';
-import { Provider, useSelector } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { ServerDataContext, ThemeContextProvider } from './context/index';
 import { UserWebSocketEvents } from './events/index';
 import { render } from 'react-dom';
@@ -37,6 +37,7 @@ export default function buildApp(renderLayout) {
 function WebSocketEventInitializer(props) {
   const { t } = useContext(ServerDataContext);
   const user = useSelector(userSelectors.authUser);
+  const dispatch = useDispatch();
 
   Pusher.logToConsole = true;
 
@@ -46,7 +47,7 @@ function WebSocketEventInitializer(props) {
     cluster: 'eu',
   });
 
-  UserWebSocketEvents.initialize(echoInstance, user, t);
+  if (user.id) UserWebSocketEvents.initialize(echoInstance, user, t, dispatch);
 
   return <section>{props.children}</section>;
 }
