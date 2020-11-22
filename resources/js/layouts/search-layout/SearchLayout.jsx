@@ -26,7 +26,7 @@ export default function SearchLayout(props) {
     {
       label: (
         <Button type="primary" onClick={() => URLService.goTo('#')}>
-          {t['+ Add content']}
+          {t['+ Add board']}
         </Button>
       ),
       url: '#',

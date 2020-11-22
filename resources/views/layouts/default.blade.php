@@ -77,6 +77,8 @@
           },
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
+          company: '{{route('pages.company')}}',
+          education: '{{route('pages.education')}}',
           current: '{{Request::url()}}',
           action: {
             login: '{{route('login')}}',

@@ -124,7 +124,7 @@ export const SearchPage = () => {
         className={StringService.logicConcat('fixed-button', {
           'd-none': !screen.md,
         })}
-        offsetBottom={80}
+        offsetBottom={25}
       >
         <Button shape="circle" type="primary" onClick={() => URLService.goTo('#')}>
           <Icon name="fa-plus" />

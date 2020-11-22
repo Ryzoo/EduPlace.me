@@ -14,8 +14,8 @@ use App\Http\Controllers\User\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
-
-Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
+Route::get('/company', [MainPageController::class, 'getCompanyPage'])->name('pages.company');
+Route::get('/education', [MainPageController::class, 'getEducationPage'])->name('pages.education');
 
 Route::prefix('search')->group(function () {
     Route::get('/', [SearchController::class, 'getSearchPage'])
