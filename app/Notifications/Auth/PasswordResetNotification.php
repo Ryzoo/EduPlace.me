@@ -30,7 +30,7 @@ class PasswordResetNotification extends Notification implements ShouldQueue
 
     public function via()
     {
-        return ['mail', 'database'];
+        return ['mail'];
     }
 
     public function toMail()
