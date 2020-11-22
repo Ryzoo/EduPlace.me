@@ -15,7 +15,7 @@ export const SocialLogin = () => {
         block
         icon={<Icon name="fab fa-google" />}
       >
-        {t['Login by google']}
+        {t['Login with google']}
       </Button>
       <Button
         className="social-button-facebook"
@@ -24,7 +24,7 @@ export const SocialLogin = () => {
         block
         icon={<Icon name="fab fa-facebook-f" />}
       >
-        {t['Login by facebook']}
+        {t['Login with facebook']}
       </Button>
     </section>
   );
