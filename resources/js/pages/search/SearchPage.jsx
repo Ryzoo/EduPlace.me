@@ -26,11 +26,13 @@ export const SearchPage = () => {
       setSearchTimeout(null);
     }
 
-    if (text.length > 2) {
+    if (text.length) {
       setSearchTimeout(
         setTimeout(() => {
           dispatch(searchAsyncActions.searchByText(text));
-        }, 2000)
+          clearTimeout(searchTimeout);
+          setSearchTimeout(null);
+        }, 1000)
       );
     } else if (!text.length) {
       dispatch(searchActions.setDisplayedBoardsType(DisplayedBoardsType.Recommended));

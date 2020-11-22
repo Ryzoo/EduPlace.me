@@ -20,20 +20,23 @@ const userSlice = createSlice({
   extraReducers: extraReducers,
 });
 
-export const userDefaultValueProvider = (serverData) =>
-  serverData.auth && serverData.auth.user
-    ? {
-        ...initialState,
-        id: serverData.auth.user.id,
-        email: serverData.auth.user.email,
-        isVerified: serverData.auth.isVerified,
-        name: serverData.auth.user.name,
-        notifications: {
-          count: serverData.notifications.unreadCount,
-          list: serverData.notifications.list,
-        },
-      }
-    : initialState;
+export const userDefaultValueProvider = (serverData) => {
+  try {
+    return {
+      ...initialState,
+      id: serverData.auth.user.id,
+      email: serverData.auth.user.email,
+      isVerified: serverData.auth.isVerified,
+      name: serverData.auth.user.name,
+      notifications: {
+        count: serverData.notifications.unreadCount,
+        list: serverData.notifications.list,
+      },
+    };
+  } catch (e) {
+    return initialState;
+  }
+};
 
 export const userActions = userSlice.actions;
 export const userAsyncActions = asyncActions;

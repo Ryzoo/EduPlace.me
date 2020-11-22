@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SearchBoardResultProjection;
+use App\Http\Resources\SearchTagResultProjection;
 use App\Services\BoardService;
 use App\Services\SearchService;
 use Illuminate\Http\Request;
@@ -25,12 +27,12 @@ class SearchController extends Controller
 
         return view('pages.search', [
             "viewData" => [
-                "recentlyOpened" => $this->boardService->getRecentlyOpenedBoards($user),
-                "recommended" => $this->boardService->getRecommendedBoards($user),
-                "userBoards" => $this->boardService->getBoardsOfUser($user),
+                "recentlyOpened" => SearchBoardResultProjection::collection($this->boardService->getRecentlyOpenedBoards($user)),
+                "recommended" => SearchBoardResultProjection::collection($this->boardService->getRecommendedBoards($user)),
+                "userBoards" => SearchBoardResultProjection::collection($this->boardService->getBoardsOfUser($user)),
                 "searchResult" => [
-                    "boards" => $this->searchService->findBoardsByText($additionallySearchText),
-                    "tags" => $this->searchService->findTagsByText($additionallySearchText),
+                    "boards" => SearchBoardResultProjection::collection($this->searchService->findBoardsByText($additionallySearchText)),
+                    "tags" => SearchTagResultProjection::collection($this->searchService->findTagsByText($additionallySearchText)),
                 ]
             ]
         ]);
@@ -38,8 +40,8 @@ class SearchController extends Controller
 
     public function search(string $text){
         return response()->json([
-            "boards" => $this->searchService->findBoardsByText($text),
-            "tags" => $this->searchService->findTagsByText($text),
+            "boards" => SearchBoardResultProjection::collection($this->searchService->findBoardsByText($text)),
+            "tags" => SearchTagResultProjection::collection($this->searchService->findTagsByText($text)),
         ]);
     }
 }

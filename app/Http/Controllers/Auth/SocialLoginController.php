@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Services\AuthService;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
@@ -23,6 +24,8 @@ class SocialLoginController extends Controller
 	{
 		$user = Socialite::driver($provider)->user();
 		$this->authService->loginUserBySocial($user->getName(), $user->getEmail());
+        $token = Auth::user()->createToken(Auth::user()->email);
+        session(['jwt' => $token->plainTextToken]);
 
 		return redirect()
 			->route('pages.search')

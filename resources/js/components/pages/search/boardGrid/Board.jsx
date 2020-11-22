@@ -17,11 +17,15 @@ export const Board = ({ board }) => {
       <div className="between-flex px-3 py-2">
         <div className="board-info">
           <Icon className="mr-1" name="fa-eye" />
-          {board.viewed}
+          {board.viewsCount}
         </div>
-        <div className={StringService.logicConcat('board-info likes', { reacted: board.liked })}>
+        <div
+          className={StringService.logicConcat('board-info likes', {
+            reacted: board.likedByCurrentUser,
+          })}
+        >
           <Icon regular className="mr-1" name="fa-thumbs-up" />
-          {board.likers.length}
+          {board.likesCount}
         </div>
       </div>
     </Col>

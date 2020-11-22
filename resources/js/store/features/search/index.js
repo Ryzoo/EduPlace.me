@@ -25,21 +25,24 @@ const searchSlice = createSlice({
   extraReducers: extraReducers,
 });
 
-export const searchDefaultValueProvider = (serverData) =>
-  serverData.viewData
-    ? {
-        ...initialState,
-        boards: {
-          user: serverData.viewData.userBoards,
-          recommended: serverData.viewData.recommended,
-          recentlyOpened: serverData.viewData.recentlyOpened,
-          searchResult: serverData.viewData.searchResult.boards,
-        },
-        tags: {
-          searchResult: serverData.viewData.searchResult.tags,
-        },
-      }
-    : initialState;
+export const searchDefaultValueProvider = (serverData) => {
+  try {
+    return {
+      ...initialState,
+      boards: {
+        user: serverData.viewData.userBoards,
+        recommended: serverData.viewData.recommended,
+        recentlyOpened: serverData.viewData.recentlyOpened,
+        searchResult: serverData.viewData.searchResult.boards,
+      },
+      tags: {
+        searchResult: serverData.viewData.searchResult.tags,
+      },
+    };
+  } catch (e) {
+    return initialState;
+  }
+};
 
 export const searchActions = searchSlice.actions;
 export const searchAsyncActions = asyncActions;
