@@ -6,6 +6,7 @@ mix
   .sass('resources/css/app.scss', 'public/css', [])
   .react('resources/js/pages/main/builder.jsx', 'public/js/mainPage.js')
   .react('resources/js/pages/company/builder.jsx', 'public/js/companyPage.js')
+  .react('resources/js/pages/autopromotion/builder.jsx', 'public/js/autopromotionPage.js')
   .react('resources/js/pages/education/builder.jsx', 'public/js/educationPage.js')
   .react('resources/js/pages/search/builder.jsx', 'public/js/searchPage.js')
   .react('resources/js/pages/auth/register/builder.jsx', 'public/js/authRegisterPage.js')

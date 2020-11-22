@@ -83,6 +83,7 @@
           search: '{{route('pages.search')}}',
           company: '{{route('pages.company')}}',
           education: '{{route('pages.education')}}',
+          autopromotion: '{{route('pages.autopromotion')}}',
           current: '{{Request::url()}}',
           action: {
             login: '{{route('login')}}',

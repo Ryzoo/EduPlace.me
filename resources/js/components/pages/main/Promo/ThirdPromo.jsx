@@ -7,7 +7,7 @@ import React, { useContext } from 'react';
 const { Title, Paragraph } = Typography;
 const { useBreakpoint } = Grid;
 
-export const FirstPromo = () => {
+export const ThirdPromo = () => {
   const screen = useBreakpoint();
   const { routes, t } = useContext(ServerDataContext);
 
@@ -24,21 +24,26 @@ export const FirstPromo = () => {
           lg={12}
           order={screen.lg ? 0 : 1}
         >
-          <Title level={2}>{t['EduPlace.me will allow you in the field of education:']}</Title>
+          <Title level={2}>{t['EduPlace.me will allow you in terms of advertising:']}</Title>
           <Paragraph className={StringService.logicConcat({ 'mx-a': !screen.lg })}>
             {
               t[
-                'EduPlace.me is prepared to work in a group, classroom based on SOLE methodology ( Self Organized Learning Environment; Sugata Mitra 2014) self-organized learning environment. It allows to a large extent to move away from the teaching knowledge (dictation, lectures). In return, it gives the group the opportunity to be active:'
+                'EduPlace.me is not only a good way to advertise products that solve your customers problems, it is also a way of promotion:'
               ]
             }
             <ul>
-              <li>{t['ordering,']}</li>
-              <li>{t['of creating,']}</li>
-              <li>{t['updates,']}</li>
-              <li>{t['knowledge gained,']}</li>
+              <li>{t['institutions,']}</li>
+              <li>{t['university,']}</li>
+              <li>{t['a school that can expose valuable topics,']}</li>
+              <li>{t['companies,']}</li>
+              <li>{t['services,']}</li>
             </ul>
           </Paragraph>
-          <Button type="primary" className="mr-2" onClick={() => URLService.goTo(routes.education)}>
+          <Button
+            type="primary"
+            className="mr-2"
+            onClick={() => URLService.goTo(routes.autopromotion)}
+          >
             {t['Get more information']}
           </Button>
         </Col>
@@ -50,8 +55,8 @@ export const FirstPromo = () => {
         >
           <Image
             width="100%"
-            src="/images/promo.webp"
-            alt={t['EduPlace.me will allow you in the field of education:']}
+            src="/images/promo3.webp"
+            alt={t['EduPlace.me will allow you in terms of advertising:']}
           />
         </Col>
       </Row>

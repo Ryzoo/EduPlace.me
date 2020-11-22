@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainPageController::class, 'getMainPage'])->name('pages.main');
 Route::get('/company', [MainPageController::class, 'getCompanyPage'])->name('pages.company');
 Route::get('/education', [MainPageController::class, 'getEducationPage'])->name('pages.education');
+Route::get('/autopromotion', [MainPageController::class, 'getAutopromotionPage'])->name('pages.autopromotion');
 
 Route::prefix('search')->group(function () {
     Route::get('/', [SearchController::class, 'getSearchPage'])

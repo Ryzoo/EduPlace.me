@@ -21,4 +21,8 @@ class MainPageController extends Controller
     public function getEducationPage() {
         return view('pages.education');
     }
+
+    public function getAutopromotionPage() {
+        return view('pages.autopromotion');
+    }
 }

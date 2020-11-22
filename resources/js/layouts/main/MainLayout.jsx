@@ -16,6 +16,7 @@ export default function MainLayout(props) {
     { label: 'EduPlace', url: routes.main },
     { label: t['For Education'], url: routes.education },
     { label: t['For Company'], url: routes.company },
+    { label: t['For Autopromotion'], url: routes.autopromotion },
     { label: t['Search'], url: routes.search, onlyLogged: true },
   ];
   const getMenuList = (inDrawer) => {

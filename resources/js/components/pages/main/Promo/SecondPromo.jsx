@@ -19,7 +19,11 @@ export const SecondPromo = () => {
           lg={12}
           className={StringService.logicConcat('px-10', { 'text-center': !screen.lg })}
         >
-          <Image width="100%" src="https://via.placeholder.com/800x500" />
+          <Image
+            width="100%"
+            src="/images/promo2.webp"
+            alt={t['EduPlace.me will allow you in the field of your business:']}
+          />
         </Col>
         <Col
           className={StringService.logicConcat({
@@ -30,14 +34,15 @@ export const SecondPromo = () => {
           span={24}
           lg={12}
         >
-          <Title level={2}>Edu Place pozwoli Ci</Title>
+          <Title level={2}>{t['EduPlace.me will allow you in the field of your business:']}</Title>
           <Paragraph className={StringService.logicConcat({ 'mx-a': !screen.lg })}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
-            nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
-            commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
+            {
+              t[
+                'EduPlace.me is a project of an innovative multimedia whiteboard platform that gives the possibility of team management: projects, tasks, startups... It allows for aggregation of knowledge resources, content, data on any subject by a team of experts, staff who will easily and clearly communicate it to their team.'
+              ]
+            }
           </Paragraph>
-          <Button type="primary" className="mr-2" onClick={() => URLService.goTo(routes.education)}>
+          <Button type="primary" className="mr-2" onClick={() => URLService.goTo(routes.company)}>
             {t['Get more information']}
           </Button>
         </Col>
