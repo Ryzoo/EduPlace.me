@@ -7,6 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
 
 class ShareDataMiddleware
@@ -17,6 +18,7 @@ class ShareDataMiddleware
         $token = null;
         $isAuth = Auth::check();
         $lang = App::getLocale();
+        $pathToLangFile = join(DIRECTORY_SEPARATOR, array(base_path(), "resources", "lang", "{$lang}.json"));
 
         if($isAuth){
             $user = Auth::user();
@@ -24,7 +26,7 @@ class ShareDataMiddleware
 
 		View::share('sharedData', [
 			'language' => $lang,
-			't' => json_decode(file_get_contents(base_path()."\\resources\\lang\\{$lang}.json")),
+			't' => json_decode(File::get($pathToLangFile, true)),
 			'auth' => [
 				'isLogged' => Auth::check(),
 				'isVerified' => $isAuth ? $user->hasVerifiedEmail() : false,
