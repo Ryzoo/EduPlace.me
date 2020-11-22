@@ -1,13 +1,15 @@
 import { Button, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
-import { StringService } from '../../../../services';
-import React from 'react';
+import { ServerDataContext } from '../../../../context';
+import { StringService, URLService } from '../../../../services';
+import React, { useContext } from 'react';
 
 const { Title, Paragraph } = Typography;
 const { useBreakpoint } = Grid;
 
 export const SecondPromo = () => {
   const screen = useBreakpoint();
+  const { routes, t } = useContext(ServerDataContext);
 
   return (
     <Container className="promo-section b-white">
@@ -35,8 +37,8 @@ export const SecondPromo = () => {
             nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
             commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
           </Paragraph>
-          <Button type="primary" className="mr-2">
-            Stwórz tablice już teraz
+          <Button type="primary" className="mr-2" onClick={() => URLService.goTo(routes.education)}>
+            {t['Get more information']}
           </Button>
         </Col>
       </Row>
