@@ -2,18 +2,20 @@ import { asyncActions } from './asyncActions';
 import { createSlice } from '@reduxjs/toolkit';
 import { extraReducers, reducers } from './reducers';
 
+const initialState = {
+  id: null,
+  email: null,
+  isVerified: false,
+  name: '',
+  notifications: {
+    count: 0,
+    list: [],
+  },
+};
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    id: null,
-    email: null,
-    isVerified: false,
-    name: '',
-    notifications: {
-      count: 0,
-      list: [],
-    },
-  },
+  initialState,
   reducers: reducers,
   extraReducers: extraReducers,
 });
@@ -21,6 +23,7 @@ const userSlice = createSlice({
 export const userDefaultValueProvider = (serverData) =>
   serverData.auth && serverData.auth.user
     ? {
+        ...initialState,
         id: serverData.auth.user.id,
         email: serverData.auth.user.email,
         isVerified: serverData.auth.isVerified,
@@ -30,7 +33,7 @@ export const userDefaultValueProvider = (serverData) =>
           list: serverData.notifications.list,
         },
       }
-    : {};
+    : initialState;
 
 export const userActions = userSlice.actions;
 export const userAsyncActions = asyncActions;

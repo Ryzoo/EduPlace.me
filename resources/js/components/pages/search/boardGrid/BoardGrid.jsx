@@ -29,7 +29,7 @@ export const BoardGrid = ({ boards, showItems, heading, moreUrl, className, load
           {items.length ? (
             items.map((board) => <Board key={board.name} {...{ board }} />)
           ) : (
-            <Empty className="mx-a" description="no data" />
+            <Empty className="mx-a" description={false} />
           )}
         </Row>
         {moreUrl ? (

@@ -1,38 +1,45 @@
 import { Affix, Button, Col, Grid, Input, Row } from 'antd';
-import { BoardGrid } from '../../components/pages/search/boardGrid/BoardGrid';
 import { Container } from '../../components/shared/container/Container';
+import { DisplayedBoardsType } from '../../enums';
 import { Icon } from '../../components/shared/icon/Icon';
-import { SearchAPI } from '../../api';
+import { SearchContent } from '../../components/pages/search/SearchContent';
+import { SearchFooter } from '../../components/pages/search/SearchFooter';
 import { ServerDataContext } from '../../context';
 import { StringService, URLService } from '../../services';
-import { Tag } from '../../components/shared/tag/Tag';
-import React, { useContext, useEffect, useState } from 'react';
+import { searchActions, searchAsyncActions } from '../../store/features/search';
+import { useDispatch } from 'react-redux';
+import React, { useContext, useState } from 'react';
 import './SearchPage.scss';
 
 const { Search } = Input;
 const { useBreakpoint } = Grid;
 
 export const SearchPage = () => {
-  const [searchedText, setSearchedText] = useState('');
-  const [isUserBoards, setUserBoards] = useState(false);
-  const [isLoading, setLoading] = useState(false);
   const screen = useBreakpoint();
-  const { t, viewData } = useContext(ServerDataContext);
-  const { userBoards, recommended, recentlyOpened, searchResult } = viewData;
-  const [searchedBoards, setSearchedBoards] = useState(searchResult);
+  const dispatch = useDispatch();
+  const { t } = useContext(ServerDataContext);
+  const [searchTimeout, setSearchTimeout] = useState(null);
 
-  useEffect(() => {
-    if (searchedText.length) {
-      SearchAPI.getSearchResults(searchedText).then((response) => {
-        setSearchedBoards(response.data);
-        setLoading(false);
-      });
+  const searchByText = (text) => {
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+      setSearchTimeout(null);
     }
-  }, [searchedText]);
 
+    if (text.length > 2) {
+      setSearchTimeout(
+        setTimeout(() => {
+          dispatch(searchAsyncActions.searchByText(text));
+        }, 2000)
+      );
+    } else if (!text.length) {
+      dispatch(searchActions.setDisplayedBoardsType(DisplayedBoardsType.Recommended));
+    }
+  };
   const onChangeSearchText = (e) => {
-    e.target.value.length > 0 ? setLoading(true) : setLoading(false);
-    setSearchedText(e.target.value);
+    const text = e.target.value;
+    dispatch(searchActions.setSearchedText(text));
+    searchByText(text);
   };
 
   return (
@@ -47,79 +54,8 @@ export const SearchPage = () => {
           />
         </Col>
       </Row>
-      <Row justify="center" className="my-6">
-        <Col md={12}>
-          <Row justify="center">
-            {searchedText.length > 0 ? (
-              searchResult.tags.map((tag) => (
-                <Col key={tag.name}>
-                  <Tag>
-                    <a href="#">{tag.name}</a>
-                  </Tag>
-                </Col>
-              ))
-            ) : (
-              <div className="connected-pill-buttons">
-                <Button
-                  className={StringService.logicConcat({
-                    'btn-white': isUserBoards,
-                  })}
-                  type={StringService.logicConcat({
-                    primary: !isUserBoards,
-                  })}
-                  shape="round"
-                  onClick={() => setUserBoards(false)}
-                >
-                  {t['All boards']}
-                </Button>
-                <Button
-                  className={StringService.logicConcat({
-                    'btn-white': !isUserBoards,
-                  })}
-                  type={StringService.logicConcat({
-                    primary: isUserBoards,
-                  })}
-                  shape="round"
-                  onClick={() => setUserBoards(true)}
-                >
-                  {t['My boards']}
-                </Button>
-              </div>
-            )}
-          </Row>
-        </Col>
-      </Row>
-      {searchedText.length > 0 ? (
-        <BoardGrid loading={isLoading} className="b-gray pt-6" boards={searchedBoards.boards} />
-      ) : (
-        <>
-          {isUserBoards ? (
-            <BoardGrid
-              className="b-gray"
-              boards={userBoards}
-              showItems={6}
-              heading={t['My boards']}
-              moreUrl={() => URLService.goTo('#')}
-            />
-          ) : (
-            <>
-              <BoardGrid
-                className="b-gray"
-                boards={recentlyOpened}
-                showItems={6}
-                heading={t['Recently opened boards']}
-                moreUrl={() => URLService.goTo('#')}
-              />
-              <BoardGrid
-                boards={recommended}
-                showItems={6}
-                heading={t['Recommended boards']}
-                moreUrl={() => URLService.goTo('#')}
-              />
-            </>
-          )}
-        </>
-      )}
+      <SearchFooter />
+      <SearchContent />
       <Affix
         className={StringService.logicConcat('fixed-button', {
           'd-none': !screen.md,
