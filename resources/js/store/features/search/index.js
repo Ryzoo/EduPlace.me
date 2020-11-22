@@ -27,8 +27,16 @@ const searchSlice = createSlice({
 
 export const searchDefaultValueProvider = (serverData) => {
   try {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const text = urlParams.get('text') || '';
+
     return {
       ...initialState,
+      text: text,
+      selectedDisplayedBoardsType: text.length
+        ? DisplayedBoardsType.SearchResult
+        : DisplayedBoardsType.Recommended,
       boards: {
         user: serverData.viewData.userBoards,
         recommended: serverData.viewData.recommended,

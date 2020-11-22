@@ -2,9 +2,13 @@ import { Col } from 'antd';
 import { Icon } from '../../../shared/icon/Icon';
 import { ImageWithOverlay } from '../../../shared/imageWithOverlay/ImageWithOverlay';
 import { StringService } from '../../../../services';
+import { searchAsyncActions } from '../../../../store/features/search';
+import { useDispatch } from 'react-redux';
 import React from 'react';
 
 export const Board = ({ board }) => {
+  const dispatch = useDispatch();
+
   return (
     <Col className="pb-4 px-4" lg={8} md={12} sm={24} key={board.name}>
       <a>
@@ -19,14 +23,26 @@ export const Board = ({ board }) => {
           <Icon className="mr-1" name="fa-eye" />
           {board.viewsCount}
         </div>
-        <div
-          className={StringService.logicConcat('board-info likes', {
-            reacted: board.likedByCurrentUser,
-          })}
-        >
-          <Icon regular className="mr-1" name="fa-thumbs-up" />
-          {board.likesCount}
-        </div>
+        {!board.isLikeLoad && (
+          <div
+            className={StringService.logicConcat('board-info likes', {
+              reacted: board.likedByCurrentUser,
+            })}
+          >
+            <Icon
+              regular
+              className="mr-1"
+              name="fa-thumbs-up"
+              onClick={() => dispatch(searchAsyncActions.toggleBoardLike(board.id))}
+            />
+            {board.likesCount}
+          </div>
+        )}
+        {board.isLikeLoad && (
+          <div className="board-info">
+            <Icon regular className="mr-1" name="fa-spin fas fa-spinner" />
+          </div>
+        )}
       </div>
     </Col>
   );

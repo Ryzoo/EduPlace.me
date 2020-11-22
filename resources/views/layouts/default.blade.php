@@ -96,6 +96,7 @@
         },
         apiRoutes: {
           notificationsRead: '{{route('action.notifications.read')}}',
+          toggleLikeBoard: '{{route('action.toggleLike.board', ["board" => 'id'])}}',
         },
       }
     </script>

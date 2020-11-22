@@ -15,8 +15,10 @@ class SearchBoardResultProjection extends JsonResource
             'image' => $this->image,
             'slug' => $this->slug,
             'viewsCount' => $this->viewed,
-            'likesCount' => count($this->likers),
-            'likedByCurrentUser' => $this->likers->contains(Auth::user()->email),
+            'likesCount' => count($this->likes),
+            'likedByCurrentUser' => $this->likes->contains(static function ($value) {
+                return $value->user_id === Auth::user()->id;
+            }),
             'lastUpdate' => $this->updated_at->diffForHumans(),
         ];
     }

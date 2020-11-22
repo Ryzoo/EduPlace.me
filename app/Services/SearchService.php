@@ -11,8 +11,10 @@ class SearchService
 {
     public function findBoardsByText(string $text): Collection{
         if($this->validateText($text)){
-            $boards = Board::search($text)->get();
-            return $boards->load('likers');
+            $boards = Board::search($text)
+                ->get();
+
+            return $boards->load('likes');
         }
 
         return collect();

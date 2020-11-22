@@ -7,8 +7,9 @@ import { SearchFooter } from '../../components/pages/search/SearchFooter';
 import { ServerDataContext } from '../../context';
 import { StringService, URLService } from '../../services';
 import { searchActions, searchAsyncActions } from '../../store/features/search';
-import { useDispatch } from 'react-redux';
-import React, { useContext, useState } from 'react';
+import { searchSelectors } from '../../store/features/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useContext } from 'react';
 import './SearchPage.scss';
 
 const { Search } = Input;
@@ -18,30 +19,20 @@ export const SearchPage = () => {
   const screen = useBreakpoint();
   const dispatch = useDispatch();
   const { t } = useContext(ServerDataContext);
-  const [searchTimeout, setSearchTimeout] = useState(null);
+  const searchText = useSelector(searchSelectors.getSearchText);
 
-  const searchByText = (text) => {
-    if (searchTimeout) {
-      clearTimeout(searchTimeout);
-      setSearchTimeout(null);
-    }
-
-    if (text.length) {
-      setSearchTimeout(
-        setTimeout(() => {
-          dispatch(searchAsyncActions.searchByText(text));
-          clearTimeout(searchTimeout);
-          setSearchTimeout(null);
-        }, 1000)
-      );
-    } else if (!text.length) {
-      dispatch(searchActions.setDisplayedBoardsType(DisplayedBoardsType.Recommended));
+  const searchByText = () => {
+    if (searchText.length) {
+      dispatch(searchAsyncActions.searchByText(searchText));
     }
   };
   const onChangeSearchText = (e) => {
     const text = e.target.value;
+
     dispatch(searchActions.setSearchedText(text));
-    searchByText(text);
+
+    if (!searchText.length)
+      dispatch(searchActions.setDisplayedBoardsType(DisplayedBoardsType.Recommended));
   };
 
   return (
@@ -49,10 +40,12 @@ export const SearchPage = () => {
       <Row justify="center">
         <Col lg={9} md={12} sm={16}>
           <Search
+            defaultValue={searchText}
             size="large"
             allowClear
             placeholder={t['Type to find knowledge']}
             onChange={onChangeSearchText}
+            onSearch={searchByText}
           />
         </Col>
       </Row>
