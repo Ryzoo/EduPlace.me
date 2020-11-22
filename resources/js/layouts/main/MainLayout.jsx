@@ -1,9 +1,8 @@
 import { Button, Drawer, Layout, Menu } from 'antd';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
+import { StringService, URLService } from '../../services';
 import React, { useContext, useState } from 'react';
-import StringService from '../../services/StringService';
-import URLService from '../../services/URLService';
 
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
@@ -15,8 +14,9 @@ export default function MainLayout(props) {
 
   const getNavigationLink = () => [
     { label: 'EduPlace', url: routes.main },
-    { label: t['For Education'], url: 'edu' },
-    { label: t['For Company'], url: 'com' },
+    { label: t['For Education'], url: routes.education },
+    { label: t['For Company'], url: routes.company },
+    { label: t['For Autopromotion'], url: routes.autopromotion },
     { label: t['Search'], url: routes.search, onlyLogged: true },
   ];
   const getMenuList = (inDrawer) => {

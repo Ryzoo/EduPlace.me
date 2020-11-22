@@ -1,18 +1,17 @@
 import { Container } from '../../../../components/shared/container/Container';
 import { EmailNotVerifiedBanner } from '../../../../components/layouts/EmailNotVerifiedBanner';
+import { FormService, URLMethod } from '../../../../services';
 import { ServerDataContext } from '../../../../context/index';
 import { ToggleTheme } from '../../../../components/shared/toggleTheme/ToggleTheme';
-import { URLMethod } from '../../../../services/URLService';
-import { authUser } from '../../../../store/features/user/user';
 import { useSelector } from 'react-redux';
+import { userSelectors } from '../../../../store/features/selectors';
 import Form from '../../../../components/form/Form';
-import FormService from '../../../../services/FormService';
 import React, { useContext } from 'react';
 import SubmitFormInput from '../../../../components/form/form-inputs/SubmitFormInput';
 import TextFormInput from '../../../../components/form/form-inputs/TextFormInput';
 
 const UserDataPage = () => {
-  const user = useSelector(authUser);
+  const user = useSelector(userSelectors.authUser);
   const { routes, t } = useContext(ServerDataContext);
 
   return (

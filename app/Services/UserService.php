@@ -50,7 +50,5 @@ class UserService
 		])->save();
 
 		$user->attachTags($tags);
-		$user->attachTags($tags);
-		$user->attachTags($tags);
 	}
 }

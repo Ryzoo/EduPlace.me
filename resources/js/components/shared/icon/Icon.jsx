@@ -1,5 +1,5 @@
+import { StringService } from '../../../services';
 import React from 'react';
-import StringService from '../../../services/StringService';
 import './Icon.scss';
 
 export const Icon = (props) => (
@@ -9,7 +9,14 @@ export const Icon = (props) => (
     onClick={props.onClick}
   >
     <i
-      className={StringService.logicConcat({ fas: !props.regular, far: props.regular }, props.name)}
+      className={StringService.logicConcat(
+        {
+          'fa-spin': props.spin,
+          fas: !props.regular,
+          far: props.regular,
+        },
+        props.name
+      )}
     />
   </span>
 );

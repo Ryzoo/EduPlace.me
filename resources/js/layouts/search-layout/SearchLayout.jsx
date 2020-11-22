@@ -1,14 +1,14 @@
 import { Badge, Button, Drawer, Layout, Menu } from 'antd';
+import { CurrentUserNotificationsList } from '../../components/layouts/CurrentUserNotificationsList';
 import { EmailNotVerifiedBanner } from '../../components/layouts/EmailNotVerifiedBanner';
 import { Icon } from '../../components/shared/icon/Icon';
 import { Logo } from '../../components/layouts/logo/Logo';
 import { ServerDataContext, ThemeContext } from '../../context/index';
-import { authUser } from '../../store/features/user/user';
-import { useSelector } from 'react-redux';
+import { StringService, URLService } from '../../services';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAsyncActions } from '../../store/features/user';
+import { userSelectors } from '../../store/features/selectors';
 import React, { useContext, useState } from 'react';
-import StringService from '../../services/StringService';
-import URLService from '../../services/URLService';
-
 import './SearchLayout.scss';
 
 const { Header, Content, Footer } = Layout;
@@ -16,30 +16,23 @@ const { SubMenu } = Menu;
 
 export default function SearchLayout(props) {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
+  const [notificationDrawerVisibility, setNotificationDrawerVisibility] = useState(false);
   const { routes, language, t } = useContext(ServerDataContext);
-  const user = useSelector(authUser);
+  const user = useSelector(userSelectors.authUser);
   const { isDarkTheme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const getNavigationLink = () => [
     {
       label: (
         <Button type="primary" onClick={() => URLService.goTo('#')}>
-          {t['+ Add content']}
+          {t['+ Add board']}
         </Button>
       ),
       url: '#',
       class: 'hide-hover-effects',
     },
     { label: t['Search'], url: routes.search, class: '' },
-    {
-      label: (
-        <Badge count={user.notifications.count}>
-          <Icon className="notifications" regular name="fa-bell" />
-        </Badge>
-      ),
-      url: routes.user.notifications,
-      class: '',
-    },
   ];
 
   const getUserMenu = () => (
@@ -50,14 +43,6 @@ export default function SearchLayout(props) {
       icon={<i className="far fa-user mr-2" />}
       title={<span className="pr-3">{user.name}</span>}
     >
-      <Menu.Item
-        key={routes.user.notifications}
-        onClick={() => URLService.goTo(routes.user.notifications)}
-      >
-        <Badge count={user.notifications.count}>
-          <span className="pr-3">{t['Notifications']}</span>
-        </Badge>
-      </Menu.Item>
       <SubMenu
         popupClassName={StringService.logicConcat({
           dark: isDarkTheme,
@@ -103,7 +88,7 @@ export default function SearchLayout(props) {
               className={nav.class}
               key={nav.url}
               onClick={() => {
-                URLService.goTo(nav.url);
+                if (nav.url) URLService.goTo(nav.url);
               }}
             >
               {nav.label}
@@ -137,6 +122,21 @@ export default function SearchLayout(props) {
         >
           {getMenuList(true)}
         </Drawer>
+        <Drawer
+          className={StringService.logicConcat({
+            dark: isDarkTheme,
+          })}
+          title={t['Notifications']}
+          width={300}
+          placement="right"
+          closable={false}
+          visible={notificationDrawerVisibility}
+          onClose={() => {
+            setNotificationDrawerVisibility(false);
+          }}
+        >
+          <CurrentUserNotificationsList />
+        </Drawer>
         <Header>
           <Button
             type="primary"
@@ -149,6 +149,18 @@ export default function SearchLayout(props) {
           </Button>
           <Logo />
           <Menu mode="horizontal" className="float-right">
+            <Menu.Item
+              key="notifcations"
+              onClick={() => {
+                setNotificationDrawerVisibility(true);
+                if (user.notifications.count > 0)
+                  dispatch(userAsyncActions.makeNotificationsAsRead());
+              }}
+            >
+              <Badge count={user.notifications.count}>
+                <Icon className="notifications" regular name="fa-bell" />
+              </Badge>
+            </Menu.Item>
             <SubMenu
               popupClassName={StringService.logicConcat({
                 dark: isDarkTheme,

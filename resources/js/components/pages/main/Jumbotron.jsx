@@ -1,9 +1,8 @@
 import { Button, Col, Grid, Image, Row } from 'antd';
 import { Container } from '../../shared/container/Container';
 import { ServerDataContext } from '../../../context/index';
+import { StringService, URLService } from '../../../services';
 import React, { useContext } from 'react';
-import StringService from '../../../services/StringService';
-import URLService from '../../../services/URLService';
 
 const { useBreakpoint } = Grid;
 
@@ -29,13 +28,15 @@ export const Jumbotron = () => {
               <span>me</span>
             </div>
             <div className="sub-text">
-              <span>Miejsce gdzie wiedza się porządkuje</span>
+              <span>{t['A place where knowledge is organized']}</span>
             </div>
             <Row
               className="pt-3"
               justify={StringService.logicConcat({ end: screen.md, center: !screen.md })}
             >
-              <Button className="mr-2">Jakaś akcja</Button>
+              <Button className="mr-2" onClick={() => URLService.goTo(routes.auth.register)}>
+                {t['Create knowledge']}
+              </Button>
               <Button type="primary" onClick={() => URLService.goTo(routes.auth.register)}>
                 {t['Join us']}
               </Button>
@@ -49,7 +50,7 @@ export const Jumbotron = () => {
           <Image
             preview={false}
             src="/images/1.svg"
-            alt="Header image"
+            alt="Eduplace.me"
             width={!screen.md ? '50%' : '100%'}
           />
         </Col>

@@ -1,13 +1,15 @@
 import { Button, Col, Grid, Image, Row, Typography } from 'antd';
 import { Container } from '../../../shared/container/Container';
-import React from 'react';
-import StringService from '../../../../services/StringService';
+import { ServerDataContext } from '../../../../context';
+import { StringService, URLService } from '../../../../services';
+import React, { useContext } from 'react';
 
 const { Title, Paragraph } = Typography;
 const { useBreakpoint } = Grid;
 
 export const FirstPromo = () => {
   const screen = useBreakpoint();
+  const { routes, t } = useContext(ServerDataContext);
 
   return (
     <Container className="promo-section b-white">
@@ -22,15 +24,22 @@ export const FirstPromo = () => {
           lg={12}
           order={screen.lg ? 0 : 1}
         >
-          <Title level={2}>Edu Place pozwoli Ci</Title>
+          <Title level={2}>{t['EduPlace.me will allow you in the field of education:']}</Title>
           <Paragraph className={StringService.logicConcat({ 'mx-a': !screen.lg })}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec. Enim
-            nulla aliquet porttitor lacus luctus. Odio ut sem nulla pharetra diam. Amet mauris
-            commodo quis imperdiet. Nullam eget felis eget nunc lobortis mattis aliquam.
+            {
+              t[
+                'EduPlace.me is prepared to work in a group, classroom based on SOLE methodology ( Self Organized Learning Environment; Sugata Mitra 2014) self-organized learning environment. It allows to a large extent to move away from the teaching knowledge (dictation, lectures). In return, it gives the group the opportunity to be active:'
+              ]
+            }
+            <ul>
+              <li>{t['ordering,']}</li>
+              <li>{t['of creating,']}</li>
+              <li>{t['updates,']}</li>
+              <li>{t['knowledge gained,']}</li>
+            </ul>
           </Paragraph>
-          <Button type="primary" className="mr-2">
-            Stwórz tablice już teraz
+          <Button type="primary" className="mr-2" onClick={() => URLService.goTo(routes.education)}>
+            {t['Get more information']}
           </Button>
         </Col>
         <Col
@@ -39,7 +48,11 @@ export const FirstPromo = () => {
           lg={12}
           order={screen.lg ? 1 : 0}
         >
-          <Image width="100%" src="https://via.placeholder.com/800x500" />
+          <Image
+            width="100%"
+            src="/images/promo.webp"
+            alt={t['EduPlace.me will allow you in the field of education:']}
+          />
         </Col>
       </Row>
     </Container>

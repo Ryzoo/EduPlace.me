@@ -37,11 +37,11 @@ export const Partners = () => {
             <div className="carousel-container">
               <Icon className="carousel-arrow arrow-left" name="fa-angle-left" onClick={prev} />
               <Carousel slidesToShow={slidesToShow} ref={refCarousel}>
-                <Image height={150} src="/images/Chorwacja.webp" />
-                <Image height={150} src="/images/CzechRepublic.webp" />
-                <Image height={150} src="/images/Macedonia.webp" />
-                <Image height={150} src="/images/TurcjaAmasya.webp" />
-                <Image height={150} src="/images/US.webp" />
+                <Image className="pa-2" height={150} src="/images/Chorwacja.webp" />
+                <Image className="pa-2" height={150} src="/images/CzechRepublic.webp" />
+                <Image className="pa-2" height={150} src="/images/Macedonia.webp" />
+                <Image className="pa-2" height={150} src="/images/TurcjaAmasya.webp" />
+                <Image className="pa-2" height={150} src="/images/US.webp" />
               </Carousel>
               <Icon className="carousel-arrow arrow-right" name="fa-angle-right" onClick={next} />
             </div>

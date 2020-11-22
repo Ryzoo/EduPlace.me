@@ -1,7 +1,13 @@
 module.exports = {
+  settings: {
+    react: {
+      version: '16.14.0',
+    },
+  },
   env: {
     browser: true,
     es2021: true,
+    es6: true,
   },
   extends: [
     'eslint:recommended',
@@ -17,7 +23,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'jsx-a11y', 'sort-imports-es6-autofix'],
+  plugins: ['react', 'prettier', 'jsx-a11y', 'sort-imports-es6-autofix', 'import'],
   rules: {
     'no-nested-ternary': 0,
     'linebreak-style': 0,

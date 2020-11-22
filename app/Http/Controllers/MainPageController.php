@@ -13,4 +13,16 @@ class MainPageController extends Controller
 
 		return view('pages.main');
 	}
+
+    public function getCompanyPage() {
+        return view('pages.company');
+    }
+
+    public function getEducationPage() {
+        return view('pages.education');
+    }
+
+    public function getAutopromotionPage() {
+        return view('pages.autopromotion');
+    }
 }

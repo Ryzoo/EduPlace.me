@@ -137,3 +137,7 @@
   background-color: unset !important;
   border-bottom: none !important;
 }
+
+.responsive-img img {
+  object-fit: cover;
+}

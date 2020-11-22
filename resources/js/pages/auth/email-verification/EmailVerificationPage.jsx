@@ -1,8 +1,8 @@
 import { Button, Result } from 'antd';
 import { Container } from '../../../components/shared/container/Container';
 import { ServerDataContext } from '../../../context/index';
+import { URLService } from '../../../services';
 import React, { useContext } from 'react';
-import URLService from '../../../services/URLService';
 
 export default function EmailVerificationPage() {
   const { routes, t } = useContext(ServerDataContext);

@@ -9,6 +9,7 @@
         <meta name="description" content="@yield('meta-description')">
         <meta name="keywords" content="@yield('meta-keywords')">
         <link rel="icon" type="image/svg" href="/images/favicon.svg">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @stack('css')
     </head>
     <body>
@@ -20,7 +21,7 @@
     {{--Data from server for store--}}
     <script>
       (function() {
-        var cssMain = document.createElement('link');
+        const cssMain = document.createElement('link');
         cssMain.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css';
         cssMain.rel = 'stylesheet';
         cssMain.type = 'text/css';
@@ -29,7 +30,7 @@
     </script>
     <script>
       (function() {
-        var cssMain = document.createElement('link');
+        const cssMain = document.createElement('link');
         cssMain.href = '{{mix('css/app.css')}}';
         cssMain.rel = 'stylesheet';
         cssMain.type = 'text/css';
@@ -38,14 +39,17 @@
     </script>
     <script>
       const sharedData = @json($sharedData ?? '{}');
+      const viewData = @json($viewData ?? '{}');
 
       window.serverData = {
+        viewData: viewData,
         ...sharedData,
         additional: {},
         success: "{{ session('status') ?? '' }}",
         error: "{{ session('error') ?? '' }}",
         validationErrors: JSON.parse('{!! $errors ?? '' !!}'),
         csrfToken: '{{csrf_field()}}',
+        jwt: '{{ session('jwt') ?? '' }}',
         old: @json(Session::getOldInput()),
         routes: {
           language: {
@@ -59,6 +63,10 @@
             passwordRequest: '{{route('password.request')}}',
             passwordUpdate: '{{route('password.update')}}',
             forgotPassword: '{{route('password.email')}}',
+            social: {
+              google: '{{route('pages.auth.social', ["provider" => 'google'])}}',
+              facebook: '{{route('pages.auth.social', ["provider" => 'facebook'])}}'
+            }
           },
           user: {
             notifications: '{{route('pages.user.notifications')}}',
@@ -73,31 +81,22 @@
           },
           main: '{{route('pages.main')}}',
           search: '{{route('pages.search')}}',
+          company: '{{route('pages.company')}}',
+          education: '{{route('pages.education')}}',
+          autopromotion: '{{route('pages.autopromotion')}}',
           current: '{{Request::url()}}',
+          action: {
+            login: '{{route('login')}}',
+            register: '{{route('pages.auth.register')}}',
+            dataChange: '{{route('action.user.settings.data.change')}}',
+            deleteUser: '{{route('action.user.settings.gdpr.user-delete')}}',
+            changePassword: '{{route('action.user.settings.password.change')}}',
+            processQuestionnaire: '{{route('action.user.questionnaire')}}',
+          },
         },
-        t: {
-          ['Warning']: '{{__('Warning')}}',
-          ['Search']: '{{__('Search')}}',
-          ['Logout']: '{{__('Logout')}}',
-          ['Next']: '{{__('Next')}}',
-          ['Previous']: '{{__('Previous')}}',
-          ['Finish']: '{{__('Finish')}}',
-          ['Login']: '{{__('Login')}}',
-          ['Join us']: '{{__('Join us')}}',
-          ['For Company']: '{{__('For Company')}}',
-          ['For Education']: '{{__('For Education')}}',
-          ['Created by Educated team']: '{{__('Created by Educated team')}}',
-          ['Notifications']: '{{__('Notifications')}}',
-          ['Settings']: '{{__('Settings')}}',
-          ['Already with us:']: '{{__('Already with us:')}}',
-          ['RODO']: '{{__('RODO')}}',
-          ['Are you sure?']: '{{__('Are you sure?')}}',
-          ['User data']: '{{__('User data')}}',
-          ['Change password']: '{{__('Change password')}}',
-          ['Delete']: '{{__('Delete')}}',
-          ['Cancel']: '{{__('Cancel')}}',
-          ['Resend verification email.']: '{{__('Resend verification email.')}}',
-          ['Your email are not verified. Please use button in email that was sent to you.']: '{{__('Your email are not verified. Please use button in email that was sent to you.')}}',
+        apiRoutes: {
+          notificationsRead: '{{route('action.notifications.read')}}',
+          toggleLikeBoard: '{{route('action.toggleLike.board', ["board" => 'id'])}}',
         },
       }
     </script>

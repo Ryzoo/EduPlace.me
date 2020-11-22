@@ -1,6 +1,6 @@
-import FormService from './FormService';
+import { FormService } from './FormService';
 
-export default class URLService {
+export class URLService {
   static goTo(address, urlMethod = URLMethod.GET) {
     switch (urlMethod) {
       case URLMethod.GET:

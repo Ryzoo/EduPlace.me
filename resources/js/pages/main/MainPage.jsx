@@ -4,6 +4,7 @@ import {
   Partners,
   PromoColumns,
   SecondPromo,
+  ThirdPromo,
 } from '../../components/pages/main';
 import React from 'react';
 import './MainPage.scss';
@@ -11,9 +12,10 @@ import './MainPage.scss';
 export const MainPage = () => (
   <>
     <Jumbotron />
-    <Partners />
     <FirstPromo />
-    <PromoColumns />
+    <Partners />
     <SecondPromo />
+    <PromoColumns />
+    <ThirdPromo />
   </>
 );

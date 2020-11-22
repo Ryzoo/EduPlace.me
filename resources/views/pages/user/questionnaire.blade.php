@@ -11,21 +11,6 @@
         additional: {
           ...window.serverData.additional,
           profiles: @json($profiles)
-        },
-        routes: {
-          ...window.serverData.routes,
-          action: {
-            processQuestionnaire: '{{route('action.user.questionnaire')}}'
-          }
-        },
-        t: {
-          ...window.serverData.t,
-          ['Profile']: '{{__('Profile')}}',
-          ['Profile Student']: '{{__('Profile Student')}}',
-          ['Profile Creator']: '{{__('Profile Creator')}}',
-          ['Interests']: '{{__('Interests')}}',
-          ['Mark the interests you are interested in.']: '{{__('Mark the interests you are interested in.')}}',
-          ['Select profile that can represent you.']: '{{__('Select profile that can represent you.')}}',
         }
       }
     </script>
